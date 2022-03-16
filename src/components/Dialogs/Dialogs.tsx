@@ -3,30 +3,36 @@ import s from './Dialogs.module.css'
 
 export const Dialogs = () => {
     return (
-        <div className="dialogs">
-            <div className="dialogs-items">
-                <div className="item">
-                    Dimych
+        <>
+            <div className={s.dialogs}>
+                <div className={s.dialogsItems}>
+                    <div className={s.dialog + ' ' + s.active}>
+                        Dimych
+                    </div>
+                    <div className={s.dialog}>
+                        Andrey
+                    </div>
+                    <div className={s.dialog}>
+                        Sveta
+                    </div>
+                    <div className={s.dialog}>
+                        Sasha
+                    </div>
+                    <div className={s.dialog}>
+                        Viktor
+                    </div>
+                    <div className={s.dialog}>
+                        Valera
+                    </div>
                 </div>
-                <div className="item">
-                    Andrey
-                </div>
-                <div className="item">
-                    Sveta
-                </div>
-                <div className="item">
-                    Sasha
-                </div>
-                <div className="item">
-                    Viktor
-                </div>
-                <div className="item">
-                    Valera
+
+                <div className={s.messages}>
+                    <div className={s.message}>Hi</div>
+                    <div className={s.message}>How is your it-kamasutra</div>
+                    <div className={s.message}>Yo</div>
                 </div>
             </div>
-        </div>
-        <div className="messages">
-        </div>
+        </>
     );
 };
 
