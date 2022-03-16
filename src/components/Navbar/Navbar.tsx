@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import s from "./Navbar.module.css";
 
 console.log(s);
@@ -9,18 +10,13 @@ let c2 = "active";
 let classes = c1 + " " + c2;
 let classesNew = `${s.item} ${s.active}`;
 
-type NavbarPropsType = {
-    textNavbar: string;
-}
-const Navbar = (props: NavbarPropsType) => {
+const Navbar = () => {
 debugger
     return (
         <nav className={s.nav}>
+
             <div className={s.item}>
-                {props.textNavbar}
-            </div>
-            <div className={s.item}>
-                <a href="/profile">Profile</a>
+                <NavLink href="/profile">Profile</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
                 <a href="/Dialogs">Messages</a>
