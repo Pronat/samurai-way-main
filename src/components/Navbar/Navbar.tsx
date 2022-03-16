@@ -16,19 +16,19 @@ debugger
         <nav className={s.nav}>
 
             <div className={s.item}>
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/profile" activeClassName={s.activeLink}>Profile</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
-                <a href="/Dialogs">Messages</a>
+                <NavLink to="/Dialogs" activeClassName={s.activeLink}>Messages</NavLink>
             </div>
             <div className={s.item}>
-                <a href="/News">News</a>
+                <NavLink to="/News" activeClassName={s.activeLink}>News</NavLink>
             </div>
             <div className={s.item}>
-                <a href="/Music">Music</a>
+                <NavLink to="/Music" activeClassName={s.activeLink}>Music</NavLink>
             </div>
             <div className={s.item}>
-                <a href="/Settings">Settings</a>
+                <NavLink to="/Settings" activeClassName={s.activeLink}>Settings</NavLink>
             </div>
         </nav>
     )
