@@ -15,7 +15,7 @@ const App = () => {
         <BrowserRouter>
         <div className="app-wrapper">
             <Header type1={"Это заголовок"}/>
-            <Navbar textNavbar={"Menu"}/>
+            <Navbar />
             <div className="app-wrapper-content">
                 <Route path='/dialogs' component={Dialogs}/>
                 <Route path='/profile' component={Profile}/>
