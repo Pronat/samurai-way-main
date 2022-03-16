@@ -16,7 +16,7 @@ debugger
         <nav className={s.nav}>
 
             <div className={s.item}>
-                <NavLink href="/profile">Profile</NavLink>
+                <NavLink href="/profile" to={undefined}>Profile</NavLink>
             </div>
             <div className={`${s.item} ${s.active}`}>
                 <a href="/Dialogs">Messages</a>
