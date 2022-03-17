@@ -1,6 +1,11 @@
+.style.postsBlock {
+    padding: 10px;
+}
 
 .item {
     color: #c7165a;
+    margin-top:10px;
+
 }
 
 .item img {
