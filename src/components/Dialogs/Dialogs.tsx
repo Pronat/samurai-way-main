@@ -6,12 +6,20 @@ type DailogItemPropsType = {
     name: string;
     id: number;
 }
-
 const DailogItem = (props: DailogItemPropsType) => {
+    return (
+        <div className={s.dialog + ' ' + s.active}>
+            <NavLink to={"/dialogs/" + props.id}>{props.name}</NavLink>
+        </div>
+    )
+}
+
+type MessageItemPropsType = {
+    message: string
+}
+const MessageItem = (props:MessageItemPropsType) => {
     return(
-    <div className={s.dialog + ' ' + s.active}>
-        <NavLink to={"/dialogs/" + props.id}>{props.name}</NavLink>
-    </div>
+        <div className={s.message}>{props.message}</div>
     )
 }
 
@@ -21,35 +29,29 @@ type DialogsPropsType = {
 
 export const Dialogs = (props: DialogsPropsType) => {
     return (
-            <div className={s.dialogs}>
-                <div className={s.dialogsItems}>
-                    {/*<div className={s.dialog + ' ' + s.active}>*/}
-                    {/*    <NavLink to="/dialogs/1">Dimych</NavLink>*/}
-                    {/*</div>*/}
-                    <DailogItem name ="Dimych" id = {1} />
-                    <div className={s.dialog}>
-                        <NavLink to="/dialogs/2">Andrey</NavLink>
-                    </div>
-                    <div className={s.dialog}>
-                       <NavLink to="/dialogs/3">Sveta</NavLink>
-                    </div>
-                    <div className={s.dialog}>
-                        <NavLink to="/dialogs/4">Sasha</NavLink>
-                    </div>
-                    <div className={s.dialog}>
-                        <NavLink to="/dialogs/5">Viktor</NavLink>
-                    </div>
-                    <div className={s.dialog}>
-                        <NavLink to="/dialogs/6">Valera</NavLink>
-                    </div>
-                </div>
+        <div className={s.dialogs}>
+            <div className={s.dialogsItems}>
 
-                <div className={s.messages}>
-                    <div className={s.message}>Hi</div>
-                    <div className={s.message}>How is your it-kamasutra</div>
-                    <div className={s.message}>Yo</div>
-                </div>
+                <DailogItem name="Dimych" id={1}/>
+                <DailogItem name="Andrey" id={2}/>
+                <DailogItem name="Sveta" id={3}/>
+                <DailogItem name="Sasha" id={4}/>
+                <DailogItem name="Viktor" id={5}/>
+                <DailogItem name="Valera" id={6}/>
+
             </div>
+
+            <div className={s.messages}>
+                <MessageItem message="Hi" />
+                <MessageItem message="How is your it-kamasutra?" />
+                <MessageItem message="Yo" />
+                <MessageItem message="How are you" />
+                <MessageItem message="Call me" />
+                {/*<div className={s.message}>Hi</div>*/}
+                {/*<div className={s.message}>How is your it-kamasutra</div>*/}
+                {/*<div className={s.message}>Yo</div>*/}
+            </div>
+        </div>
     );
 };
 
