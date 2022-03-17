@@ -14,10 +14,10 @@ const DailogItem = (props: DailogItemPropsType) => {
     )
 }
 
-type MessageItemPropsType = {
+type MessagePropsType = {
     message: string
 }
-const MessageItem = (props:MessageItemPropsType) => {
+const Message = (props:MessagePropsType) => {
     return(
         <div className={s.message}>{props.message}</div>
     )
@@ -42,14 +42,11 @@ export const Dialogs = (props: DialogsPropsType) => {
             </div>
 
             <div className={s.messages}>
-                <MessageItem message="Hi" />
-                <MessageItem message="How is your it-kamasutra?" />
-                <MessageItem message="Yo" />
-                <MessageItem message="How are you" />
-                <MessageItem message="Call me" />
-                {/*<div className={s.message}>Hi</div>*/}
-                {/*<div className={s.message}>How is your it-kamasutra</div>*/}
-                {/*<div className={s.message}>Yo</div>*/}
+                <Message message="Hi" />
+                <Message message="How is your it-kamasutra?" />
+                <Message message="Yo" />
+                <Message message="How are you" />
+                <Message message="Call me" />
             </div>
         </div>
     );

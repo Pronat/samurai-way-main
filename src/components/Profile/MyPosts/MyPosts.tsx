@@ -3,16 +3,13 @@ import style from './MyPosts.module.css';
 import Post from "./Posts/Post";
 
 
-type MyPostsPropsType = {
-    type3: string;
-}
-const MyPosts = (props: MyPostsPropsType) => {
+
+const MyPosts = () => {
     debugger
     return (
         <div>
             <textarea></textarea>
             <button>Add post</button>
-            <div>{props.type3}</div>
             <div className={style.item}>
             </div>
                 <div className={style.item}>
