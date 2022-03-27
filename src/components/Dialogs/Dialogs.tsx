@@ -26,6 +26,7 @@ const Message = (props: MessagePropsType) => {
 
 type DialogsPropsType = {
     message: string;
+    id: number
 }
 
 export const Dialogs = (props: DialogsPropsType) => {
