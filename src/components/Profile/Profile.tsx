@@ -8,9 +8,7 @@ type ProfilePropsType = {
 }
 
 const Profile = (props:ProfilePropsType) => {
-
     return (
-
         <div className={style.content}>
 
             <ProfileInfo />
