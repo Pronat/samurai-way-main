@@ -8,13 +8,7 @@ type ProfilePropsType = {
 }
 
 const Profile = (props:ProfilePropsType) => {
-    // let posts:Array<PostsType> = [
-    //     {id:1, message:"It's my first post", likesCount:4},
-    //     {id:2, message:"Hello, how are you", likesCount:10},
-    //     {id:3, message:"What happening", likesCount:2},
-    //     {id:4, message:"What would we do?", likesCount:18},
-    //     {id:5, message:"Here is my moto!", likesCount:18},
-    // ]
+
     return (
 
         <div className={style.content}>
