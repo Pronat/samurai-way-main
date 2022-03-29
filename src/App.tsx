@@ -30,7 +30,7 @@ const App = (props: AppPropsType) => {
                 <Route path='/profile' render={()=><Profile posts={props.posts} />}/>
                 <Route path='/news' component={News}/>
                 <Route path='/music' component={Music}/>
-                <Route path='/settings' component={Settings}/>
+                <Route path='/settings' component={Settings} />
             </div>
         </div>
         </BrowserRouter>
