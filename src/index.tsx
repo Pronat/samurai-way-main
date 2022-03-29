@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import {state} from "./redax/state";
 
-let stateFull = state
+
 ReactDOM.render(
-    <App state={props.state}/>,
+    <App state={state}/>,
   document.getElementById('root')
 
 );

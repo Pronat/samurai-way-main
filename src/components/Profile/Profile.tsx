@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './Profile.module.css';
-import MyPosts, {PostsType} from "./MyPosts/MyPosts";
+import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import {PostsType} from "../../redax/state";
 
 type ProfilePropsType = {
     posts:Array<PostsType>
