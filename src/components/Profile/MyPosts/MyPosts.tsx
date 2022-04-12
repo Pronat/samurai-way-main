@@ -5,6 +5,7 @@ import {PostsType} from "../../../redax/state";
 
 type MyPostsPropsType = {
     posts:Array<PostsType>
+    addPost: (postMessage: string) => void
 }
 
 // export type PostsType = {
@@ -19,8 +20,10 @@ const MyPosts = (props:MyPostsPropsType) => {
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
     let addPost = () => {
-        let text = newPostElement.current?.value
-        alert(text)
+        if (newPostElement.current) {
+            props.addPost(newPostElement.current.value)
+        }
+
     }
 
     return (

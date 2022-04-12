@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {state} from "./redax/state";
+import {addPost, state} from "./redax/state";
+
 
 
 ReactDOM.render(
-    <App state={state}/>,
+    <App state={state} addPost={addPost}/>,
   document.getElementById('root')
 
 );
