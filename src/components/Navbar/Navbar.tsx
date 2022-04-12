@@ -11,7 +11,6 @@ let classes = c1 + " " + c2;
 let classesNew = `${s.item} ${s.active}`;
 
 const Navbar = () => {
-debugger
     return (
         <nav className={s.nav}>
 
