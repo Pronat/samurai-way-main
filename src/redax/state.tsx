@@ -17,6 +17,7 @@ export type MessagesType = {
 }
 export type ProfilePageType = {
     posts: Array<PostsType>
+    newPostText: string
 }
 export type MessagesPageType = {
     messages: Array<MessagesType>
@@ -24,8 +25,8 @@ export type MessagesPageType = {
 }
 // type sidebar={}
 export type RootStateType = {
-    profilePage:ProfilePageType
-    messagesPage:MessagesPageType
+    profilePage: ProfilePageType
+    messagesPage: MessagesPageType
 }
 
 export let state: RootStateType = {
@@ -36,7 +37,10 @@ export let state: RootStateType = {
             {id: 3, message: "What happening", likesCount: 2},
             {id: 4, message: "What would we do?", likesCount: 18},
             {id: 5, message: "Here is my moto!", likesCount: 18},
-        ]
+        ],
+        newPostText: "it-kamasutra.com"
+
+
     },
     messagesPage: {
         messages: [
@@ -58,7 +62,7 @@ export let state: RootStateType = {
     }
 }
 
-export let addPost = (postMessage:string) => {
+export let addPost = (postMessage: string) => {
     let newPost: PostsType = {id: 6, message: postMessage, likesCount: 0}
     state.profilePage.posts.push(newPost)
     rerenderEntireTree(state)

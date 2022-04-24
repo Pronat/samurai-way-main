@@ -6,6 +6,7 @@ import {PostsType} from "../../../redax/state";
 type MyPostsPropsType = {
     posts:Array<PostsType>
     addPost: (postMessage: string) => void
+    newPostText: string
 }
 
 // export type PostsType = {
@@ -25,13 +26,16 @@ const MyPosts = (props:MyPostsPropsType) => {
         }
 
     }
+let onPostChange = () => {
+
+}
 
     return (
         <div className={style.postsBlock}>
             <h3>My Posts</h3>
             <div>
                 <div>
-                    <textarea ref = {newPostElement} ></textarea>
+                    <textarea onChange={onPostChange} ref = {newPostElement} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
