@@ -8,6 +8,7 @@ type ProfilePropsType = {
     posts:Array<PostsType>
     addPost: (postMessage: string) => void
     newPostText: string
+    updateNewPostChange: (newText: string) => void
 }
 
 const Profile = (props:ProfilePropsType) => {
@@ -19,6 +20,7 @@ const Profile = (props:ProfilePropsType) => {
                 posts={props.posts}
                 addPost={props.addPost}
                 newPostText={props.newPostText}
+                updateNewPostChange={props.updateNewPostChange}
             />
 
         </div>

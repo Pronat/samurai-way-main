@@ -7,6 +7,7 @@ type MyPostsPropsType = {
     posts:Array<PostsType>
     addPost: (postMessage: string) => void
     newPostText: string
+    updateNewPostChange: (newText: string) => void
 }
 
 // export type PostsType = {
@@ -24,11 +25,13 @@ const MyPosts = (props:MyPostsPropsType) => {
             props.addPost(newPostElement.current.value)
             newPostElement.current.value = ""
         }
-
     }
-let onPostChange = () => {
 
-}
+let onPostChange = () => {
+        if (newPostElement.current) {
+            props.addPost(newPostElement.current.value)
+            console.log(newPostElement.current.value)
+}}
 
     return (
         <div className={style.postsBlock}>
