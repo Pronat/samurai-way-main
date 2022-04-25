@@ -63,7 +63,10 @@ export let state: RootStateType = {
 }
 
 export let addPost = () => {
-    let newPost: PostsType = {id: 6, message: postMessage, likesCount: 0}
+    let newPost: PostsType = {
+        id: 6,
+        message: state.profilePage.newPostText,
+        likesCount: 0}
     state.profilePage.posts.push(newPost)
     rerenderEntireTree(state)
 }

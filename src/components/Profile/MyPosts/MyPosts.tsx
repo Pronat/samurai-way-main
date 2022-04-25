@@ -4,7 +4,7 @@ import Post from "./Posts/Post";
 import {PostsType} from "../../../redax/state";
 
 type MyPostsPropsType = {
-    posts:Array<PostsType>
+    posts: Array<PostsType>
     addPost: (postMessage: string) => void
     newPostText: string
     updateNewPostChange: (newText: string) => void
@@ -16,29 +16,30 @@ type MyPostsPropsType = {
 //     likesCount:number
 // }
 
-const MyPosts = (props:MyPostsPropsType) => {
-    let postsElements = props.posts.map(p=><Post message={p.message} likesCount={p.likesCount} />);
+const MyPosts = (props: MyPostsPropsType) => {
+    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
     let addPost = () => {
         if (newPostElement.current) {
-            props.addPost()
-           props.updateNewPostChange('')
+            props.addPost('')
+            props.updateNewPostChange('')
         }
     }
 
-let onPostChange = () => {
+    let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
             props.updateNewPostChange(text)
-}}
+        }
+    }
 
     return (
         <div className={style.postsBlock}>
             <h3>My Posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref = {newPostElement} value={props.newPostText}/>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
