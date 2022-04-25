@@ -23,7 +23,6 @@ const MyPosts = (props: MyPostsPropsType) => {
     let addPost = () => {
         if (newPostElement.current) {
             props.addPost('')
-            props.updateNewPostChange('')
         }
     }
 

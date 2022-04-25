@@ -1,6 +1,8 @@
 import React from 'react';
-import {rerenderEntireTree} from "../render";
 
+let rerenderEntireTree = (state:RootStateType) => {
+    console.log("state changed")
+}
 
 export type PostsType = {
     id: number
@@ -68,9 +70,14 @@ export let addPost = () => {
         message: state.profilePage.newPostText,
         likesCount: 0}
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ''
     rerenderEntireTree(state)
 }
 export let updateNewPostChange = (newText: string) => {
     state.profilePage.newPostText = newText
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: ()=>void) => {
+    rerenderEntireTree = observer
 }
