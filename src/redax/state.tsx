@@ -41,8 +41,6 @@ export let state: RootStateType = {
             {id: 5, message: "Here is my moto!", likesCount: 18},
         ],
         newPostText: "it-kamasutra.com"
-
-
     },
     messagesPage: {
         messages: [
