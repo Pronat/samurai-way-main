@@ -1,22 +1,24 @@
 import React from 'react';
 import './index.css';
-import {store} from "./redax/state";
+import state, {RootStateType} from "./redax/state";
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import {, RootStateType, updateNewPostChange} from "./redax/state";
+import App, {AppPropsType} from './App';
+import  updateNewPostChange from "./redax/state";
+import store from "./redax/state";
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = (state:AppPropsType) => {
     ReactDOM.render(
         <App
-            state={store._state}
-            addPost={store.addPost} updateNewPostChange={updateNewPostChange}
+            state={store.getState()}
+            addPost={store.addPost}
+            updateNewPostChange={state.updateNewPostChange}
         />,
         document.getElementById('root')
     );
 }
 
 
-rerenderEntireTree()
+rerenderEntireTree(store.getState())
 
-subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree)

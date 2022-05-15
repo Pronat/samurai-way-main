@@ -9,7 +9,7 @@ export type StoreType = {
     getState: () => RootStateType
 }
 
-const store: StoreType = {
+let store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -93,6 +93,7 @@ export type MessagesPageType = {
 export type RootStateType = {
     profilePage: ProfilePageType
     messagesPage: MessagesPageType
+
 }
 
 // export let state: RootStateType = {

@@ -8,16 +8,21 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {RootStateType} from "./redax/state";
+import {RootStateType, StoreType} from "./redax/state";
 
+export type PropsType = {
 
-type AppPropsType = {
+}
+
+export type AppPropsType = {
     state:RootStateType
     addPost: (postMessage: string) => void
     updateNewPostChange: (newText: string) => void
+    store: StoreType
 }
 
 const App = (props: AppPropsType) => {
+    const state = props.store.getState()
     return (
         <BrowserRouter>
         <div className="app-wrapper">
