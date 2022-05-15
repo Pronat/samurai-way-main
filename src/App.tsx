@@ -37,7 +37,7 @@ const App = (props: AppPropsType) => {
                 />}/>
                 <Route path='/profile' render={()=><Profile
                     posts={props.state.profilePage.posts}
-                    addPost={props.addPost}
+                    addPost={props.store.addPost.bind(props.store)}
                     newPostText={props.state.profilePage.newPostText}
                     updateNewPostChange={props.updateNewPostChange}
 
