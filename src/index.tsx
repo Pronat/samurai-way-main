@@ -1,16 +1,16 @@
 import React from 'react';
 import './index.css';
-import {state, subscribe} from "./redax/state";
+import {store} from "./redax/state";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, RootStateType, updateNewPostChange} from "./redax/state";
+import {, RootStateType, updateNewPostChange} from "./redax/state";
 
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <App
-            state={state}
-            addPost={addPost} updateNewPostChange={updateNewPostChange}
+            state={store._state}
+            addPost={store.addPost} updateNewPostChange={updateNewPostChange}
         />,
         document.getElementById('root')
     );
