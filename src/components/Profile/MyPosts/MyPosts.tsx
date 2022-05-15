@@ -5,9 +5,9 @@ import {ActionsTypes, PostsType} from "../../../redax/state";
 
 type MyPostsPropsType = {
     posts: Array<PostsType>
-    addPost: (postMessage: string) => void
+    // addPost: (postMessage: string) => void
     newPostText: string
-    updateNewPostChange: (newText: string) => void
+    // updateNewPostChange: (newText: string) => void
     dispatch: (action: ActionsTypes)=>void
 }
 
@@ -23,7 +23,7 @@ const MyPosts = (props: MyPostsPropsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>()
     let addPost = () => {
         if (newPostElement.current) {
-            props.dispatch({type: 'ADD-POST', postText })
+            props.dispatch({type: 'ADD-POST', postText})
         }
     }
 

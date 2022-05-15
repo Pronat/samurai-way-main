@@ -6,9 +6,9 @@ import {ActionsTypes, PostsType} from "../../redax/state";
 
 type ProfilePropsType = {
     posts:Array<PostsType>
-    addPost: (postMessage: string) => void
+    // addPost: (postMessage: string) => void
     newPostText: string
-    updateNewPostChange: (newText: string) => void
+    // updateNewPostChange: (newText: string) => void
     dispatch: (action: ActionsTypes)=>void
 }
 

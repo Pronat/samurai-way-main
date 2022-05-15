@@ -12,8 +12,8 @@ import {ActionsTypes, AddPostActionType, ChangeNewTextActionType, RootStateType,
 
 export type AppPropsType = {
     state:RootStateType
-    addPost: (postMessage: string) => void
-    updateNewPostChange: (newText: string) => void
+    // addPost: (postMessage: string) => void
+    // updateNewPostChange: (newText: string) => void
     store: StoreType
     dispatch: (action: ActionsTypes)=>void
 }

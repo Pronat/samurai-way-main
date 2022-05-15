@@ -55,19 +55,19 @@ let store: StoreType = {
     _rerenderEntireTree(state: RootStateType) {
         console.log("state changed")
     },
-    addPost (newPostText:string) {
-        let newPost: PostsType = {
-            id: 6,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0}
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._rerenderEntireTree(this._state)
-    },
-    updateNewPostChange(newText: string) {
-        this._state.profilePage.newPostText = newText
-        this._rerenderEntireTree(this._state)
-    },
+    // addPost (newPostText:string) {
+    //     let newPost: PostsType = {
+    //         id: 6,
+    //         message: this._state.profilePage.newPostText,
+    //         likesCount: 0}
+    //     this._state.profilePage.posts.push(newPost)
+    //     this._state.profilePage.newPostText = ''
+    //     this._rerenderEntireTree(this._state)
+    // },
+    // updateNewPostChange(newText: string) {
+    //     this._state.profilePage.newPostText = newText
+    //     this._rerenderEntireTree(this._state)
+    // },
     dispatch(action) {
         if (action.type === 'ADD-POST') {
             let newPost: PostsType = {
