@@ -11,8 +11,8 @@ let rerenderEntireTree = (state:AppPropsType) => {
         <App
             store={store}
             state={store.getState()}
-            addPost={store.addPost}
-            updateNewPostChange={state.updateNewPostChange}
+            addPost={store.addPost.bind(store)}
+            updateNewPostChange={store.updateNewPostChange.bind(store)}
         />,
         document.getElementById('root')
     );
@@ -21,4 +21,4 @@ let rerenderEntireTree = (state:AppPropsType) => {
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree(state:AppPropsType))
