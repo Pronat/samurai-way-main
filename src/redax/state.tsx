@@ -2,9 +2,11 @@ import React from 'react';
 
 export type StoreType = {
     _state: RootStateType
-    updateNewPostChange:(newText: string) => void
-    addPost:(newPostText:string)=>void
-    subscribe:(observer: () => void) => void
+    updateNewPostChange: (newText: string) => void
+    addPost: (newPostText:string)=>void
+    subscribe: (observer: () => void) => void
+    _rerenderEntireTree: (state: RootStateType) => void
+    getState: () => RootStateType
 }
 
 const store: StoreType = {
@@ -38,7 +40,7 @@ const store: StoreType = {
             // sidebar: {}
         }
     },
-    rerenderEntireTree (state:RootStateType) {
+    _rerenderEntireTree (state:RootStateType) {
         console.log("state changed")
     },
    addPost (newPostText:string) {
@@ -48,15 +50,18 @@ const store: StoreType = {
             likesCount: 0}
         this._state.profilePage.posts.push(newPost)
         this._state.profilePage.newPostText = ''
-        rerenderEntireTree(state)
+        this._rerenderEntireTree(this._state)
     },
     updateNewPostChange (newText: string) {
         this._state.profilePage.newPostText = newText
-        rerenderEntireTree(state)
+        this._rerenderEntireTree(this._state)
     },
     subscribe (observer: ()=>void) {
-        rerenderEntireTree = observer
+        this._rerenderEntireTree = observer
     },
+    getState() {
+        return this._state
+    }
 }
 
 // let rerenderEntireTree = (state:RootStateType) => {
