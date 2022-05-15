@@ -8,17 +8,14 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {RootStateType, StoreType} from "./redax/state";
-
-export type PropsType = {
-
-}
+import {ActionsTypes, AddPostActionType, ChangeNewTextActionType, RootStateType, StoreType} from "./redax/state";
 
 export type AppPropsType = {
     state:RootStateType
     addPost: (postMessage: string) => void
     updateNewPostChange: (newText: string) => void
     store: StoreType
+    dispatch: (action: ActionsTypes)=>void
 }
 
 const App = (props: AppPropsType) => {
@@ -37,9 +34,9 @@ const App = (props: AppPropsType) => {
                 />}/>
                 <Route path='/profile' render={()=><Profile
                     posts={props.state.profilePage.posts}
-                    addPost={props.store.addPost.bind(props.store)}
+                    dispatch={props.store.dispatch.bind(props.store)}
                     newPostText={props.state.profilePage.newPostText}
-                    updateNewPostChange={props.updateNewPostChange}
+                    // updateNewPostChange={props.updateNewPostChange}
 
                 />}/>
                 <Route path='/news' component={News}/>

@@ -5,15 +5,18 @@ import './index.css';
 import App, {AppPropsType} from './App';
 import store from "./redax/state";
 import state from "./redax/state";
+import {BrowserRouter} from "react-router-dom";
 
 let rerenderEntireTree = (state:AppPropsType) => {
     ReactDOM.render(
+        <BrowserRouter>
         <App
-            store={store}
+            // store={store}
             state={store.getState()}
-            addPost={store.addPost.bind(store)}
-            updateNewPostChange={store.updateNewPostChange.bind(store)}
-        />,
+            dispatch={store.dispatch.bind(store)}
+            // updateNewPostChange={store.updateNewPostChange.bind(store)}
+        />
+        </BrowserRouter>,
         document.getElementById('root')
     );
 }
@@ -21,4 +24,4 @@ let rerenderEntireTree = (state:AppPropsType) => {
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree(state:AppPropsType))
+store.subscribe(rerenderEntireTree)

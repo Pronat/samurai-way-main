@@ -3,11 +3,23 @@ import React from 'react';
 export type StoreType = {
     _state: RootStateType
     updateNewPostChange: (newText: string) => void
-    addPost: (newPostText:string)=>void
+    addPost: (newPostText: string) => void
     subscribe: (observer: () => void) => void
     _rerenderEntireTree: (state: RootStateType) => void
     getState: () => RootStateType
+    dispatch: (action: ActionsTypes)=>void
 }
+
+export type AddPostActionType = {
+    type: 'ADD-POST'
+    postText: string
+}
+export type ChangeNewTextActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newText: string
+}
+
+export type ActionsTypes = AddPostActionType | ChangeNewTextActionType
 
 let store: StoreType = {
     _state: {
@@ -40,10 +52,10 @@ let store: StoreType = {
             // sidebar: {}
         }
     },
-    _rerenderEntireTree (state:RootStateType) {
+    _rerenderEntireTree(state: RootStateType) {
         console.log("state changed")
     },
-   addPost (newPostText:string) {
+    addPost (newPostText:string) {
         let newPost: PostsType = {
             id: 6,
             message: this._state.profilePage.newPostText,
@@ -52,21 +64,34 @@ let store: StoreType = {
         this._state.profilePage.newPostText = ''
         this._rerenderEntireTree(this._state)
     },
-    updateNewPostChange (newText: string) {
+    updateNewPostChange(newText: string) {
         this._state.profilePage.newPostText = newText
         this._rerenderEntireTree(this._state)
     },
-    subscribe (observer: ()=>void) {
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost: PostsType = {
+                id: 6,
+                message: action.postText,
+                likesCount: 0
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._rerenderEntireTree(this._state)
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._rerenderEntireTree(this._state)
+        }
+    },
+
+
+    subscribe(observer: () => void) {
         this._rerenderEntireTree = observer
     },
     getState() {
         return this._state
     }
 }
-
-// let rerenderEntireTree = (state:RootStateType) => {
-//     console.log("state changed")
-// }
 
 export type PostsType = {
     id: number
@@ -95,54 +120,5 @@ export type RootStateType = {
     messagesPage: MessagesPageType
 
 }
-
-// export let state: RootStateType = {
-//     profilePage: {
-//         posts: [
-//             {id: 1, message: "It's my first post", likesCount: 4},
-//             {id: 2, message: "Hello, how are you", likesCount: 10},
-//             {id: 3, message: "What happening", likesCount: 2},
-//             {id: 4, message: "What would we do?", likesCount: 18},
-//             {id: 5, message: "Here is my moto!", likesCount: 18},
-//         ],
-//         newPostText: "it-kamasutra.com"
-//     },
-//     messagesPage: {
-//         messages: [
-//             {id: 1, message: "Hi"},
-//             {id: 1, message: "How is your it-kamasutra?"},
-//             {id: 1, message: "Yo"},
-//             {id: 1, message: "How are you"},
-//             {id: 1, message: "Call me"},
-//         ],
-//         dialogs: [
-//             {id: 1, name: "Dimych"},
-//             {id: 2, name: "Andrey"},
-//             {id: 3, name: "Sveta"},
-//             {id: 4, name: "Sasha"},
-//             {id: 5, name: "Viktor"},
-//             {id: 6, name: "Valera"},
-//         ],
-//         // sidebar: {}
-//     }
-// }
-
-// export let addPost = () => {
-//     let newPost: PostsType = {
-//         id: 6,
-//         message: state.profilePage.newPostText,
-//         likesCount: 0}
-//     state.profilePage.posts.push(newPost)
-//     state.profilePage.newPostText = ''
-//     rerenderEntireTree(state)
-// }
-// export let updateNewPostChange = (newText: string) => {
-//     state.profilePage.newPostText = newText
-//     rerenderEntireTree(state)
-// }
-
-// export const subscribe = (observer: ()=>void) => {
-//     rerenderEntireTree = observer
-// }
 
 export default store
