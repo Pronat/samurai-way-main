@@ -2,8 +2,8 @@ import React from 'react';
 
 export type StoreType = {
     _state: RootStateType
-    updateNewPostChange: (newText: string) => void
-    addPost: (newPostText: string) => void
+    // updateNewPostChange: (newText: string) => void
+    // addPost: (newPostText: string) => void
     subscribe: (observer: () => void) => void
     _rerenderEntireTree: (state: RootStateType) => void
     getState: () => RootStateType
