@@ -20,6 +20,10 @@ export type ChangeNewTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
 }
+export type ChangeNewMessageActionType = {
+    type: 'UPDATE-NEW-MESSAGE-BODY'
+    newMessageBody: string
+}
 
 export type ActionsTypes = AddPostActionType | ChangeNewTextActionType
 
@@ -32,8 +36,12 @@ export const changeNewTextAC = (newText: string): ChangeNewTextActionType => {
     return {
         type: 'UPDATE-NEW-POST-TEXT',
         newText: newText
-    }
-}
+    }}
+export const changeNewMessageAC =(newText: string): ChangeNewMessageActionType => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-BODY',
+        newMessageBody: newMessageBody
+    }}
 
 let store: StoreType = {
     _state: {
@@ -63,8 +71,10 @@ let store: StoreType = {
                 {id: 5, name: "Viktor"},
                 {id: 6, name: "Valera"},
             ],
-            // sidebar: {}
+            newMessageBody: ""
+
         }
+        // sidebar: {}
     },
     _rerenderEntireTree(state: RootStateType) {
         console.log("state changed")
@@ -83,7 +93,10 @@ let store: StoreType = {
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.profilePage.newPostText = action.newText
             this._rerenderEntireTree(this._state)
+        }   else if (action.type === 'UPDATE-NEW-MESSAGE-BODY') {
+
         }
+            newMessageBody
     },
 
 
