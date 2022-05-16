@@ -71,7 +71,7 @@ let store: StoreType = {
                 {id: 5, name: "Viktor"},
                 {id: 6, name: "Valera"},
             ],
-            newMessageBody: ""
+            newMessageBody: "111"
 
         }
         // sidebar: {}
@@ -94,9 +94,9 @@ let store: StoreType = {
             this._state.profilePage.newPostText = action.newText
             this._rerenderEntireTree(this._state)
         }   else if (action.type === 'UPDATE-NEW-MESSAGE-BODY') {
-
+            this._state.messagesPage.newMessageBody = action.body
+            this._rerenderEntireTree(this._state)
         }
-            newMessageBody
     },
 
 
