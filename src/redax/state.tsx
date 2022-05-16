@@ -37,7 +37,7 @@ export const changeNewTextAC = (newText: string): ChangeNewTextActionType => {
         type: 'UPDATE-NEW-POST-TEXT',
         newText: newText
     }}
-export const changeNewMessageAC =(newText: string): ChangeNewMessageActionType => {
+export const changeNewMessageAC =(newMessageBody: string): ChangeNewMessageActionType => {
     return {
         type: 'UPDATE-NEW-MESSAGE-BODY',
         newMessageBody: newMessageBody
@@ -128,6 +128,7 @@ export type ProfilePageType = {
 export type MessagesPageType = {
     messages: Array<MessagesType>
     dialogs: Array<DialogsType>
+    newMessageBody: string
 }
 // type sidebar={}
 export type RootStateType = {
