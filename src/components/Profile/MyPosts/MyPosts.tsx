@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './MyPosts.module.css';
 import Post from "./Posts/Post";
-import {ActionsTypes, addPostActionCreator, PostsType} from "../../../redax/state";
+import {ActionsTypes, addPostActionCreator, changeNewTextAC, PostsType} from "../../../redax/state";
 
 type MyPostsPropsType = {
     posts: Array<PostsType>
@@ -37,7 +37,8 @@ const MyPosts = (props: MyPostsPropsType) => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
             // props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: props.newPostText})
-            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: props.newPostText})
+            let action = changeNewTextAC(text)
+            props.dispatch(action)
         }
     }
 
