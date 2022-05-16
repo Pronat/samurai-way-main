@@ -14,12 +14,26 @@ export type AddPostActionType = {
     type: 'ADD-POST'
     postText: string
 }
+// export type AddPostActionType = ReturnType<typeof addPostActionCreator>
+
 export type ChangeNewTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newText: string
 }
 
 export type ActionsTypes = AddPostActionType | ChangeNewTextActionType
+
+export const addPostActionCreator = (postText: string): AddPostActionType => {
+    return {
+        type: 'ADD-POST',
+        postText: postText
+    }}
+export const changeNewTextAC = (newText: string): ChangeNewTextActionType => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT',
+        newText: newText
+    }
+}
 
 let store: StoreType = {
     _state: {
@@ -55,19 +69,7 @@ let store: StoreType = {
     _rerenderEntireTree(state: RootStateType) {
         console.log("state changed")
     },
-    // addPost (newPostText:string) {
-    //     let newPost: PostsType = {
-    //         id: 6,
-    //         message: this._state.profilePage.newPostText,
-    //         likesCount: 0}
-    //     this._state.profilePage.posts.push(newPost)
-    //     this._state.profilePage.newPostText = ''
-    //     this._rerenderEntireTree(this._state)
-    // },
-    // updateNewPostChange(newText: string) {
-    //     this._state.profilePage.newPostText = newText
-    //     this._rerenderEntireTree(this._state)
-    // },
+
     dispatch(action) {
         if (action.type === 'ADD-POST') {
             let newPost: PostsType = {

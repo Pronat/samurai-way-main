@@ -22,6 +22,7 @@ let rerenderEntireTree = (state:AppPropsType) => {
 }
 
 
+// @ts-ignore
 rerenderEntireTree(store.getState());
-
+// @ts-ignore
 store.subscribe(rerenderEntireTree)

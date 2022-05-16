@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './MyPosts.module.css';
 import Post from "./Posts/Post";
-import {ActionsTypes, PostsType} from "../../../redax/state";
+import {ActionsTypes, addPostActionCreator, PostsType} from "../../../redax/state";
 
 type MyPostsPropsType = {
     posts: Array<PostsType>
@@ -11,10 +11,15 @@ type MyPostsPropsType = {
     dispatch: (action: ActionsTypes)=>void
 }
 
-// export type PostsType = {
-//     id:number
-//     message:string
-//     likesCount:number
+// let addPostActionCreator = () => {
+//     return {
+//         type: 'ADD-POST'
+//     }
+// }
+// let updateNewPostTextActionCreator = () => {
+//     return {
+//         type: 'ADD-POST'
+//     }
 // }
 
 const MyPosts = (props: MyPostsPropsType) => {
@@ -23,14 +28,16 @@ const MyPosts = (props: MyPostsPropsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>()
     let addPost = () => {
         if (newPostElement.current) {
-            props.dispatch({type: 'ADD-POST', postText})
+            // props.dispatch({type: 'ADD-POST', postText: props.newPostText})
+            props.dispatch(addPostActionCreator(props.newPostText))
         }
     }
 
     let onPostChange = () => {
         if (newPostElement.current) {
             let text = newPostElement.current.value
-            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText})
+            // props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: props.newPostText})
+            props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: props.newPostText})
         }
     }
 
