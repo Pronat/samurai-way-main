@@ -1,36 +1,22 @@
+import React from "react";
+import styles from "./Navbar.module.css";
+import Link from "../Link/Link";
+import {Friend} from "../Friends/Friends";
+import {SidebarType} from "../../redux/state";
 
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import s from "./Navbar.module.css";
+type PropsType = {
+    state: SidebarType
+}
 
-console.log(s);
-let c1 = "item";
-let c2 = "active";
-// "item active"
-let classes = c1 + " " + c2;
-let classesNew = `${s.item} ${s.active}`;
-
-const Navbar = () => {
+export const Navbar = (props: PropsType) => {
     return (
-        <nav className={s.nav}>
+        <nav className={styles.navbarWrapper}>
+            {props.state.links.map(l => <Link key={l.id} id={l.id} path={l.path} linkLabel={l.linkLabel}/>)}
 
-            <div className={s.item}>
-                <NavLink to="/profile" activeClassName={s.activeLink}>Profile</NavLink>
-            </div>
-            <div className={`${s.item} ${s.active}`}>
-                <NavLink to="/Dialogs" activeClassName={s.activeLink}>Messages</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/News" activeClassName={s.activeLink}>News</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/Music" activeClassName={s.activeLink}>Music</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/Settings" activeClassName={s.activeLink}>Settings</NavLink>
+            <div className={styles.friendsWrapper}>
+                <h3 className={styles.title}>Friends</h3>
+                {props.state.friends.map(fr => <Friend key={fr.id} id={fr.id} name={fr.name}/>)}
             </div>
         </nav>
     )
 }
-
-export default Navbar;

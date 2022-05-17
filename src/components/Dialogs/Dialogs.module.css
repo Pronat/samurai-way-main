@@ -1,20 +1,17 @@
-.dialogs {
+.dialogsPage {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    color: whitesmoke;
+}
+.dialogsWrapper > .title {}
+.dialogsWrapper {
+    padding: 20px;
+}
+.messagesWrapper > .title {}
+.messagesWrapper {
+    padding: 20px;
 }
 
-.dialogsItems {
-    padding: 10px;
-}
-
-.dialogsItems .active {
-    color: gold;
-}
-
-.messages {
-    padding: 10px;
-}
-
-.messages .message {
-
+.sendMessageForm {
+    padding: 10px 0;
 }

@@ -1,13 +1,9 @@
-.nav {
-    grid-area: n;
-    background-color: burlywood;
-    padding: 10px;
+.navbarWrapper {
+    grid-area: nav;
+    background-color: #063388;
+    padding: 20px;
 }
-
-.item a {
-    color: #ffffff;
+.friendsWrapper {
+    color: whitesmoke;
 }
-
-.item a.activeLink {
-    color: gold;
-}
+.friendsWrapper > .title {}

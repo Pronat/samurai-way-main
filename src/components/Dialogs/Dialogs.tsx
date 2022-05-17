@@ -1,38 +1,45 @@
-import React from 'react';
-import s from './Dialogs.module.css'
-import {DialogItem} from "./DialogItem/DialogItem";
+import React, {ChangeEvent} from "react";
+import styles from './Dialogs.module.css';
+import {Dialog} from "./Dialog/Dialog";
 import {Message} from "./Message/Message";
-import {DialogsType, MessagesType} from "../../redax/state";
+import {ActionsType, DialogsPageType} from "../../redux/state";
+import {sendMessageAC, updateNewMessageTextAC} from "../../redux/dialogsReducer";
 
-type DialogsPropsType = {
-    dialogs: DialogsType[]
-    messages: Array<MessagesType>
+type PropsType = {
+    state: DialogsPageType
+    dispatch: (action: ActionsType) => void
 }
 
-export const Dialogs = (props: DialogsPropsType) => {
-
-    let dialogsElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesElements = props.messages.map(m => <Message message={m.message} id={m.id}/>);
-
-    let currentMessage = React.createRef<HTMLTextAreaElement>()
-    let addMessage = () => {
-        let text = currentMessage.current?.value
-        alert(text)
+export const Dialogs = (props: PropsType) => {
+    const sendMessageHandler = () => {
+        props.dispatch(sendMessageAC())
+    }
+    const updateNewMessageTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        const text = e.currentTarget.value
+        props.dispatch(updateNewMessageTextAC(text))
     }
 
     return (
-        <div className={s.dialogs}>
-            <div className={s.dialogsItems}>
-                {dialogsElements}
+        <div className={styles.dialogsPage}>
+            <div className={styles.dialogsWrapper}>
+                <h3 className={styles.title}>Dialogs</h3>
+                {props.state.dialogs.map(d => <Dialog key={d.id} id={d.id} name={d.name}/>)}
             </div>
 
-            <div className={s.messages}>
-                {messagesElements}
-            </div>
+            <div className={styles.messagesWrapper}>
+                <h3 className={styles.title}>Messages</h3>
+                {props.state.messages.map(m => <Message key={m.id} id={m.id} message={m.message}/>)}
 
-            <div><textarea ref={currentMessage}></textarea></div>
-            <div><button onClick={addMessage}>Add message</button></div>
+                <div className={styles.sendMessageForm}>
+                    <textarea placeholder="Write new message"
+                              onChange={updateNewMessageTextHandler}
+                              value={props.state.newMessageText}
+                    />
+                    <div>
+                        <button onClick={sendMessageHandler}>Send</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    );
-};
-
+    )
+}

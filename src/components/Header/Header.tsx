@@ -1,16 +1,12 @@
-import React from 'react';
-import s from './Header.module.css';
+import React from "react";
+import styles from "./Header.module.css";
 
-type HeaderPropsType = {
-    type1: string;
-}
-const Header = (props: HeaderPropsType) => {
+export const Header = () => {
     return (
-
-        <header className={s.header}>
-            <div>{props.type1}</div>
-            <img src="https://logos-world.net/wp-content/uploads/2020/04/Huawei-Logo-700x394.png" alt={"no Photo"}/>
-        </header>
+        <div className={styles.header}>
+            <img className={styles.logo}
+                 src="https://yt3.ggpht.com/ytc/AAUvwngdw4sXdA6kUYDDZZi5df9azFXxNwyV7FBbNcGHSw=s900-c-k-c0x00ffffff-no-rj"
+                 alt="logo"/>
+        </div>
     )
 }
-export default Header;

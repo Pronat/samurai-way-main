@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
+import serles from "./Music.module.css"
 
-const Music = () => {
+export const Music = () => {
     return (
-        <div>
-            Here is our music
+        <div className={serles.musicPage}>
+            Music
         </div>
-    );
-};
-
-export default Music;
+    )
+}
