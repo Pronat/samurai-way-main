@@ -7,7 +7,7 @@ export type StoreType = {
     subscribe: (observer: () => void) => void
     _rerenderEntireTree: (state: RootStateType) => void
     getState: () => RootStateType
-    dispatch: (action: ActionsTypes)=>void
+    dispatch: (action: ActionsTypes) => void
 }
 
 export type AddPostActionType = {
@@ -31,17 +31,20 @@ export const addPostActionCreator = (postText: string): AddPostActionType => {
     return {
         type: 'ADD-POST',
         postText: postText
-    }}
+    }
+}
 export const changeNewTextAC = (newText: string): ChangeNewTextActionType => {
     return {
         type: 'UPDATE-NEW-POST-TEXT',
         newText: newText
-    }}
-export const changeNewMessageAC =(newMessageBody: string): ChangeNewMessageActionType => {
+    }
+}
+export const changeNewMessageAC = (newMessageBody: string): ChangeNewMessageActionType => {
     return {
         type: 'UPDATE-NEW-MESSAGE-BODY',
         newMessageBody: newMessageBody
-    }}
+    }
+}
 
 let store: StoreType = {
     _state: {
@@ -58,10 +61,10 @@ let store: StoreType = {
         messagesPage: {
             messages: [
                 {id: 1, message: "Hi"},
-                {id: 1, message: "How is your it-kamasutra?"},
-                {id: 1, message: "Yo"},
-                {id: 1, message: "How are you"},
-                {id: 1, message: "Call me"},
+                {id: 2, message: "How is your it-kamasutra?"},
+                {id: 3, message: "Yo"},
+                {id: 4, message: "How are you"},
+                {id: 5, message: "Call me"},
             ],
             dialogs: [
                 {id: 1, name: "Dimych"},
@@ -93,9 +96,13 @@ let store: StoreType = {
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.profilePage.newPostText = action.newText
             this._rerenderEntireTree(this._state)
-        }   else if (action.type === 'UPDATE-NEW-MESSAGE-BODY') {
-            this._state.messagesPage.newMessageBody = action.body
-            this._rerenderEntireTree(this._state)
+        } else { // @ts-ignore
+            if (action.type === 'UPDATE-NEW-MESSAGE-BODY') {
+                        let body = this._state.messagesPage.newMessageBody
+                        this._state.messagesPage.newMessageBody = '';
+                        this._state.messagesPage.messages.push({id: 7, message: body});
+                        this._rerenderEntireTree(this._state)
+                    }
         }
     },
 
