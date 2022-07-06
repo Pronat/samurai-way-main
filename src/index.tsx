@@ -6,6 +6,7 @@ import React from "react";
 import {BrowserRouter} from "react-router-dom";
 import App from "./components/App/App";
 
+
 export const rerenderEntireTree = (state: StateType) => {
     ReactDOM.render(
         <React.StrictMode>
