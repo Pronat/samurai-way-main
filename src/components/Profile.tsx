@@ -3,7 +3,7 @@ import s from './Profile.module.css';
 
 export const Profile = () => {
     return (
-        <div className="content">
+        <div className={s.content}>
             <div>
                 <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
             </div>
@@ -16,9 +16,9 @@ export const Profile = () => {
                 <div>
                     New post
                 </div>
-                <div className="item">Post 1</div>
-                <div className="item">Post 2</div>
-                <div className="item">Post 3</div>
+                <div className={s.item}>Post 1</div>
+                <div className={s.item}>Post 2</div>
+                <div className={s.item}>Post 3</div>
             </div>
         </div>
     )
