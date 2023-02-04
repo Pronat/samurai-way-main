@@ -12,9 +12,6 @@ export const MyPosts = () => {
                     <button>Create post</button>
                 </div>
             </div>
-            <div className={s.item}>
-                <img src={' https://www.blast.hk/attachments/64805/'} />
-            </div>
 
             <Post title={'Post number 1'}/>
             <Post title={'Post number 2'}/>
