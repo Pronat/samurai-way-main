@@ -11,3 +11,9 @@
     width: 100px;
 }
 
+.posts {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+

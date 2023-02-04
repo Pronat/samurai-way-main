@@ -8,9 +8,6 @@ export const Profile = () => {
             <div>
                 <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
             </div>
-            <div>
-                <img  className={s.profileAvatarImg} src="https://www.photoshopbuzz.com/wp-content/uploads/change-color-part-of-image-psd4.jpg"/>
-            </div>
             <MyPosts />
         </div>
     )
