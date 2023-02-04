@@ -12,14 +12,15 @@
 }
 .header img {
   width: 50px;
-  background-color: slategray;
 }
 
 .nav {
 grid-area: n;
+  background-color: gray;
 }
 
 .content {
   grid-area: c;
+  background-color: bisque;
 }
 

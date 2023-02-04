@@ -6,12 +6,25 @@ const App = () => {
     return (
         <div className="App-wrapper">
             <header className="header">
-                    <img src={'https://d2n9ha3hrkss16.cloudfront.net/uploads/stage/stage_image/64250/optimized_large_thumb_stage.jpg'} />
+                <img
+                    src={'https://d2n9ha3hrkss16.cloudfront.net/uploads/stage/stage_image/64250/optimized_large_thumb_stage.jpg'}/>
             </header>
             <nav className="nav">
-                <div>Profile</div>
-                <div>Messages</div>
-                <div>Contacts</div>
+                <div>
+                    <a href={'111'}>Profile</a>
+                </div>
+                <div>
+                    <a href={'111'}>Messages</a>
+                </div>
+                <div>
+                    <a href={'111'}>News</a>
+                </div>
+                <div>
+                    <a href={'111'}>Music</a>
+                </div>
+                <div>
+                    <a href={'111'}>Settings</a>
+                </div>
             </nav>
             <div className="content">
                 Main Content
