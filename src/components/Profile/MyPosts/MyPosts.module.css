@@ -3,17 +3,20 @@
     width: 130px
 }
 
-.item {
-    color: blue;
-}
-
 .avatarImg {
-    width: 100px;
+
 }
 
 .posts {
     margin-left: 15px;
     display: flex;
     flex-direction: column;
+}
+
+.item {
+    color: blue;
+}
+.item img {
+    width: 70px;
 }
 
