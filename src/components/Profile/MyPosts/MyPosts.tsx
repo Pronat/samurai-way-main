@@ -3,13 +3,7 @@ import s from './MyPosts.module.css';
 
 export const MyPosts = () => {
     return (
-        <div className={s.content}>
-            <div>
-                <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
-            </div>
-            <div>
-                <img  className={s.profileAvatarImg} src="https://www.photoshopbuzz.com/wp-content/uploads/change-color-part-of-image-psd4.jpg"/>
-            </div>
+        <div>
             <div className="posts">
                 My Posts
                 <div>
