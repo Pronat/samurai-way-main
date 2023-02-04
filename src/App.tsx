@@ -6,14 +6,14 @@ const App = () => {
     return (
         <div className="App-wrapper">
             <header className="header">
-                    <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgqQe8JhxoXjy2_lve779pbB0AlaR-rm4bHA&usqp=CAU'} />
+                    <img src={'https://d2n9ha3hrkss16.cloudfront.net/uploads/stage/stage_image/64250/optimized_large_thumb_stage.jpg'} />
             </header>
             <nav className="nav">
                 <div>Profile</div>
                 <div>Messages</div>
                 <div>Contacts</div>
             </nav>
-            <div className="main">
+            <div className="content">
                 Main Content
             </div>
         </div>
