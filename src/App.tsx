@@ -27,7 +27,7 @@ const App = () => {
                 </div>
             </nav>
             <div className="content">
-                Main Content
+                <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" />
             </div>
         </div>
     );
