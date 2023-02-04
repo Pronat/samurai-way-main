@@ -5,21 +5,21 @@ import React from "react";
 
 export const NavBar = () => {
     return (
-        <div>
-            <div>
-                <a href={'111'}>Profile</a>
+        <div className="nav">
+            <div className='item'>
+                <a >Profile</a>
             </div>
-            <div>
-                <a href={'111'}>Messages</a>
+            <div className="item">
+                <a>Messages</a>
             </div>
-            <div>
-                <a href={'111'}>News</a>
+            <div className="item">
+                <a>News</a>
             </div>
-            <div>
-                <a href={'111'}>Music</a>
+            <div className="item">
+                <a>Music</a>
             </div>
-            <div>
-                <a href={'111'}>Settings</a>
+            <div className="item">
+                <a>Settings</a>
             </div>
         </div>
     )
