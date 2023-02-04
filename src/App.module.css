@@ -1,4 +1,4 @@
-.App-wrapper {
+.AppWrapper {
   width: 1200px;
   display: grid;
   grid-template-areas: "h h" "n c";

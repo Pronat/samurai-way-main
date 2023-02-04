@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import s from './App.module.css';
 import {Header} from "./components/Header";
 import {NavBar} from "./components/NavBar";
 import {Profile} from "./components/Profile";
@@ -7,7 +7,7 @@ import {Profile} from "./components/Profile";
 
 export const App = () => {
     return (
-        <div className="App-wrapper">
+        <div className={s.AppWrapper}>
             <Header/>
             <NavBar/>
             <Profile/>
