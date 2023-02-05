@@ -13,9 +13,9 @@ export const MyPosts = () => {
                 </div>
             </div>
 
-            <Post title={'Post number 1'} like={23}/>
-            <Post title={'Post number 2'} like={4}/>
-            <Post title={'Post number 3'} like={12}/>
+            <Post message={'Hello, it is my first post'} like={23}/>
+            <Post message={'Where are you?'} like={4}/>
+            <Post message={'I need a new phone'} like={12}/>
         </div>
     )
 }
