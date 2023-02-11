@@ -12,6 +12,9 @@
 .name {
 
 }
+.names .active {
+    color: darkgreen;
+}
 
 .messages {
     grid-area: b;

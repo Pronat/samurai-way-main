@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Dialogs.module.css'
+import {NavLink} from "react-router-dom";
 
 type DialogsType = {
 
@@ -8,13 +9,27 @@ const Dialogs = (props: DialogsType) => {
     return (
         <div className={s.dialogsPage}>
             <div className={s.names}>
-                <div className={`${s.name} ${s.active}`}>Alex</div>
-                <div className={`${s.name} ${s.active}`}>Svetlana</div>
-                <div className={`${s.name} ${s.active}`}>Burton</div>
-                <div className={`${s.name} ${s.active}`}>Olaf</div>
-                <div className={`${s.name} ${s.active}`}>Olga</div>
-                <div className={`${s.name} ${s.active}`}>Brendon</div>
-                <div className={`${s.name} ${s.active}`}>Nikita</div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Alex</NavLink>
+                </div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Svetlana</NavLink>
+                </div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Burton</NavLink>
+                </div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Olaf</NavLink>
+                </div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Olga</NavLink>
+                </div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Brendon</NavLink>
+                </div>
+                <div className={`${s.name} ${s.active}`}>
+                    <NavLink to={'message/1'}>Nikita</NavLink>
+                </div>
             </div>
 
             <div className={s.messages}>
