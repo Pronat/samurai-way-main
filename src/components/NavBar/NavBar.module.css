@@ -5,10 +5,14 @@
 
 .item {
     color: white;
-    margin-left: 15px;
+    padding-left: 15px;
     font-size: 1.4rem;
 }
+.item a {
+    color: white;
+    text-decoration: none;
+}
 
-.active {
+.item a.activeLink {
     color: aqua;
 }
