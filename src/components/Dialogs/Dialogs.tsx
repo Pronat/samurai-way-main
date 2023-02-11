@@ -8,37 +8,41 @@ type DialogType = {
     name: string
     id: number
 }
-const Dialog = (props: DialogType) => {
-    <div className={`${s.name} ${s.active}`}>
-        <NavLink to={'/message/1'}>{props.name}</NavLink>
-    </div>
+export const Dialog = (props: DialogType) => {
+    return (
+        <div className={`${s.name} ${s.active}`}>
+            <NavLink to={`/message/${props.id}`}>{props.name}</NavLink>
+        </div>
+        )
 }
 const Dialogs = (props: DialogsType) => {
     return (
         <div className={s.dialogsPage}>
-            <div className={s.names}>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/1'}>Alex</NavLink>
-                </div>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/2'}>Svetlana</NavLink>
-                </div>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/3'}>Burton</NavLink>
-                </div>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/4'}>Olaf</NavLink>
-                </div>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/5'}>Olga</NavLink>
-                </div>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/6'}>Brendon</NavLink>
-                </div>
-                <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'/message/7'}>Nikita</NavLink>
-                </div>
-            </div>
+            <Dialog name={'Alex'} id={1} />
+
+            {/*<div className={s.names}>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/1'}>Alex</NavLink>*/}
+            {/*    </div>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/2'}>Svetlana</NavLink>*/}
+            {/*    </div>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/3'}>Burton</NavLink>*/}
+            {/*    </div>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/4'}>Olaf</NavLink>*/}
+            {/*    </div>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/5'}>Olga</NavLink>*/}
+            {/*    </div>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/6'}>Brendon</NavLink>*/}
+            {/*    </div>*/}
+            {/*    <div className={`${s.name} ${s.active}`}>*/}
+            {/*        <NavLink to={'/message/7'}>Nikita</NavLink>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
             <div className={s.messages}>
                 <div className={s.message}>Hello my friend</div>
