@@ -14,11 +14,10 @@ export const App = () => {
             <NavBar/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    <Route exact path={'/profile'} component={Profile} />
-                    <Route exact path={'/message'} component={Dialogs} />
+                    <Route path={'/profile'} component={Profile} />
+                    <Route path={'/message'} component={Dialogs} />
                 </Switch>
-                <Profile />
-                <Dialogs/>
+
             </div>
         </div>
     );
