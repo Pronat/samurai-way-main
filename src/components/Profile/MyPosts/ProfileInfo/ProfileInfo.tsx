@@ -3,7 +3,14 @@ import React from "react";
 export const ProfileInfo = () => {
     return (
         <div>
-            <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
+            <h2>My Posts</h2>
+            <div>
+                <textarea/>
+                <div>
+                    <button>Create post</button>
+                </div>
+            </div>
         </div>
+
     )
 }

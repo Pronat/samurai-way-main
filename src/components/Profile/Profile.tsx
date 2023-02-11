@@ -1,11 +1,13 @@
 import React from "react";
 import {MyPosts} from "./MyPosts/MyPosts";
-import {ProfileInfo} from "./MyPosts/ProfileInfo/ProfileInfo";
+
 
 export const Profile = () => {
     return (
         <div>
-           <ProfileInfo />
+            <div>
+                <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
+            </div>
             <MyPosts />
         </div>
     )
