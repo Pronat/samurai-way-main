@@ -10,25 +10,25 @@ const Dialogs = (props: DialogsType) => {
         <div className={s.dialogsPage}>
             <div className={s.names}>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Alex</NavLink>
+                    <NavLink to={'/message/1'}>Alex</NavLink>
                 </div>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Svetlana</NavLink>
+                    <NavLink to={'/message/2'}>Svetlana</NavLink>
                 </div>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Burton</NavLink>
+                    <NavLink to={'/message/3'}>Burton</NavLink>
                 </div>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Olaf</NavLink>
+                    <NavLink to={'/message/4'}>Olaf</NavLink>
                 </div>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Olga</NavLink>
+                    <NavLink to={'/message/5'}>Olga</NavLink>
                 </div>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Brendon</NavLink>
+                    <NavLink to={'/message/6'}>Brendon</NavLink>
                 </div>
                 <div className={`${s.name} ${s.active}`}>
-                    <NavLink to={'message/1'}>Nikita</NavLink>
+                    <NavLink to={'/message/7'}>Nikita</NavLink>
                 </div>
             </div>
 
