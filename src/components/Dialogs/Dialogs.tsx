@@ -22,8 +22,8 @@ const Dialogs = (props: DialogsType) => {
                 <div className={s.message}>What are you doing?</div>
                 <div className={s.message}>What time is it?</div>
                 <div className={s.message}>Do you have any problems?</div>
-                <div className={s.message}>What did you say</div>
-            </div>?
+                <div className={s.message}>What did you say?</div>
+            </div>
 
         </div>
     );

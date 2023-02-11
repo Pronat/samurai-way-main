@@ -1,12 +1,23 @@
 .dialogsPage {
-
+    display: grid;
+    grid-template-areas: 'a b';
+    grid-auto-columns: 2fr 10fr;
 }
 
 .names {
-
+    grid-area: a;
+    padding: 10px;
 }
 
 .name {
 
 }
 
+.messages {
+    grid-area: b;
+    padding: 10px;
+}
+
+.message {
+
+}
