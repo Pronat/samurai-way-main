@@ -14,8 +14,8 @@ export const App = () => {
             <NavBar/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    <Route path={'/profile'} element={<Profile/> } />
-                    <Route path={'/message'} element={<Dialogs/> } />
+                    <Route exact path={'/profile'} component={Profile} />
+                    <Route exact path={'/message'} component={Dialogs} />
                 </Switch>
                 <Profile />
                 <Dialogs/>
