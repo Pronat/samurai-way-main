@@ -4,7 +4,7 @@ import {MyPosts} from "./MyPosts/MyPosts";
 
 export const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
             </div>

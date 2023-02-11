@@ -7,6 +7,10 @@
   /*grid-gap: 10px;*/
 }
 
+.AppWrapperContent {
+  grid-area: c;
+  background-color: bisque;
+}
 
 
 

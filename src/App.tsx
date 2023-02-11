@@ -11,8 +11,10 @@ export const App = () => {
         <div className={s.AppWrapper}>
             <Header/>
             <NavBar/>
-            {/*<Profile />*/}
-            <Dialogs />
+            <div className={s.AppWrapperContent}>
+                {/*<Profile />*/}
+                <Dialogs/>
+            </div>
         </div>
     );
 }
