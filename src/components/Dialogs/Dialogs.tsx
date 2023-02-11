@@ -7,6 +7,9 @@ type DialogType = {
     name: string
     id: number
 }
+type MessageType = {
+    message: string
+}
 export const Dialog = (props: DialogType) => {
     return (
         <div className={`${s.name} ${s.active}`}>
@@ -14,11 +17,15 @@ export const Dialog = (props: DialogType) => {
         </div>
     )
 }
+
+export const Message = (props: MessageType) => {
+    return (
+        <div className={s.message}>{props.message}</div>
+    )
+}
 const Dialogs = (props: DialogsType) => {
     return (
         <div className={s.dialogsPage}>
-
-
             <div className={s.names}>
                 <Dialog name={'Alex'} id={1}/>
                 <Dialog name={'Svetlana'} id={2}/>
@@ -28,13 +35,12 @@ const Dialogs = (props: DialogsType) => {
                 <Dialog name={'Nikita'} id={6}/>
                 <Dialog name={'Brendon'} id={7}/>
             </div>
-
             <div className={s.messages}>
-                <div className={s.message}>Hello my friend</div>
-                <div className={s.message}>What are you doing?</div>
-                <div className={s.message}>What time is it?</div>
-                <div className={s.message}>Do you have any problems?</div>
-                <div className={s.message}>What did you say?</div>
+                <Message message={'Hello my friend'}/>
+                <Message message={'What are you doing?'}/>
+                <Message message={'What time is it?'}/>
+                <Message message={'Do you have any problems?'}/>
+                <Message message={'What did you say?'}/>
             </div>
 
         </div>
