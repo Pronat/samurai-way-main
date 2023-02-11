@@ -3,7 +3,15 @@ import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
 type DialogsType = {
-
+}
+type DialogType = {
+    name: string
+    id: number
+}
+const Dialog = (props: DialogType) => {
+    <div className={`${s.name} ${s.active}`}>
+        <NavLink to={'/message/1'}>{props.name}</NavLink>
+    </div>
 }
 const Dialogs = (props: DialogsType) => {
     return (
