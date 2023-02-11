@@ -10,6 +10,7 @@ type DialogType = {
 type MessageType = {
     message: string
 }
+
 export const Dialog = (props: DialogType) => {
     return (
         <div className={`${s.name} ${s.active}`}>
