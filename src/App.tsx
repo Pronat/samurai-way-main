@@ -24,7 +24,7 @@ export const App = (props: AppPropsType) => {
                 <Switch>
                     {/*<Route path={'/profile'} component={Profile}/>*/}
                     {/*<Route path={'/message'} component={Dialogs}/>*/}
-                    <Route path={'/profile'} render={()=><Profile/>}/>
+                    <Route path={'/profile'} render={()=><Profile PostsData={props.PostsData}/>}/>
                     <Route path={'/message'} render={()=><Dialogs/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
