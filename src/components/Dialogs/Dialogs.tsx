@@ -25,23 +25,36 @@ export const Message = (props: MessageType) => {
     )
 }
 const Dialogs = (props: DialogsType) => {
+    let DialogsData = [
+        {id: 1, name: 'Alex'},
+        {id: 2, name: 'Svetlana'},
+        {id: 3, name: 'Burton'},
+        {id: 4, name: 'Olaf'},
+        {id: 5, name: 'Olga'},
+        {id: 6, name: 'Nikita'},
+        {id: 7, name: 'Brendon'},
+    ]
+    let MessageData = [
+        {id: 1, message: 'Hello my friend'},
+        {id: 2, message: 'What are you doing?'},
+        {id: 3, message: 'What time is it?'},
+        {id: 4, message: 'Do you have any problems?'},
+        {id: 5, message: 'What did you say?'},
+
+    ]
+
     return (
         <div className={s.dialogsPage}>
             <div className={s.names}>
-                <Dialog name={'Alex'} id={1}/>
-                <Dialog name={'Svetlana'} id={2}/>
-                <Dialog name={'Burton'} id={3}/>
-                <Dialog name={'Olaf'} id={4}/>
-                <Dialog name={'Olga'} id={5}/>
-                <Dialog name={'Nikita'} id={6}/>
-                <Dialog name={'Brendon'} id={7}/>
+                {
+                    DialogsData.map((el) => <div>{el.name}</div>)
+                }
+
             </div>
             <div className={s.messages}>
-                <Message message={'Hello my friend'}/>
-                <Message message={'What are you doing?'}/>
-                <Message message={'What time is it?'}/>
-                <Message message={'Do you have any problems?'}/>
-                <Message message={'What did you say?'}/>
+                {
+                    MessageData.map((el) => <div>el.message</div>)
+                }
             </div>
 
         </div>
