@@ -8,11 +8,12 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import {DialogsDataType, MessagesType, PostsDataType} from "./index";
 
 type AppPropsType = {
-    DialogsData: Array<>
-messages={messages}
-PostsData={PostsData}
+    DialogsData: Array<DialogsDataType>
+    messages: Array<MessagesType>
+    PostsData: Array<PostsDataType>
 }
 export const App = () => {
     return (
@@ -21,11 +22,11 @@ export const App = () => {
             <NavBar/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    <Route path={'/profile'} component={Profile} />
-                    <Route path={'/message'} component={Dialogs} />
-                    <Route path={'/news'} component={News} />
-                    <Route path={'/music'} component={Music} />
-                    <Route path={'/settings'} component={Settings} />
+                    <Route path={'/profile'} component={Profile}/>
+                    <Route path={'/message'} component={Dialogs}/>
+                    <Route path={'/news'} component={News}/>
+                    <Route path={'/music'} component={Music}/>
+                    <Route path={'/settings'} component={Settings}/>
                     {/*<Route path={'/404'} element={'<h1 style={{}}>Wrong PAGE</h1>'} />*/}
                     {/*<Redirect from={'*'} to={'/404'} />*/}
                 </Switch>
