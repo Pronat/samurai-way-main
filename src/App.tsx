@@ -25,7 +25,7 @@ export const App = (props: AppPropsType) => {
                     {/*<Route path={'/profile'} component={Profile}/>*/}
                     {/*<Route path={'/message'} component={Dialogs}/>*/}
                     <Route path={'/profile'} render={()=><Profile PostsData={props.PostsData}/>}/>
-                    <Route path={'/message'} render={()=><Dialogs/>}/>
+                    <Route path={'/message'} render={()=><Dialogs DialogsData={props.DialogsData} messages={props.messages}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>

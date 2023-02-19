@@ -14,7 +14,7 @@ export const MyPosts = (props: MyPostsType) => {
     //     {id: 3, message: 'I need new phone', likeCount: 2},
     //     {id: 4, message: 'What did you say?', likeCount: 99},
     // ]
-    let postsElements =  PostsData.map((el)=> {
+    let postsElements =  props.PostsData.map((el)=> {
         return (
             <Post message={el.message} likeCount={el.likeCount}/>
         )
