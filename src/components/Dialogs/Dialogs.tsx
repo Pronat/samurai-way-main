@@ -34,7 +34,7 @@ const Dialogs = (props: DialogsType) => {
         {id: 6, name: 'Nikita'},
         {id: 7, name: 'Brendon'},
     ]
-    let MessageData = [
+    let MessagesData = [
         {id: 1, message: 'Hello my friend'},
         {id: 2, message: 'What are you doing?'},
         {id: 3, message: 'What time is it?'},
@@ -53,7 +53,7 @@ const Dialogs = (props: DialogsType) => {
             </div>
             <div className={s.messages}>
                 {
-                    MessageData.map((el) => <div>el.message</div>)
+                    MessagesData.map((el) => <div>{el.message}</div>)
                 }
             </div>
 
