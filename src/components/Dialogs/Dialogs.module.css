@@ -4,14 +4,15 @@
     grid-auto-columns: 2fr 10fr;
 }
 
+.name {
+
+}
+
 .names {
     grid-area: a;
     padding: 10px;
 }
 
-.name {
-
-}
 .names .active {
     color: darkgreen;
 }

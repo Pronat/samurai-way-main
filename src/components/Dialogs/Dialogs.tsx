@@ -43,7 +43,7 @@ const Dialogs = (props: DialogsType) => {
         {id: 5, message: 'What did you say?'},
     ]
     let dialogsElements = DialogsData.map((el) => <DialogItem name={el.name} id={el.id}/>)
-    let MessagesElemets = messages.map((el) => <Message message={})
+    let MessagesElemets = messages.map((el) => <Message message={el.message} />)
 
     return (
         <div className={s.dialogsPage}>
