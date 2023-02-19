@@ -40,8 +40,8 @@ const Dialogs = (props: DialogsType) => {
         {id: 3, message: 'What time is it?'},
         {id: 4, message: 'Do you have any problems?'},
         {id: 5, message: 'What did you say?'},
-
     ]
+    let dialogsElements = DialogsData.map((el) => <DialogItem name={el.name} id={el.id} />  )
 
     return (
         <div className={s.dialogsPage}>
@@ -53,7 +53,8 @@ const Dialogs = (props: DialogsType) => {
             </div>
             <div className={s.messages}>
                 {
-                    MessagesData.map((el) => <div>{el.message}</div>)
+                    dialogsElements
+                    // MessagesData.map((el) => <div>{el.message}</div>)
                 }
             </div>
 
