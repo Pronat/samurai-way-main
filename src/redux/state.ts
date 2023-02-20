@@ -1,4 +1,3 @@
-
 export type DialogsDataType = {
     id: number
     name: string
@@ -12,7 +11,13 @@ export type PostsDataType = {
     message: string
     likeCount: number
 }
-let state = {
+
+export type StatePropsType = {
+    DialogsData: Array<DialogsDataType>
+    messages: Array<MessagesType>
+    PostsData: Array<PostsDataType>
+}
+export let state = <StatePropsType>{
     DialogsData: <Array<DialogsDataType>>[
         {id: 1, name: 'Alex'},
         {id: 2, name: 'Svetlana'},
