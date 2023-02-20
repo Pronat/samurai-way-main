@@ -55,14 +55,12 @@ const Dialogs = (props: DialogsPropsType) => {
                 {
                     dialogsElements
                 }
-
             </div>
             <div className={s.messages}>
                 {
                     MessagesElemets
                 }
             </div>
-
         </div>
     );
 };
