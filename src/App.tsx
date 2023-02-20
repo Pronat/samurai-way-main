@@ -8,7 +8,8 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {DialogsDataType, MessagesType, PostsDataType} from "./index";
+import {} from "./index";
+import {DialogsDataType, MessagesType, PostsDataType} from "./redux/state";
 
 type AppPropsType = {
     DialogsData: Array<DialogsDataType>

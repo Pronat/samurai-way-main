@@ -1,6 +1,7 @@
 import React from "react";
 import {MyPosts} from "./MyPosts/MyPosts";
-import {PostsDataType} from "../../index";
+import {} from "../../index";
+import {PostsDataType} from "../../redux/state";
 
 type ProfileType = {
     PostsData: Array<PostsDataType>

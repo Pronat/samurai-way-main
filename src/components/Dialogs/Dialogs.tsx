@@ -1,7 +1,8 @@
 import React from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
-import {DialogsDataType, MessagesType} from "../../index";
+import {} from "../../index";
+import {DialogsDataType, MessagesType} from "../../redux/state";
 
 type DialogsPropsType = {
     DialogsData: Array<DialogsDataType>
@@ -30,22 +31,7 @@ export const Message = (props: MessageType) => {
     )
 }
 const Dialogs = (props: DialogsPropsType) => {
-    // let DialogsData = [
-    //     {id: 1, name: 'Alex'},
-    //     {id: 2, name: 'Svetlana'},
-    //     {id: 3, name: 'Burton'},
-    //     {id: 4, name: 'Olaf'},
-    //     {id: 5, name: 'Olga'},
-    //     {id: 6, name: 'Nikita'},
-    //     {id: 7, name: 'Brendon'},
-    // ]
-    // let messages = [
-    //     {id: 1, message: 'Hello my friend'},
-    //     {id: 2, message: 'What are you doing?'},
-    //     {id: 3, message: 'What time is it?'},
-    //     {id: 4, message: 'Do you have any problems?'},
-    //     {id: 5, message: 'What did you say?'},
-    // ]
+
     let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
     let MessagesElemets = props.messages.map((el) => <Message message={el.message} />)
 
