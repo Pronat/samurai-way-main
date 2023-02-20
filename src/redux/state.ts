@@ -11,14 +11,20 @@ export type PostsDataType = {
     message: string
     likeCount: number
 }
-
-export type StatePropsType = {
+export type ProfilePageType = {
     DialogsData: Array<DialogsDataType>
     messages: Array<MessagesType>
+}
+export type PostsPageType = {
     PostsData: Array<PostsDataType>
 }
+
+export type StatePropsType = {
+    postsPage: PostsPageType
+    profilePage: ProfilePageType
+}
 export let state = <StatePropsType>{
-    profilePage: <any>{
+    profilePage: <ProfilePageType>{
         DialogsData: <Array<DialogsDataType>>[
             {id: 1, name: 'Alex'},
             {id: 2, name: 'Svetlana'},
@@ -36,7 +42,7 @@ export let state = <StatePropsType>{
             {id: 5, message: 'What did you say?'},
         ],
     },
-    postsPage: <any>{
+    postsPage: <PostsPageType>{
         PostsData: <Array<PostsDataType>>[
             {id: 1, message: 'Hello, it is my first post', likeCount: 23},
             {id: 2, message: 'Where are you?', likeCount: 56},
