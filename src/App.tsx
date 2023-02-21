@@ -30,6 +30,7 @@ export const App = (props: AppPropsType) => {
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
                     <Route path={'/friends'} component={Friends}/>
+
                     {/*<Route path={'/404'} element={'<h1 style={{}}>Wrong PAGE</h1>'} />*/}
                     {/*<Redirect from={'*'} to={'/404'} />*/}
                 </Switch>

@@ -50,5 +50,11 @@ export let state = <StatePropsType>{
             {id: 4, message: 'What did you say?', likeCount: 99},
         ]
     },
+    siteBar: [
+        {id: 1, name: 'Tom'},
+        {id: 2, name: 'Clark'},
+        {id: 3, name: 'Kent'},
+        {id: 4, name: 'Josef'},
+    ],
 
 }
