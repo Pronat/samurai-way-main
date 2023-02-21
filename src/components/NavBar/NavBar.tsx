@@ -1,8 +1,12 @@
 import React from "react";
 import s from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
+import {SiteBarType} from "../../redux/state";
 
-export const NavBar = () => {
+export type NavBarType = {
+    siteBar: Array<SiteBarType>
+}
+export const NavBar = (props: NavBarType) => {
     return (
         <div className={s.nav}>
             <div className={s.item}>
@@ -20,9 +24,20 @@ export const NavBar = () => {
             <div className={s.item}>
                 <NavLink to={'/settings'} activeClassName={s.activeLink}>Settings</NavLink>
             </div>
-             <div className={`${s.item} ${s.item2}`}>
+            <div className={`${s.item} ${s.item2}`}>
                 <NavLink to={'/friends'} activeClassName={s.activeLink}>Friends</NavLink>
             </div>
+
+            {
+                props.siteBar.map((el) => {
+                    return (
+                        <div key={el.id}>
+                            <div className={s.Circle}></div>
+                            {el.name}
+                        </div>
+                        )
+                })
+            }
         </div>
     )
 }

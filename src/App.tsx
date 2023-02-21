@@ -22,11 +22,12 @@ export const App = (props: AppPropsType) => {
     return (
         <div className={s.AppWrapper}>
             <Header/>
-            <NavBar/>
+            <NavBar siteBar={props.siteBar}/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    <Route path={'/profile'} render={()=><Profile PostsData={props.PostsData}/>}/>
-                    <Route path={'/message'} render={()=><Dialogs DialogsData={props.DialogsData} messages={props.messages}/>}/>
+                    <Route path={'/profile'} render={() => <Profile PostsData={props.PostsData}/>}/>
+                    <Route path={'/message'}
+                           render={() => <Dialogs DialogsData={props.DialogsData} messages={props.messages}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
@@ -35,7 +36,6 @@ export const App = (props: AppPropsType) => {
                     {/*<Route path={'/404'} element={'<h1 style={{}}>Wrong PAGE</h1>'} />*/}
                     {/*<Redirect from={'*'} to={'/404'} />*/}
                 </Switch>
-
             </div>
         </div>
     );
