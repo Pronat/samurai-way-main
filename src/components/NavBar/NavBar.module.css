@@ -16,3 +16,9 @@
 .item a.activeLink {
     color: aqua;
 }
+
+.item2 {
+    margin-top: 100px;
+    padding: 15px;
+    font-size: 2rem;
+}

@@ -50,4 +50,5 @@ export let state = <StatePropsType>{
             {id: 4, message: 'What did you say?', likeCount: 99},
         ]
     },
+
 }
