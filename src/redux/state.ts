@@ -18,10 +18,15 @@ export type ProfilePageType = {
 export type PostsPageType = {
     PostsData: Array<PostsDataType>
 }
+export type SiteBarType = {
+    id: number
+    name: string
+}
 
 export type StatePropsType = {
     postsPage: PostsPageType
     profilePage: ProfilePageType
+    siteBar: Array<SiteBarType>
 }
 export let state = <StatePropsType>{
     profilePage: <ProfilePageType>{
@@ -50,7 +55,7 @@ export let state = <StatePropsType>{
             {id: 4, message: 'What did you say?', likeCount: 99},
         ]
     },
-    siteBar: [
+    siteBar: <Array<SiteBarType>>[
         {id: 1, name: 'Tom'},
         {id: 2, name: 'Clark'},
         {id: 3, name: 'Kent'},
