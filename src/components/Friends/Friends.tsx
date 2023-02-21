@@ -1,6 +1,9 @@
 import React from 'react';
-
-const Friends = () => {
+import {SiteBarType} from "../../redux/state";
+export type FriendsType = {
+    siteBar:  SiteBarType
+}
+const Friends = (Props: FriendsType) => {
     return (
         <div>
             Friends page

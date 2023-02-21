@@ -9,7 +9,12 @@ import {state} from "./redux/state";
 
 ReactDOM.render(
     <BrowserRouter>
-        <App DialogsData={state.profilePage.DialogsData} messages={state.profilePage.messages} PostsData={state.postsPage.PostsData}/>
+        <App
+            DialogsData={state.profilePage.DialogsData}
+            messages={state.profilePage.messages}
+            PostsData={state.postsPage.PostsData}
+            siteBar={state.siteBar}
+        />
     </BrowserRouter>
     ,
     document.getElementById('root')
