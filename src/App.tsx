@@ -16,7 +16,7 @@ type AppPropsType = {
     DialogsData: Array<DialogsDataType>
     messages: Array<MessagesType>
     PostsData: Array<PostsDataType>
-    siteBar: SiteBarType
+    siteBar: Array<SiteBarType>
 }
 export const App = (props: AppPropsType) => {
     return (

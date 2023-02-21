@@ -1,13 +1,18 @@
 import React from 'react';
 import {SiteBarType} from "../../redux/state";
+import s from './Friends.module.css'
+
+
 export type FriendsType = {
-    siteBar:  SiteBarType
+    siteBar: Array<SiteBarType>
 }
 const Friends = (Props: FriendsType) => {
     return (
         <div>
-            Friends page
+            <div className={s.Circle}>
+            </div>
         </div>
+
     );
 };
 
