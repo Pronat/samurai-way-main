@@ -28,7 +28,10 @@ export const Dialog = (props: DialogType) => {
 
 export const Message = (props: MessageType) => {
     return (
-        <div className={s.message}>{props.message}</div>
+        <div className={s.message}>
+            <img src={'https://emojio.ru/images/apple-b/12.0/1f7e2.png'}/>
+            <span>{props.message}</span>
+        </div>
     )
 }
 const Dialogs = (props: DialogsPropsType) => {

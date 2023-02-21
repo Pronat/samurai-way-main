@@ -5,6 +5,8 @@
 }
 
 .name {
+    display: flex;
+    align-items: center;
 }
 .name img {
     width: 50px;
@@ -27,5 +29,11 @@
 }
 
 .message {
+    display: flex;
+    align-items: center;
 
+}
+.message img {
+    width: 15px;
+    height: 15px;
 }
