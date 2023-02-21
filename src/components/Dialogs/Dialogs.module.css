@@ -5,7 +5,11 @@
 }
 
 .name {
-
+}
+.name img {
+    width: 50px;
+    margin-top: 10px;
+    margin-right: 7px;
 }
 
 .names {

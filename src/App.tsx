@@ -23,8 +23,6 @@ export const App = (props: AppPropsType) => {
             <NavBar/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    {/*<Route path={'/profile'} component={Profile}/>*/}
-                    {/*<Route path={'/message'} component={Dialogs}/>*/}
                     <Route path={'/profile'} render={()=><Profile PostsData={props.PostsData}/>}/>
                     <Route path={'/message'} render={()=><Dialogs DialogsData={props.DialogsData} messages={props.messages}/>}/>
                     <Route path={'/news'} component={News}/>
