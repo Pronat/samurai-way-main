@@ -23,7 +23,6 @@ export const NavBar = () => {
              <div className={`${s.item} ${s.item2}`}>
                 <NavLink to={'/friends'} activeClassName={s.activeLink}>Friends</NavLink>
             </div>
-
         </div>
     )
 }

@@ -10,6 +10,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {} from "./index";
 import {DialogsDataType, MessagesType, PostsDataType} from "./redux/state";
+import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
     DialogsData: Array<DialogsDataType>
@@ -28,6 +29,7 @@ export const App = (props: AppPropsType) => {
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
+                    <Route path={'/friends'} component={Friends}/>
                     {/*<Route path={'/404'} element={'<h1 style={{}}>Wrong PAGE</h1>'} />*/}
                     {/*<Redirect from={'*'} to={'/404'} />*/}
                 </Switch>
