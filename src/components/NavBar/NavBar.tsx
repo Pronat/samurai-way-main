@@ -31,10 +31,13 @@ export const NavBar = (props: NavBarType) => {
             {
                 props.siteBar.map((el) => {
                     return (
-                        <div key={el.id}>
-                            <div className={s.Circle}></div>
+                        <span  className={s.friend}>
+                        <span key={el.id}>
+
                             {el.name}
-                        </div>
+                        </span>
+                    <div className={s.Circle}></div>
+                        </span>
                         )
                 })
             }

@@ -34,3 +34,11 @@
     color: #f8f8f8;
     font-family: bold;
 }
+
+.friend {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+
+}

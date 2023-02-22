@@ -59,7 +59,6 @@ export let state = <StatePropsType>{
         {id: 1, name: 'Tom'},
         {id: 2, name: 'Clark'},
         {id: 3, name: 'Kent'},
-        {id: 4, name: 'Josef'},
     ],
 
 }
