@@ -2,13 +2,16 @@ import React from "react";
 
 export const ProfileInfo = () => {
     const onClickAddPostHandler = () => {
-        console.log("assddff")
+
+    }
+    const onChangeHandler = () => {
+
     }
     return (
         <div>
             <h2>My Posts</h2>
             <div>
-                <textarea></textarea>
+                <textarea onChange={(e)=>{onChangeHandler(e)}}></textarea>
                 <div>
                     <button onClick={onClickAddPostHandler}>Add post</button>
                 </div>
