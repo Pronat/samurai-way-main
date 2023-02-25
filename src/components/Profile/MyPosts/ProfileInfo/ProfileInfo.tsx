@@ -4,7 +4,7 @@ export const ProfileInfo = () => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        console.log(newPostElement.current?.value)
+        alert(newPostElement.current?.value)
     }
 
     return (
