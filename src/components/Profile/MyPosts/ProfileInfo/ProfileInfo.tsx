@@ -7,7 +7,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        props.addPost(newPostElement.current?.value)
+        props.addPost(newPostElement.current?.value ? newPostElement.current?.value : '---')
     }
 
     return (

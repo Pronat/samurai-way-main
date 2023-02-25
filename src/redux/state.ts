@@ -63,6 +63,7 @@ export let state = <StatePropsType>{
 }
 
 export const addPost = (post: string) => {
-    const newPost =  {id: new Date().getTime(), message: 'Where are you?', likeCount: 0}
+    debugger
+    const newPost =  {id:  state.postsPage.PostsData.length+1, message: post, likeCount: 0}
     state.postsPage.PostsData.push(newPost)
 }
