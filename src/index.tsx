@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {state} from "./redux/state";
+import {addPost, state} from "./redux/state";
 
 
 
@@ -14,6 +14,7 @@ ReactDOM.render(
             messages={state.profilePage.messages}
             PostsData={state.postsPage.PostsData}
             siteBar={state.siteBar}
+            addPost={addPost}
         />
     </BrowserRouter>
     ,
