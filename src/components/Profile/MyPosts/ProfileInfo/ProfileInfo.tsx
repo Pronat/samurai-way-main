@@ -1,10 +1,13 @@
 import React from "react";
 
-export const ProfileInfo = () => {
+export type ProfileInfoType = {
+    addPost: (post: string)=>void
+}
+export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        alert(newPostElement.current?.value)
+        props.addPost(newPostElement.current?.value)
     }
 
     return (

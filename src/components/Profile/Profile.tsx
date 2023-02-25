@@ -14,7 +14,7 @@ export const Profile = (props: ProfileType) => {
             <div>
                 <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
             </div>
-            <MyPosts PostsData={props.PostsData}/>
+            <MyPosts PostsData={props.PostsData} addPost={props.addPost}/>
         </div>
     )
 }

@@ -7,6 +7,7 @@ import {PostsDataType} from "../../../redux/state";
 
 type MyPostsType = {
     PostsData: Array<PostsDataType>
+    addPost: (post: string)=>void
 }
 export const MyPosts = (props: MyPostsType) => {
 
@@ -19,7 +20,7 @@ export const MyPosts = (props: MyPostsType) => {
     return (
         <div className={s.posts}>
 
-            <ProfileInfo/>
+            <ProfileInfo addPost={props.addPost}/>
             {
                 postsElements
             }
