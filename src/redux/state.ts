@@ -63,7 +63,12 @@ export let state = <StatePropsType>{
 }
 
 export const addPost = (post: string) => {
-    debugger
     const newPost =  {id:  state.postsPage.PostsData.length+1, message: post, likeCount: 0}
     state.postsPage.PostsData.push(newPost)
+}
+
+export const addMessage = (message: string) => {
+    const newMessage = {id: state.profilePage.messages.length+1, message: message}
+    state.profilePage.messages.push(newMessage)
+    console.log()
 }
