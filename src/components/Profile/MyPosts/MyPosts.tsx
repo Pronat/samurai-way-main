@@ -10,16 +10,16 @@ type MyPostsType = {
 }
 export const MyPosts = (props: MyPostsType) => {
 
-    let postsElements =  props.PostsData.map((el)=> {
+    let postsElements = props.PostsData.map((el) => {
         return (
             <Post message={el.message} likeCount={el.likeCount}/>
         )
-    } )
+    })
 
     return (
         <div className={s.posts}>
 
-            <ProfileInfo />
+            <ProfileInfo/>
             {
                 postsElements
             }
