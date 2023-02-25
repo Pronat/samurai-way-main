@@ -1,17 +1,17 @@
 import React from "react";
 
 export const ProfileInfo = () => {
+    const newPostElement = React.createRef<HTMLTextAreaElement>();
+
     const onClickAddPostHandler = () => {
-
+            let text = newPostElement.current?.value
     }
-    const onChangeHandler = () => {
 
-    }
     return (
         <div>
             <h2>My Posts</h2>
             <div>
-                <textarea onChange={(e)=>{onChangeHandler(e)}}></textarea>
+                <textarea ref={newPostElement}></textarea>
                 <div>
                     <button onClick={onClickAddPostHandler}>Add post</button>
                 </div>
