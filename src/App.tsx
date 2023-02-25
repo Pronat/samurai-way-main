@@ -8,7 +8,7 @@ import {Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {DialogsDataType, MessagesType, PostsDataType, SiteBarType} from "./redux/state";
+import {addMessage, DialogsDataType, MessagesType, PostsDataType, SiteBarType} from "./redux/state";
 import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
@@ -17,6 +17,8 @@ type AppPropsType = {
     PostsData: Array<PostsDataType>
     siteBar: Array<SiteBarType>
     addPost: (post: string)=>void
+    addMessage: (message: string)=>void
+
 }
 export const App = (props: AppPropsType) => {
     return (
@@ -27,7 +29,7 @@ export const App = (props: AppPropsType) => {
                 <Switch>
                     <Route path={'/profile'} render={() => <Profile PostsData={props.PostsData} addPost={props.addPost}/>}/>
                     <Route path={'/message'}
-                           render={() => <Dialogs DialogsData={props.DialogsData} messages={props.messages}/>}/>
+                           render={() => <Dialogs DialogsData={props.DialogsData} messages={props.messages} addMessage={props.addMessage}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>

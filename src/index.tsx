@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {addPost, state} from "./redux/state";
+import {addMessage, addPost, state} from "./redux/state";
 
 
 
@@ -15,6 +15,7 @@ ReactDOM.render(
             PostsData={state.postsPage.PostsData}
             siteBar={state.siteBar}
             addPost={addPost}
+            addMessage={addMessage}
         />
     </BrowserRouter>
     ,

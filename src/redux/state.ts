@@ -70,5 +70,5 @@ export const addPost = (post: string) => {
 export const addMessage = (message: string) => {
     const newMessage = {id: state.profilePage.messages.length+1, message: message}
     state.profilePage.messages.push(newMessage)
-    console.log()
+    console.log( state.profilePage.messages)
 }
