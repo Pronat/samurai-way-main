@@ -27,6 +27,9 @@ const Dialogs = (props: DialogsPropsType) => {
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
         props.addMessage(newMessageElement.current?.value ? newMessageElement.current?.value : '---')
+        if (newMessageElement.current?.value) {
+            newMessageElement.current.value = ''
+        }
     }
 
     return (

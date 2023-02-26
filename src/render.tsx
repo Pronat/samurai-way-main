@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {addMessage, addPost, state, StatePropsType} from "./redux/state";
+import {addMessage, addPost, StatePropsType} from "./redux/state";
 
 
 export const rerenderEntireTree = (state: StatePropsType) => {

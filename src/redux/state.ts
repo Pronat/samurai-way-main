@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 export type DialogsDataType = {
     id: number
     name: string
@@ -65,10 +67,12 @@ export let state = <StatePropsType>{
 export const addPost = (post: string) => {
     const newPost =  {id:  state.postsPage.PostsData.length+1, message: post, likeCount: 0}
     state.postsPage.PostsData.push(newPost)
+    rerenderEntireTree(state)
 }
 
 export const addMessage = (message: string) => {
     const newMessage = {id: state.profilePage.messages.length+1, message: message}
     state.profilePage.messages.push(newMessage)
     console.log( state.profilePage.messages)
+    rerenderEntireTree(state)
 }
