@@ -8,14 +8,11 @@ import {Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {addMessage, DialogsDataType, MessagesType, PostsDataType, SiteBarType} from "./redux/state";
+import {addMessage, DialogsDataType, MessagesType, PostsDataType, SiteBarType, StatePropsType} from "./redux/state";
 import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
-    DialogsData: Array<DialogsDataType>
-    messages: Array<MessagesType>
-    PostsData: Array<PostsDataType>
-    siteBar: Array<SiteBarType>
+    state: StatePropsType
     addPost: (post: string)=>void
     addMessage: (message: string)=>void
 
@@ -24,17 +21,17 @@ export const App = (props: AppPropsType) => {
     return (
         <div className={s.AppWrapper}>
             <Header/>
-            <NavBar siteBar={props.siteBar}/>
+            <NavBar siteBar={props.state.siteBar}/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    <Route path={'/profile'} render={() => <Profile PostsData={props.PostsData} addPost={props.addPost}/>}/>
+                    <Route path={'/profile'} render={() => <Profile PostsData={props.state.postsPage.PostsData} addPost={props.addPost}/>}/>
                     <Route path={'/message'}
-                           render={() => <Dialogs DialogsData={props.DialogsData} messages={props.messages} addMessage={props.addMessage}/>}/>
+                           render={() => <Dialogs DialogsData={props.state.profilePage.DialogsData} messages={props.state.profilePage.messages} addMessage={props.addMessage}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
                     <Route path={'/friends'} component={Friends}/>
-                    <Friends siteBar={props.siteBar}/>
+                    <Friends siteBar={props.state.siteBar}/>
                 </Switch>
             </div>
         </div>

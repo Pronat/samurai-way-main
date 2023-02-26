@@ -10,10 +10,7 @@ import {addMessage, addPost, state} from "./redux/state";
 ReactDOM.render(
     <BrowserRouter>
         <App
-            DialogsData={state.profilePage.DialogsData}
-            messages={state.profilePage.messages}
-            PostsData={state.postsPage.PostsData}
-            siteBar={state.siteBar}
+            state={state}
             addPost={addPost}
             addMessage={addMessage}
         />
