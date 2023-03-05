@@ -11,9 +11,9 @@ export const ProfileInfo = (props: ProfileInfoType) => {
     const onClickAddPostHandler = () => {
         // const text = newPostElement.current?.value ? newPostElement.current?.value : '---'
         props.addPost()
-        if (newPostElement.current?.value) {
-            newPostElement.current.value = ""
-        }
+        // if (newPostElement.current?.value) {
+        //     newPostElement.current.value = ""
+        // }
 
     }
     const onPostChange = () => {
