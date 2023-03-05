@@ -19,6 +19,7 @@ export type ProfilePageType = {
 }
 export type PostsPageType = {
     PostsData: Array<PostsDataType>
+    newPostText: string
 }
 export type SiteBarType = {
     id: number
@@ -55,7 +56,8 @@ export let state = <StatePropsType>{
             {id: 2, message: 'Where are you?', likeCount: 56},
             {id: 3, message: 'I need new phone', likeCount: 2},
             {id: 4, message: 'What did you say?', likeCount: 99},
-        ]
+        ],
+        newPostText: "it-kamasutra.com"
     },
     siteBar: <Array<SiteBarType>>[
         {id: 1, name: 'Tom'},

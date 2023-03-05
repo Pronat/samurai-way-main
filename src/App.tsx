@@ -24,7 +24,10 @@ export const App = (props: AppPropsType) => {
             <NavBar siteBar={props.state.siteBar}/>
             <div className={s.AppWrapperContent}>
                 <Switch>
-                    <Route path={'/profile'} render={() => <Profile PostsData={props.state.postsPage.PostsData} addPost={props.addPost}/>}/>
+                    <Route path={'/profile'} render={
+                        () => <Profile PostsData={props.state.postsPage.PostsData}
+                                       newPostText={props.state.postsPage.newPostText}
+                                       addPost={props.addPost}/>}/>
                     <Route path={'/message'}
                            render={() => <Dialogs DialogsData={props.state.profilePage.DialogsData} messages={props.state.profilePage.messages} addMessage={props.addMessage}/>}/>
                     <Route path={'/news'} component={News}/>

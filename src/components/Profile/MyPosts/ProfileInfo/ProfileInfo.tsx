@@ -2,6 +2,7 @@ import React, {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
 
 export type ProfileInfoType = {
     addPost: (post: string)=>void
+    newPostText: string
 }
 export const ProfileInfo = (props: ProfileInfoType) => {
 
@@ -23,7 +24,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
             <h2>My Posts</h2>
 
             <div>
-                <textarea onChange={onChangeNewPostValue} value={1} ref={newPostElement}></textarea>
+                <textarea onChange={onChangeNewPostValue} value={props.NewPostValue} ref={newPostElement}></textarea>
                 <div>
                     <button onClick={onClickAddPostHandler}>Add post</button>
                 </div>
