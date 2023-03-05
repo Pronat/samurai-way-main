@@ -1,4 +1,4 @@
-import React from "react";
+import React, {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
 
 export type ProfileInfoType = {
     addPost: (post: string)=>void
@@ -14,13 +14,16 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         }
 
     }
+    const onChangeNewPostValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            e.currentTarget.value
+    }
 
     return (
         <div>
             <h2>My Posts</h2>
 
             <div>
-                <textarea ref={newPostElement}></textarea>
+                <textarea onChange={onChangeNewPostValue} value={1} ref={newPostElement}></textarea>
                 <div>
                     <button onClick={onClickAddPostHandler}>Add post</button>
                 </div>
