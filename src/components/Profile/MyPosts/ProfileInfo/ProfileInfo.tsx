@@ -18,6 +18,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
     return (
         <div>
             <h2>My Posts</h2>
+
             <div>
                 <textarea ref={newPostElement}></textarea>
                 <div>
