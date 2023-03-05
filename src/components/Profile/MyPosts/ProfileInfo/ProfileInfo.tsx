@@ -17,7 +17,10 @@ export const ProfileInfo = (props: ProfileInfoType) => {
 
     }
     const onPostChange = () => {
-        props.updateNewPostText(newPostElement.current?.value)
+        const text = newPostElement.current?.value
+        if (text) {
+            props.updateNewPostText(text)
+        }
     }
 
     return (
