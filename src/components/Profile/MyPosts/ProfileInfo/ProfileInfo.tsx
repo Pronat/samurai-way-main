@@ -15,8 +15,8 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         }
 
     }
-    const onChangeNewPostValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-            e.currentTarget.value
+    const onPostChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            // e.currentTarget.value
     }
 
     return (
@@ -24,7 +24,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
             <h2>My Posts</h2>
 
             <div>
-                <textarea onChange={onChangeNewPostValue} value={props.NewPostValue} ref={newPostElement}></textarea>
+                <textarea onChange={onPostChange} value={props.newPostText} ref={newPostElement}></textarea>
                 <div>
                     <button onClick={onClickAddPostHandler}>Add post</button>
                 </div>
