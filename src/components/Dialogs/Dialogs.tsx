@@ -8,7 +8,8 @@ type DialogsPropsType = {
     DialogsData: Array<DialogsDataType>
     messages: Array<MessagesType>
     newMessageText: string
-    addMessage: (message: string)=>void
+    addMessage: ()=>void
+    updateNewMessageText: (newMessage: string)=> void
 }
 
 type DialogType = {
@@ -27,9 +28,16 @@ const Dialogs = (props: DialogsPropsType) => {
     let MessagesElemets = props.messages.map((el) => <Message message={el.message} addMessage={props.addMessage}/>)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
-        props.addMessage(newMessageElement.current?.value ? newMessageElement.current?.value : '---')
-        if (newMessageElement.current?.value) {
-            newMessageElement.current.value = ''
+        props.addMessage()
+        // props.addMessage(newMessageElement.current?.value ? newMessageElement.current?.value : '---')
+        // if (newMessageElement.current?.value) {
+        //     newMessageElement.current.value = ''
+        // }
+    }
+    const onChangeNewMessageText = () => {
+        const messageText = newMessageElement.current?.value
+        if (messageText) {
+            props.updateNewMessageText(messageText)
         }
     }
 
@@ -46,7 +54,7 @@ const Dialogs = (props: DialogsPropsType) => {
                     MessagesElemets
                 }
             </div>
-                <textarea ref={newMessageElement}></textarea>
+                <textarea onChange={onChangeNewMessageText} value={props.newMessageText} ref={newMessageElement}></textarea>
                 <div>
                     <button onClick={onClickAddMessageHandler}>Add message</button>
                 </div>

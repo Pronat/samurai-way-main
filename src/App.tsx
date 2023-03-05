@@ -15,7 +15,8 @@ type AppPropsType = {
     state: StatePropsType
     addPost: ()=>void
     updateNewPostText: (newText: string)=>void
-    addMessage: (message: string)=>void
+    addMessage: ()=>void
+    updateNewMessageText: (newMessage: string)=> void
 
 }
 export const App = (props: AppPropsType) => {
@@ -37,6 +38,7 @@ export const App = (props: AppPropsType) => {
                                messages={props.state.profilePage.messages}
                                newMessageText={props.state.profilePage.newMessageText}
                                addMessage={props.addMessage}
+                               updateNewMessageText={props.updateNewMessageText}
                            />}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>

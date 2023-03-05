@@ -59,7 +59,7 @@ export let state = <StatePropsType>{
             {id: 3, message: 'I need new phone', likeCount: 2},
             {id: 4, message: 'What did you say?', likeCount: 99},
         ],
-        newPostText: "it-kamasutra.com"
+        newPostText: 'Enter your post'
     },
     siteBar: <Array<SiteBarType>>[
         {id: 1, name: 'Tom'},
@@ -80,9 +80,13 @@ export const updateNewPostText = (newText: string) => {
     rerenderEntireTree(state)
 }
 
-export const addMessage = (message: string) => {
-    const newMessage = {id: state.profilePage.messages.length+1, message: message}
+export const addMessage = () => {
+    const newMessage = {id: state.profilePage.messages.length+1, message: state.profilePage.newMessageText}
     state.profilePage.messages.push(newMessage)
-    console.log( state.profilePage.messages)
+    state.profilePage.newMessageText = ''
+    rerenderEntireTree(state)
+}
+export const updateNewMessageText = (newMessage: string) => {
+    state.profilePage.newMessageText = newMessage
     rerenderEntireTree(state)
 }
