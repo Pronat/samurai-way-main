@@ -8,7 +8,7 @@ import {PostsDataType} from "../../../redux/state";
 type MyPostsType = {
     PostsData: Array<PostsDataType>
     newPostText: string
-    addPost: (post: string)=>void
+    addPost: ()=>void
     updateNewPostText: (newText: string)=>void
 }
 export const MyPosts = (props: MyPostsType) => {

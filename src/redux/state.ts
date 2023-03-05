@@ -66,9 +66,10 @@ export let state = <StatePropsType>{
     ]
 }
 
-export const addPost = (post: string) => {
-    const newPost =  {id:  state.postsPage.PostsData.length+1, message: post, likeCount: 0}
+export const addPost = () => {
+    const newPost =  {id:  state.postsPage.PostsData.length+1, message: state.postsPage.newPostText, likeCount: 0}
     state.postsPage.PostsData.push(newPost)
+    updateNewPostText('')
     rerenderEntireTree(state)
 }
 export const updateNewPostText = (newText: string) => {

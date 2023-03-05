@@ -1,7 +1,7 @@
 import React, {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
 
 export type ProfileInfoType = {
-    addPost: (post: string)=>void
+    addPost: ()=>void
     newPostText: string
     updateNewPostText: (newText: string)=>void
 }
@@ -9,8 +9,8 @@ export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        const text = newPostElement.current?.value ? newPostElement.current?.value : '---'
-        props.addPost(text)
+        // const text = newPostElement.current?.value ? newPostElement.current?.value : '---'
+        props.addPost()
         if (newPostElement.current?.value) {
             newPostElement.current.value = ""
         }

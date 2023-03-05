@@ -21,7 +21,7 @@ import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
     state: StatePropsType
-    addPost: (post: string)=>void
+    addPost: ()=>void
     updateNewPostText: (newText: string)=>void
     addMessage: (message: string)=>void
 
