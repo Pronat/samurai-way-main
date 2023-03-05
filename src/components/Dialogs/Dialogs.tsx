@@ -7,6 +7,7 @@ import {DialogsDataType, MessagesType} from "../../redux/state";
 type DialogsPropsType = {
     DialogsData: Array<DialogsDataType>
     messages: Array<MessagesType>
+    newMessageText: string
     addMessage: (message: string)=>void
 }
 
