@@ -8,12 +8,21 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {addMessage, DialogsDataType, MessagesType, PostsDataType, SiteBarType, StatePropsType} from "./redux/state";
+import {
+    addMessage,
+    DialogsDataType,
+    MessagesType,
+    PostsDataType,
+    SiteBarType,
+    StatePropsType,
+    updateNewPostText
+} from "./redux/state";
 import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
     state: StatePropsType
     addPost: (post: string)=>void
+    updateNewPostText: (newText: string)=>void
     addMessage: (message: string)=>void
 
 }
@@ -27,7 +36,9 @@ export const App = (props: AppPropsType) => {
                     <Route path={'/profile'} render={
                         () => <Profile PostsData={props.state.postsPage.PostsData}
                                        newPostText={props.state.postsPage.newPostText}
-                                       addPost={props.addPost}/>}/>
+                                       addPost={props.addPost}
+                                       updateNewPostText={props.updateNewPostText}
+                        />}/>
                     <Route path={'/message'}
                            render={() => <Dialogs DialogsData={props.state.profilePage.DialogsData} messages={props.state.profilePage.messages} addMessage={props.addMessage}/>}/>
                     <Route path={'/news'} component={News}/>

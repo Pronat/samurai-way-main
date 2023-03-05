@@ -7,6 +7,7 @@ type ProfileType = {
     PostsData: Array<PostsDataType>
     newPostText: string
     addPost: (post: string)=>void
+    updateNewPostText: (newText: string)=>void
 }
 
 export const Profile = (props: ProfileType) => {
@@ -15,7 +16,12 @@ export const Profile = (props: ProfileType) => {
             <div>
                 <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
             </div>
-            <MyPosts PostsData={props.PostsData} newPostText={props.newPostText} addPost={props.addPost}/>
+            <MyPosts
+                PostsData={props.PostsData}
+                newPostText={props.newPostText}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
+            />
         </div>
     )
 }

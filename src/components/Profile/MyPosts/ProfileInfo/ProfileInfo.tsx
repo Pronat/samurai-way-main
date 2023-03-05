@@ -3,6 +3,7 @@ import React, {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
 export type ProfileInfoType = {
     addPost: (post: string)=>void
     newPostText: string
+    updateNewPostText: (newText: string)=>void
 }
 export const ProfileInfo = (props: ProfileInfoType) => {
 
@@ -15,8 +16,8 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         }
 
     }
-    const onPostChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-            // e.currentTarget.value
+    const onPostChange = () => {
+        props.updateNewPostText(newPostElement.current?.value)
     }
 
     return (

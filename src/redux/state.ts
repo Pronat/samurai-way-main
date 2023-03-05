@@ -71,6 +71,10 @@ export const addPost = (post: string) => {
     state.postsPage.PostsData.push(newPost)
     rerenderEntireTree(state)
 }
+export const updateNewPostText = (newText: string) => {
+    state.postsPage.newPostText = newText
+    rerenderEntireTree(state)
+}
 
 export const addMessage = (message: string) => {
     const newMessage = {id: state.profilePage.messages.length+1, message: message}
