@@ -34,6 +34,8 @@ export type StatePropsType = {
     siteBar: Array<SiteBarType>
 }
 
+export type StoreRootStateType = typeof store
+
 export const store = {
     state: <StatePropsType>{
         profilePage: <ProfilePageType>{
