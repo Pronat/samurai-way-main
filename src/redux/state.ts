@@ -1,4 +1,4 @@
-let rerenderEntireTree = (state: (state: StatePropsType) => void) => {
+let rerenderEntireTree = (state: StatePropsType) => {
     console.log('State changed')
 }
 
@@ -93,6 +93,9 @@ export const updateNewMessageText = (newMessage: string) => {
     rerenderEntireTree(state)
 }
 
-export const subscribe = (observer: (state: StatePropsType) => void) => {
-
+type SubscribeType = {
+    observer: (state: StatePropsType) => void
+}
+export const subscribe = (props: SubscribeType) => {
+    rerenderEntireTree = observer()
 }
