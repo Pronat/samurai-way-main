@@ -93,9 +93,6 @@ export const updateNewMessageText = (newMessage: string) => {
     rerenderEntireTree(state)
 }
 
-type SubscribeType = {
-    observer: (state: StatePropsType) => void
-}
-export const subscribe = (props: SubscribeType) => {
-    rerenderEntireTree = observer()
+export const subscribe = (observer: (state: StatePropsType) => void) => {
+    rerenderEntireTree = observer
 }
