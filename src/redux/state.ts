@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = (state: (state: StatePropsType) => void) => {
+    console.log('State changed')
+}
 
 export type DialogsDataType = {
     id: number
@@ -89,4 +91,8 @@ export const addMessage = () => {
 export const updateNewMessageText = (newMessage: string) => {
     state.profilePage.newMessageText = newMessage
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: (state: StatePropsType) => void) => {
+
 }
