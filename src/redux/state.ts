@@ -29,6 +29,12 @@ export type SiteBarType = {
     name: string
 }
 
+export const store = {
+
+}
+
+
+
 export type StatePropsType = {
     postsPage: PostsPageType
     profilePage: ProfilePageType
