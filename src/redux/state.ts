@@ -72,26 +72,26 @@ export const store = {
     },
 
      addPost() {
-        const newPost =  {id:  state.postsPage.PostsData.length+1, message: state.postsPage.newPostText, likeCount: 0}
-        state.postsPage.PostsData.push(newPost)
+        const newPost =  {id:  store.state.postsPage.PostsData.length+1, message: store.state.postsPage.newPostText, likeCount: 0}
+         store.state.postsPage.PostsData.push(newPost)
         // updateNewPostText('')
-        state.postsPage.newPostText = ''
-        rerenderEntireTree(state)
+         store.state.postsPage.newPostText = ''
+        rerenderEntireTree(store.state)
     },
      updateNewPostText(newText: string) {
-        state.postsPage.newPostText = newText
-        rerenderEntireTree(state)
+         store.state.postsPage.newPostText = newText
+        rerenderEntireTree(store.state)
     },
 
      addMessage() {
-        const newMessage = {id: state.profilePage.messages.length+1, message: state.profilePage.newMessageText}
-        state.profilePage.messages.push(newMessage)
-        state.profilePage.newMessageText = ''
-        rerenderEntireTree(state)
+        const newMessage = {id: store.state.profilePage.messages.length+1, message: store.state.profilePage.newMessageText}
+         store.state.profilePage.messages.push(newMessage)
+         store.state.profilePage.newMessageText = ''
+        rerenderEntireTree(store.state)
     },
      updateNewMessageText(newMessage: string) {
-        state.profilePage.newMessageText = newMessage
-        rerenderEntireTree(state)
+         store.state.profilePage.newMessageText = newMessage
+        rerenderEntireTree(store.state)
     },
 
     subscribe(observer: (state: StatePropsType) => void) {
