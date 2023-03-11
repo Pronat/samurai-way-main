@@ -1,6 +1,3 @@
-// let rerenderEntireTree = (state: StatePropsType) => {
-//     console.log('State changed')
-// }
 
 export type DialogsDataType = {
     id: number
@@ -88,23 +85,21 @@ export const store: StoreRootStateType = {
         console.log('State changed')
     },
      addPost() {
-        const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store._state.postsPage.newPostText, likeCount: 0}
-         store._state.postsPage.PostsData.push(newPost)
-        // updateNewPostText('')
-         store._state.postsPage.newPostText = ''
-        // rerenderEntireTree(store._state)
-         store.callSubscriber(store._state)
+        const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: this._state.postsPage.newPostText, likeCount: 0}
+         this._state.postsPage.PostsData.push(newPost)
+         this._state.postsPage.newPostText = ''
+         store.callSubscriber(this._state)
     },
      updateNewPostText(newText: string) {
-         store._state.postsPage.newPostText = newText
+         this._state.postsPage.newPostText = newText
          store.callSubscriber(store._state)
     },
 
      addMessage() {
         const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
-         store._state.profilePage.messages.push(newMessage)
-         store._state.profilePage.newMessageText = ''
-         store.callSubscriber(store._state)
+         this._state.profilePage.messages.push(newMessage)
+         this._state.profilePage.newMessageText = ''
+         store.callSubscriber(this._state)
     },
      updateNewMessageText(newMessage: string) {
          store._state.profilePage.newMessageText = newMessage
