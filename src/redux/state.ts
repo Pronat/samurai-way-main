@@ -37,11 +37,12 @@ export type StatePropsType = {
 export type StoreRootStateType = {
     _state: StatePropsType
     getState: () => StatePropsType
-    rerenderEntireTree: (state: StatePropsType)=>void
+    callSubscriber: (state: StatePropsType)=>void
     addPost: ()=>void
     updateNewPostText: (newText: string)=>void
     addMessage: ()=>void
     updateNewMessageText: (newMessage: string)=>void
+    subscribe: (observer: (state: StatePropsType) => void) => void
 }
 
 export const store: StoreRootStateType = {
@@ -83,7 +84,7 @@ export const store: StoreRootStateType = {
     getState () {
         return this._state
     },
-    rerenderEntireTree (state: StatePropsType) {
+    callSubscriber (state: StatePropsType) {
         console.log('State changed')
     },
      addPost() {
@@ -92,26 +93,26 @@ export const store: StoreRootStateType = {
         // updateNewPostText('')
          store._state.postsPage.newPostText = ''
         // rerenderEntireTree(store._state)
-         store._state.rerenderEntireTree(store._state)
+         store.callSubscriber(store._state)
     },
      updateNewPostText(newText: string) {
          store._state.postsPage.newPostText = newText
-        rerenderEntireTree(store._state)
+         store.callSubscriber(store._state)
     },
 
      addMessage() {
         const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
          store._state.profilePage.messages.push(newMessage)
          store._state.profilePage.newMessageText = ''
-        rerenderEntireTree(store._state)
+         store.callSubscriber(store._state)
     },
      updateNewMessageText(newMessage: string) {
          store._state.profilePage.newMessageText = newMessage
-        rerenderEntireTree(store._state)
+         store.callSubscriber(store._state)
     },
 
     subscribe(observer: (state: StatePropsType) => void) {
-        rerenderEntireTree = observer
+        store.callSubscriber = observer
     }
 }
 
