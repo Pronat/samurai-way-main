@@ -14,6 +14,7 @@ export const rerenderEntireTree = (state: StatePropsType) => {
     ReactDOM.render(
         <BrowserRouter>
             <App
+                store={store}
                 state={store.getState()}
                 addPost={store.addPost}
                 updateNewPostText={store.updateNewPostText}
@@ -27,6 +28,6 @@ export const rerenderEntireTree = (state: StatePropsType) => {
 }
 
 
-rerenderEntireTree(state)
+rerenderEntireTree(store.getState())
 
 store.subscribe(rerenderEntireTree)
