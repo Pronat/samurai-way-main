@@ -37,7 +37,7 @@ export type StatePropsType = {
 export type StoreRootStateType = typeof store
 
 export const store = {
-    state: <StatePropsType>{
+    _state: <StatePropsType>{
         profilePage: <ProfilePageType>{
             DialogsData: <Array<DialogsDataType>>[
                 {id: 1, name: 'Alex'},
@@ -74,26 +74,26 @@ export const store = {
     },
 
      addPost() {
-        const newPost =  {id:  store.state.postsPage.PostsData.length+1, message: store.state.postsPage.newPostText, likeCount: 0}
-         store.state.postsPage.PostsData.push(newPost)
+        const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store.state.postsPage.newPostText, likeCount: 0}
+         store._state.postsPage.PostsData.push(newPost)
         // updateNewPostText('')
-         store.state.postsPage.newPostText = ''
-        rerenderEntireTree(store.state)
+         store._state.postsPage.newPostText = ''
+        rerenderEntireTree(store._state)
     },
      updateNewPostText(newText: string) {
-         store.state.postsPage.newPostText = newText
-        rerenderEntireTree(store.state)
+         store._state.postsPage.newPostText = newText
+        rerenderEntireTree(store._state)
     },
 
      addMessage() {
-        const newMessage = {id: store.state.profilePage.messages.length+1, message: store.state.profilePage.newMessageText}
-         store.state.profilePage.messages.push(newMessage)
-         store.state.profilePage.newMessageText = ''
-        rerenderEntireTree(store.state)
+        const newMessage = {id: store._state.profilePage.messages.length+1, message: store.state.profilePage.newMessageText}
+         store._state.profilePage.messages.push(newMessage)
+         store._state.profilePage.newMessageText = ''
+        rerenderEntireTree(store._state)
     },
      updateNewMessageText(newMessage: string) {
-         store.state.profilePage.newMessageText = newMessage
-        rerenderEntireTree(store.state)
+         store._state.profilePage.newMessageText = newMessage
+        rerenderEntireTree(store._state)
     },
 
     subscribe(observer: (state: StatePropsType) => void) {
