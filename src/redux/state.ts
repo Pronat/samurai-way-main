@@ -72,7 +72,9 @@ export const store = {
             {id: 3, name: 'Kent'},
         ]
     },
-
+    getState () {
+        return this._state
+    },
      addPost() {
         const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store.state.postsPage.newPostText, likeCount: 0}
          store._state.postsPage.PostsData.push(newPost)
@@ -86,7 +88,7 @@ export const store = {
     },
 
      addMessage() {
-        const newMessage = {id: store._state.profilePage.messages.length+1, message: store.state.profilePage.newMessageText}
+        const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
          store._state.profilePage.messages.push(newMessage)
          store._state.profilePage.newMessageText = ''
         rerenderEntireTree(store._state)
@@ -100,7 +102,8 @@ export const store = {
         rerenderEntireTree = observer
     }
 }
-
+// @ts-ignore
+window.store=store
 
 
 

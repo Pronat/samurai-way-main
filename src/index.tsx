@@ -4,27 +4,21 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import {
-    addMessage,
-    addPost,
     StatePropsType,
     store,
-    subscribe,
-    updateNewMessageText,
-    updateNewPostText
 } from "./redux/state";
-import {state} from "./redux/state";
+
 
 
 export const rerenderEntireTree = (state: StatePropsType) => {
     ReactDOM.render(
         <BrowserRouter>
             <App
-                store={store}
-                state={state}
-                addPost={addPost}
-                updateNewPostText={updateNewPostText}
-                addMessage={addMessage}
-                updateNewMessageText={updateNewMessageText}
+                state={store.getState()}
+                addPost={store.addPost}
+                updateNewPostText={store.updateNewPostText}
+                addMessage={store.addMessage}
+                updateNewMessageText={store.updateNewMessageText}
             />
         </BrowserRouter>
         ,
@@ -35,4 +29,4 @@ export const rerenderEntireTree = (state: StatePropsType) => {
 
 rerenderEntireTree(state)
 
-subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree)
