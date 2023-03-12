@@ -21,16 +21,15 @@ type MessageType = {
     message: string
     // addMessage: (message: string)=>void
     dispatch: (action: ActionsType) => void
+
+
 }
-
-
 const Dialogs = (props: DialogsPropsType) => {
-
     let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
     let MessagesElemets = props.messages.map((el) => <Message
         message={el.message}
         // addMessage={props.addMessage}
-        addMessage={props.dispatch({type: 'ADD-MESSAGE'})}
+        dispatch={props.dispatch}
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
@@ -40,8 +39,8 @@ const Dialogs = (props: DialogsPropsType) => {
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
-            props.updateNewMessageText(messageText)
-            props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessage})
+            // props.updateNewMessageText(messageText)
+            props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: messageText})
         }
     }
 

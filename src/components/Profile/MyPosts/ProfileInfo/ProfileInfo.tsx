@@ -19,7 +19,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         const text = newPostElement.current?.value
         if (text) {
             // props.updateNewPostText(text)
-             props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText})
+             props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: text})
         }
     }
 
