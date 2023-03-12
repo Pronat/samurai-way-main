@@ -16,7 +16,7 @@ export const rerenderEntireTree = (state: StatePropsType) => {
             <App
                 store={store}
                 state={store.getState()}
-                dispatch={store.dispatch}
+                dispatch={store.dispatch.bind(store)}
                 // addPost={store.addPost}
                 // updateNewPostText={store.updateNewPostText}
                 // addMessage={store.addMessage}

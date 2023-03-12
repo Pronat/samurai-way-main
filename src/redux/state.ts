@@ -35,10 +35,10 @@ export type StoreRootStateType = {
     _state: StatePropsType
     getState: () => StatePropsType
     callSubscriber: (state: StatePropsType)=>void
-    addPost: ()=>void
-    updateNewPostText: (newText: string)=>void
-    addMessage: ()=>void
-    updateNewMessageText: (newMessage: string)=>void
+    // addPost: ()=>void
+    // updateNewPostText: (newText: string)=>void
+    // addMessage: ()=>void
+    // updateNewMessageText: (newMessage: string)=>void
     subscribe: (observer: (state: StatePropsType) => void) => void
     dispatch: (action: ActionsType) => void
 }
@@ -90,49 +90,49 @@ export const store: StoreRootStateType = {
         return this._state
     },
     subscribe(observer: (state: StatePropsType) => void) {
-        store.callSubscriber = observer
+        this.callSubscriber = observer
     },
-     addPost() {
-        const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store._state.postsPage.newPostText, likeCount: 0}
-         store._state.postsPage.PostsData.push(newPost)
-         store._state.postsPage.newPostText = ''
-         store.callSubscriber(store._state)
-    },
-     updateNewPostText(newText: string) {
-         store._state.postsPage.newPostText = newText
-         store.callSubscriber(store._state)
-    },
-
-     addMessage() {
-        const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
-         store._state.profilePage.messages.push(newMessage)
-         store._state.profilePage.newMessageText = ''
-         store.callSubscriber(store._state)
-    },
-     updateNewMessageText(newMessage: string) {
-         store._state.profilePage.newMessageText = newMessage
-         store.callSubscriber(store._state)
-    },
+    //  addPost() {
+    //     const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store._state.postsPage.newPostText, likeCount: 0}
+    //      store._state.postsPage.PostsData.push(newPost)
+    //      store._state.postsPage.newPostText = ''
+    //      store.callSubscriber(store._state)
+    // },
+    //  updateNewPostText(newText: string) {
+    //      store._state.postsPage.newPostText = newText
+    //      store.callSubscriber(store._state)
+    // },
+    //
+    //  addMessage() {
+    //     const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
+    //      store._state.profilePage.messages.push(newMessage)
+    //      store._state.profilePage.newMessageText = ''
+    //      store.callSubscriber(store._state)
+    // },
+    //  updateNewMessageText(newMessage: string) {
+    //      store._state.profilePage.newMessageText = newMessage
+    //      store.callSubscriber(store._state)
+    // },
     dispatch(action: ActionsType) {
         if (action.type === 'ADD-POST') {
-            const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store._state.postsPage.newPostText, likeCount: 0}
-            store._state.postsPage.PostsData.push(newPost)
-            store._state.postsPage.newPostText = ''
-            store.callSubscriber(store._state)
+            const newPost =  {id:  this._state.postsPage.PostsData.length+1, message: this._state.postsPage.newPostText, likeCount: 0}
+            this._state.postsPage.PostsData.push(newPost)
+            this._state.postsPage.newPostText = ''
+            this.callSubscriber(this._state)
         }
         else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            store._state.postsPage.newPostText = action.newText
-            store.callSubscriber(store._state)
+            this._state.postsPage.newPostText = action.newText
+            this.callSubscriber(this._state)
         }
         else if (action.type ==='ADD-MESSAGE') {
-            const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
-            store._state.profilePage.messages.push(newMessage)
-            store._state.profilePage.newMessageText = ''
-            store.callSubscriber(store._state)
+            const newMessage = {id: this._state.profilePage.messages.length+1, message: this._state.profilePage.newMessageText}
+            this._state.profilePage.messages.push(newMessage)
+            this._state.profilePage.newMessageText = ''
+            this.callSubscriber(this._state)
         }
         else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            store._state.profilePage.newMessageText = action.newMessage
-            store.callSubscriber(store._state)
+            this._state.profilePage.newMessageText = action.newMessage
+            this.callSubscriber(this._state)
         }
     }
 
