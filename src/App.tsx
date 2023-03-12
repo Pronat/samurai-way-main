@@ -8,16 +8,17 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {StatePropsType, StoreRootStateType} from "./redux/state";
+import {ActionsType, StatePropsType, StoreRootStateType} from "./redux/state";
 import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
     store: StoreRootStateType
     state: StatePropsType
-    addPost: ()=>void
-    updateNewPostText: (newText: string)=>void
-    addMessage: ()=>void
-    updateNewMessageText: (newMessage: string)=> void
+    // addPost: ()=>void
+    // updateNewPostText: (newText: string)=>void
+    // addMessage: ()=>void
+    // updateNewMessageText: (newMessage: string)=> void
+    dispatch: (action: ActionsType) => void
 
 }
 export const App = (props: AppPropsType) => {
@@ -28,10 +29,12 @@ export const App = (props: AppPropsType) => {
             <div className={s.AppWrapperContent}>
                 <Switch>
                     <Route path={'/profile'} render={
-                        () => <Profile PostsData={props.state.postsPage.PostsData}
-                                       newPostText={props.state.postsPage.newPostText}
-                                       addPost={props.addPost}
-                                       updateNewPostText={props.updateNewPostText}
+                        () => <Profile
+                            PostsData={props.state.postsPage.PostsData}
+                            newPostText={props.state.postsPage.newPostText}
+                            // addPost={props.addPost}
+                            // updateNewPostText={props.updateNewPostText}
+                            dispatch={props.dispatch}
                         />}/>
                     <Route path={'/message'}
                            render={() => <Dialogs

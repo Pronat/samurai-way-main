@@ -16,10 +16,11 @@ export const rerenderEntireTree = (state: StatePropsType) => {
             <App
                 store={store}
                 state={store.getState()}
-                addPost={store.addPost}
-                updateNewPostText={store.updateNewPostText}
-                addMessage={store.addMessage}
-                updateNewMessageText={store.updateNewMessageText}
+                dispatch={store.dispatch}
+                // addPost={store.addPost}
+                // updateNewPostText={store.updateNewPostText}
+                // addMessage={store.addMessage}
+                // updateNewMessageText={store.updateNewMessageText}
             />
         </BrowserRouter>
         ,

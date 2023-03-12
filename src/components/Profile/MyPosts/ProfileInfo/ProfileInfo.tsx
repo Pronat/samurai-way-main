@@ -1,25 +1,25 @@
 import React, {DetailedHTMLProps, TextareaHTMLAttributes} from "react";
+import {ActionsType} from "../../../../redux/state";
 
 export type ProfileInfoType = {
-    addPost: ()=>void
+    // addPost: ()=>void
     newPostText: string
-    updateNewPostText: (newText: string)=>void
+    // updateNewPostText: (newText: string)=>void
+    dispatch: (action: ActionsType) => void
 }
 export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        // const text = newPostElement.current?.value ? newPostElement.current?.value : '---'
-        props.addPost()
-        // if (newPostElement.current?.value) {
-        //     newPostElement.current.value = ""
-        // }
+        // props.addPost()
+        props.dispatch('type: ADD-POST')
 
     }
     const onPostChange = () => {
         const text = newPostElement.current?.value
         if (text) {
-            props.updateNewPostText(text)
+            // props.updateNewPostText(text)
+             props.dispatch('UPDATE-NEW-POST-TEXT')
         }
     }
 

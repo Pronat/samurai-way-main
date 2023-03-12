@@ -40,8 +40,13 @@ export type StoreRootStateType = {
     addMessage: ()=>void
     updateNewMessageText: (newMessage: string)=>void
     subscribe: (observer: (state: StatePropsType) => void) => void
+    dispatch: (action: ActionsType) => void
 }
-
+export type ActionsType = ActionAddPostType | ActionUpdNewPostType | ActionAddMessageType | ActionUpdNewMessType
+type ActionAddPostType = {type: 'ADD-POST'}
+type ActionUpdNewPostType = {type: 'UPDATE-NEW-POST-TEXT', newText: string}
+type ActionAddMessageType = {type: 'ADD-MESSAGE'}
+type ActionUpdNewMessType = {type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: string}
 export const store: StoreRootStateType = {
     _state: <StatePropsType>{
         profilePage: <ProfilePageType>{
@@ -108,25 +113,25 @@ export const store: StoreRootStateType = {
          store._state.profilePage.newMessageText = newMessage
          store.callSubscriber(store._state)
     },
-    dispatch(action) {
-        if (action.type = 'ADD-POST') {
+    dispatch(action: ActionsType) {
+        if (action.type === 'ADD-POST') {
             const newPost =  {id:  store._state.postsPage.PostsData.length+1, message: store._state.postsPage.newPostText, likeCount: 0}
             store._state.postsPage.PostsData.push(newPost)
             store._state.postsPage.newPostText = ''
             store.callSubscriber(store._state)
         }
-        else if (action.type = 'UPDATE-NEW-POST-TEXT') {
-            store._state.postsPage.newPostText = newText
+        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            store._state.postsPage.newPostText = action.newText
             store.callSubscriber(store._state)
         }
-        else if (action.type = 'ADD-MESSAGE') {
+        else if (action.type ==='ADD-MESSAGE') {
             const newMessage = {id: store._state.profilePage.messages.length+1, message: store._state.profilePage.newMessageText}
             store._state.profilePage.messages.push(newMessage)
             store._state.profilePage.newMessageText = ''
             store.callSubscriber(store._state)
         }
-        else if (action.type = 'UPDATE-NEW-MESSAGE-TEXT') {
-            store._state.profilePage.newMessageText = newMessage
+        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            store._state.profilePage.newMessageText = action.newMessage
             store.callSubscriber(store._state)
         }
     }
