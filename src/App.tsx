@@ -14,10 +14,6 @@ import Friends from "./components/Friends/Friends";
 type AppPropsType = {
     store: StoreRootStateType
     state: StatePropsType
-    // addPost: ()=>void
-    // updateNewPostText: (newText: string)=>void
-    // addMessage: ()=>void
-    // updateNewMessageText: (newMessage: string)=> void
     dispatch: (action: ActionsType) => void
 
 }
@@ -32,8 +28,6 @@ export const App = (props: AppPropsType) => {
                         () => <Profile
                             PostsData={props.state.postsPage.PostsData}
                             newPostText={props.state.postsPage.newPostText}
-                            // addPost={props.addPost}
-                            // updateNewPostText={props.updateNewPostText}
                             dispatch={props.dispatch}
                         />}/>
                     <Route path={'/message'}
@@ -41,8 +35,6 @@ export const App = (props: AppPropsType) => {
                                DialogsData={props.state.profilePage.DialogsData}
                                messages={props.state.profilePage.messages}
                                newMessageText={props.state.profilePage.newMessageText}
-                               // addMessage={props.addMessage}
-                               // updateNewMessageText={props.updateNewMessageText}
                                dispatch={props.dispatch}
                            />}/>
                     <Route path={'/news'} component={News}/>

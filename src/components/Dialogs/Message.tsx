@@ -4,7 +4,6 @@ import {ActionsType} from "../../redux/state";
 
 type MessageType = {
     message: string
-    // addMessage: (message: string)=>void
     dispatch: (action: ActionsType) => void
 
 

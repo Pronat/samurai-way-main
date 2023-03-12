@@ -20,8 +20,6 @@ export const Profile = (props: ProfileType) => {
             <MyPosts
                 PostsData={props.PostsData}
                 newPostText={props.newPostText}
-                // addPost={props.addPost}
-                // updateNewPostText={props.updateNewPostText}
                 dispatch={props.dispatch}
             />
         </div>

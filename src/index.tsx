@@ -17,10 +17,6 @@ export const rerenderEntireTree = (state: StatePropsType) => {
                 store={store}
                 state={store.getState()}
                 dispatch={store.dispatch.bind(store)}
-                // addPost={store.addPost}
-                // updateNewPostText={store.updateNewPostText}
-                // addMessage={store.addMessage}
-                // updateNewMessageText={store.updateNewMessageText}
             />
         </BrowserRouter>
         ,
