@@ -12,14 +12,14 @@ export const ProfileInfo = (props: ProfileInfoType) => {
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
         // props.addPost()
-        props.dispatch('type: ADD-POST')
+        props.dispatch({type: "ADD-POST"})
 
     }
     const onPostChange = () => {
         const text = newPostElement.current?.value
         if (text) {
             // props.updateNewPostText(text)
-             props.dispatch('UPDATE-NEW-POST-TEXT')
+             props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText})
         }
     }
 

@@ -2,14 +2,15 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 import {} from "../../index";
-import {DialogsDataType, MessagesType} from "../../redux/state";
+import {ActionsType, DialogsDataType, MessagesType} from "../../redux/state";
 
 type DialogsPropsType = {
     DialogsData: Array<DialogsDataType>
     messages: Array<MessagesType>
     newMessageText: string
-    addMessage: ()=>void
-    updateNewMessageText: (newMessage: string)=> void
+    // addMessage: ()=>void
+    // updateNewMessageText: (newMessage: string)=> void
+    dispatch: (action: ActionsType) => void
 }
 
 type DialogType = {
@@ -18,26 +19,29 @@ type DialogType = {
 }
 type MessageType = {
     message: string
-    addMessage: (message: string)=>void
+    // addMessage: (message: string)=>void
+    dispatch: (action: ActionsType) => void
 }
 
 
 const Dialogs = (props: DialogsPropsType) => {
 
     let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
-    let MessagesElemets = props.messages.map((el) => <Message message={el.message} addMessage={props.addMessage}/>)
+    let MessagesElemets = props.messages.map((el) => <Message
+        message={el.message}
+        // addMessage={props.addMessage}
+        addMessage={props.dispatch({type: 'ADD-MESSAGE'})}
+    />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
-        props.addMessage()
-        // props.addMessage(newMessageElement.current?.value ? newMessageElement.current?.value : '---')
-        // if (newMessageElement.current?.value) {
-        //     newMessageElement.current.value = ''
-        // }
+        // props.addMessage()
+        props.dispatch({type: "ADD-MESSAGE"})
     }
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
             props.updateNewMessageText(messageText)
+            props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessage})
         }
     }
 
@@ -49,12 +53,13 @@ const Dialogs = (props: DialogsPropsType) => {
                 }
             </div>
             <div>
-            <div className={s.messages}>
-                {
-                    MessagesElemets
-                }
-            </div>
-                <textarea onChange={onChangeNewMessageText} value={props.newMessageText} ref={newMessageElement}></textarea>
+                <div className={s.messages}>
+                    {
+                        MessagesElemets
+                    }
+                </div>
+                <textarea onChange={onChangeNewMessageText} value={props.newMessageText}
+                          ref={newMessageElement}></textarea>
                 <div>
                     <button onClick={onClickAddMessageHandler}>Add message</button>
                 </div>
@@ -67,7 +72,7 @@ const Dialogs = (props: DialogsPropsType) => {
 export const Dialog = (props: DialogType) => {
     return (
         <div className={`${s.name} ${s.active}`}>
-            <img src={'https://img.freepik.com/premium-vector/person-avatar-design_24877-38133.jpg'} />
+            <img src={'https://img.freepik.com/premium-vector/person-avatar-design_24877-38133.jpg'}/>
             <NavLink to={`/message/${props.id}`}>{props.name}</NavLink>
         </div>
     )

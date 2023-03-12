@@ -41,8 +41,9 @@ export const App = (props: AppPropsType) => {
                                DialogsData={props.state.profilePage.DialogsData}
                                messages={props.state.profilePage.messages}
                                newMessageText={props.state.profilePage.newMessageText}
-                               addMessage={props.addMessage}
-                               updateNewMessageText={props.updateNewMessageText}
+                               // addMessage={props.addMessage}
+                               // updateNewMessageText={props.updateNewMessageText}
+                               dispatch={props.dispatch}
                            />}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
