@@ -1,28 +1,14 @@
 import React from "react";
 import {
-    ActionAddPostType,
     ActionsType,
-    ActionUpdNewPostType,
-    addPostActionCreator,
-    updNewPostActionCreator
 } from "../../../../redux/state";
+import {addPostActionCreator, updNewPostActionCreator} from "../../../../redux/postsPageReducer";
 
 export type ProfileInfoType = {
     newPostText: string
     dispatch: (action: ActionsType) => void
 }
 
-
-// const addPostActionCreator = (): ActionAddPostType => {
-//     return {
-//         type: 'ADD-POST'
-//     }
-// }
-// const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => {
-//     return {
-//         type: "UPDATE-NEW-POST-TEXT", newText: text
-//     }
-// }
 export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()

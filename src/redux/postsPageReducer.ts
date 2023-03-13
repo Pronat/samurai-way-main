@@ -1,6 +1,12 @@
 import React from 'react';
-import {ActionsType, PostsPageType} from "./state";
+import {ActionAddPostType, ActionsType, ActionUpdNewPostType, PostsPageType} from "./state";
 
+export const addPostActionCreator = (): ActionAddPostType => ({ type: 'ADD-POST'})
+export const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => {
+    return {
+        type: "UPDATE-NEW-POST-TEXT", newText: text
+    }
+}
 const postsPageReducer = (state: PostsPageType, action: ActionsType) => {
     switch (action.type) {
         case "ADD-POST":

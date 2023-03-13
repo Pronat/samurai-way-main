@@ -1,5 +1,13 @@
 import React from 'react';
-import {ActionsType, ProfilePageType} from "./state";
+import {ActionAddMessageType, ActionsType, ActionUpdNewMessType, ProfilePageType} from "./state";
+
+export const addMessageActionCreator = (): ActionAddMessageType => ({type: "ADD-MESSAGE"})
+export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {
+    return {
+        type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: newMessage
+    }
+}
+
 
 const profilePageReducer = (state: ProfilePageType, action: ActionsType) => {
     switch (action.type) {

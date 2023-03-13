@@ -1,14 +1,13 @@
 import React from 'react';
 import s from './Dialogs.module.css'
 import {
-    ActionAddMessageType,
     ActionsType,
-    ActionUpdNewMessType, addMessageActionCreator,
     DialogsDataType,
-    MessagesType, updNewMessageActionCreator
+    MessagesType
 } from "../../redux/state";
 import {Message} from "./Message";
 import {Dialog} from "./Dialog";
+import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";
 
 type DialogsPropsType = {
     DialogsData: Array<DialogsDataType>
