@@ -1,6 +1,12 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-import {ActionsType, DialogsDataType, MessagesType} from "../../redux/state";
+import {
+    ActionAddMessageType,
+    ActionsType,
+    ActionUpdNewMessType,
+    DialogsDataType,
+    MessagesType
+} from "../../redux/state";
 import {Message} from "./Message";
 import {Dialog} from "./Dialog";
 
@@ -8,9 +14,18 @@ type DialogsPropsType = {
     DialogsData: Array<DialogsDataType>
     messages: Array<MessagesType>
     newMessageText: string
-    // addMessage: ()=>void
-    // updateNewMessageText: (newMessage: string)=> void
     dispatch: (action: ActionsType) => void
+}
+
+export const addMessageActionCreator = (): ActionAddMessageType => {
+    return {
+        type: "ADD-MESSAGE"
+    }
+}
+export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {
+    return {
+        type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: newMessage
+    }
 }
 
 const Dialogs = (props: DialogsPropsType) => {
@@ -21,12 +36,13 @@ const Dialogs = (props: DialogsPropsType) => {
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
-        props.dispatch({type: "ADD-MESSAGE"})
+        props.dispatch(addMessageActionCreator())
     }
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
-            props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: messageText})
+            // props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: messageText})
+            props.dispatch(updNewMessageActionCreator(messageText))
         }
     }
 

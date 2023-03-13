@@ -1,5 +1,11 @@
 import React from "react";
-import {ActionAddPostType, ActionsType, ActionUpdNewPostType} from "../../../../redux/state";
+import {
+    ActionAddPostType,
+    ActionsType,
+    ActionUpdNewPostType,
+    addPostActionCreator,
+    updNewPostActionCreator
+} from "../../../../redux/state";
 
 export type ProfileInfoType = {
     newPostText: string
@@ -7,28 +13,26 @@ export type ProfileInfoType = {
 }
 
 
-const addPostActionCreator = () => {
-    return {
-        type: 'ADD-POST'
-    }
-}
-const  updNewPostActionCreator = (text: string) => {
-    return {
-        type: "UPDATE-NEW-POST-TEXT", newText: text
-    }
-}
+// const addPostActionCreator = (): ActionAddPostType => {
+//     return {
+//         type: 'ADD-POST'
+//     }
+// }
+// const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => {
+//     return {
+//         type: "UPDATE-NEW-POST-TEXT", newText: text
+//     }
+// }
 export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        // props.dispatch({type: "ADD-POST"})
         props.dispatch(addPostActionCreator())
 
     }
     const onPostChange = () => {
         const text = newPostElement.current?.value
         if (text) {
-             // props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: text})
              props.dispatch(updNewPostActionCreator(text))
         }
     }

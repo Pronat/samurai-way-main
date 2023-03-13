@@ -111,6 +111,17 @@ export const store: StoreRootStateType = {
             this.callSubscriber(this._state)
         }
     }
-
 }
+
+export const addPostActionCreator = (): ActionAddPostType => {
+    return {
+        type: 'ADD-POST'
+    }
+}
+export const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => {
+    return {
+        type: "UPDATE-NEW-POST-TEXT", newText: text
+    }
+}
+
 
