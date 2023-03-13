@@ -124,4 +124,14 @@ export const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => 
     }
 }
 
+export const addMessageActionCreator = (): ActionAddMessageType => {
+    return {
+        type: "ADD-MESSAGE"
+    }
+}
+export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {
+    return {
+        type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: newMessage
+    }
+}
 

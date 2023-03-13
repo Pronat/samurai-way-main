@@ -3,9 +3,9 @@ import s from './Dialogs.module.css'
 import {
     ActionAddMessageType,
     ActionsType,
-    ActionUpdNewMessType,
+    ActionUpdNewMessType, addMessageActionCreator,
     DialogsDataType,
-    MessagesType
+    MessagesType, updNewMessageActionCreator
 } from "../../redux/state";
 import {Message} from "./Message";
 import {Dialog} from "./Dialog";
@@ -17,16 +17,6 @@ type DialogsPropsType = {
     dispatch: (action: ActionsType) => void
 }
 
-export const addMessageActionCreator = (): ActionAddMessageType => {
-    return {
-        type: "ADD-MESSAGE"
-    }
-}
-export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {
-    return {
-        type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: newMessage
-    }
-}
 
 const Dialogs = (props: DialogsPropsType) => {
     let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
