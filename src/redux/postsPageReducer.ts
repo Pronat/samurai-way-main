@@ -10,9 +10,5 @@ export const PostsPageReducer = (state: PostsPageType, action: ActionsType) => {
     else if (action.type === 'UPDATE-NEW-POST-TEXT') {
         state.newPostText = action.newText
     }
-
-
     return state
-
-
 };
