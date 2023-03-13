@@ -1,7 +1,7 @@
 import React from 'react';
 import {ActionsType, ProfilePageType} from "./state";
 
-export const ProfilePageReducer = (state: ProfilePageType, action: ActionsType) => {
+const profilePageReducer = (state: ProfilePageType, action: ActionsType) => {
     if (action.type === 'ADD-MESSAGE') {
         const newMessage = {
             id:state.messages.length + 1,
@@ -14,3 +14,5 @@ export const ProfilePageReducer = (state: ProfilePageType, action: ActionsType) 
     }
     return state
 };
+
+export default profilePageReducer

@@ -1,3 +1,6 @@
+import postsPageReducer from "./postsPageReducer";
+import profilePageReducer from "./profilePageReducer";
+import siteBarReducer from "./siteBarReducer";
 
 export type DialogsDataType = {
     id: number
@@ -90,6 +93,12 @@ export const store: StoreRootStateType = {
     },
 
     dispatch(action: ActionsType) {
+
+        this._state.postsPage = postsPageReducer(this._state.postsPage, action)
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action)
+        this._state.siteBar = siteBarReducer(this._state.siteBar, action)
+
+
         if (action.type === 'ADD-POST') {
             const newPost =  {id:  this._state.postsPage.PostsData.length+1, message: this._state.postsPage.newPostText, likeCount: 0}
             this._state.postsPage.PostsData.push(newPost)
