@@ -35,18 +35,14 @@ export type StoreRootStateType = {
     _state: StatePropsType
     getState: () => StatePropsType
     callSubscriber: (state: StatePropsType)=>void
-    // addPost: ()=>void
-    // updateNewPostText: (newText: string)=>void
-    // addMessage: ()=>void
-    // updateNewMessageText: (newMessage: string)=>void
     subscribe: (observer: (state: StatePropsType) => void) => void
     dispatch: (action: ActionsType) => void
 }
 export type ActionsType = ActionAddPostType | ActionUpdNewPostType | ActionAddMessageType | ActionUpdNewMessType
-type ActionAddPostType = {type: 'ADD-POST'}
-type ActionUpdNewPostType = {type: 'UPDATE-NEW-POST-TEXT', newText: string}
-type ActionAddMessageType = {type: 'ADD-MESSAGE'}
-type ActionUpdNewMessType = {type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: string}
+export type ActionAddPostType = {type: 'ADD-POST'}
+export type ActionUpdNewPostType = {type: 'UPDATE-NEW-POST-TEXT', newText: string}
+export type ActionAddMessageType = {type: 'ADD-MESSAGE'}
+export type ActionUpdNewMessType = {type: 'UPDATE-NEW-MESSAGE-TEXT', newMessage: string}
 export const store: StoreRootStateType = {
     _state: <StatePropsType>{
         profilePage: <ProfilePageType>{

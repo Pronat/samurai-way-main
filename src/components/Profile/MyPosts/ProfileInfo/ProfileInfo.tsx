@@ -1,21 +1,35 @@
 import React from "react";
-import {ActionsType} from "../../../../redux/state";
+import {ActionAddPostType, ActionsType, ActionUpdNewPostType} from "../../../../redux/state";
 
 export type ProfileInfoType = {
     newPostText: string
     dispatch: (action: ActionsType) => void
 }
+
+
+const addPostActionCreator = () => {
+    return {
+        type: 'ADD-POST'
+    }
+}
+const  updNewPostActionCreator = (text: string) => {
+    return {
+        type: "UPDATE-NEW-POST-TEXT", newText: text
+    }
+}
 export const ProfileInfo = (props: ProfileInfoType) => {
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
-        props.dispatch({type: "ADD-POST"})
+        // props.dispatch({type: "ADD-POST"})
+        props.dispatch(addPostActionCreator())
 
     }
     const onPostChange = () => {
         const text = newPostElement.current?.value
         if (text) {
-             props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: text})
+             // props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: text})
+             props.dispatch(updNewPostActionCreator(text))
         }
     }
 
