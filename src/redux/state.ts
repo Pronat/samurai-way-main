@@ -113,22 +113,14 @@ export const store: StoreRootStateType = {
     }
 }
 
-export const addPostActionCreator = (): ActionAddPostType => {
-    return {
-        type: 'ADD-POST'
-    }
-}
+export const addPostActionCreator = (): ActionAddPostType => ({ type: 'ADD-POST'})
 export const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => {
     return {
         type: "UPDATE-NEW-POST-TEXT", newText: text
     }
 }
 
-export const addMessageActionCreator = (): ActionAddMessageType => {
-    return {
-        type: "ADD-MESSAGE"
-    }
-}
+export const addMessageActionCreator = (): ActionAddMessageType => ({type: "ADD-MESSAGE"})
 export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {
     return {
         type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: newMessage

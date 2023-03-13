@@ -31,7 +31,6 @@ const Dialogs = (props: DialogsPropsType) => {
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
-            // props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newMessage: messageText})
             props.dispatch(updNewMessageActionCreator(messageText))
         }
     }
