@@ -98,27 +98,7 @@ export const store: StoreRootStateType = {
         this._state.profilePage = profilePageReducer(this._state.profilePage, action)
         this._state.siteBar = siteBarReducer(this._state.siteBar, action)
 
-
-        if (action.type === 'ADD-POST') {
-            const newPost =  {id:  this._state.postsPage.PostsData.length+1, message: this._state.postsPage.newPostText, likeCount: 0}
-            this._state.postsPage.PostsData.push(newPost)
-            this._state.postsPage.newPostText = ''
-            this.callSubscriber(this._state)
-        }
-        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.postsPage.newPostText = action.newText
-            this.callSubscriber(this._state)
-        }
-        else if (action.type ==='ADD-MESSAGE') {
-            const newMessage = {id: this._state.profilePage.messages.length+1, message: this._state.profilePage.newMessageText}
-            this._state.profilePage.messages.push(newMessage)
-            this._state.profilePage.newMessageText = ''
-            this.callSubscriber(this._state)
-        }
-        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.profilePage.newMessageText = action.newMessage
-            this.callSubscriber(this._state)
-        }
+        this.callSubscriber(this._state)
     }
 }
 
