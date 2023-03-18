@@ -1,33 +1,36 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-import {
-    ActionsType,
-    DialogsDataType,
-    MessagesType, StoreRootStateType
-} from "../../redux/store";
 import {Message} from "./Message";
 import {Dialog} from "./Dialog";
 import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";
+import {ActionsType, DialogsDataType, MessagesType} from "../../redux/store";
 
 type DialogsPropsType = {
-    store: StoreRootStateType
+    // store: StoreRootStateType
+    messages: Array<MessagesType>
+    DialogsData: Array<DialogsDataType>
+    dispatch: (action: ActionsType) => void
+    addMessage: ()=>void
+    updNewMessage: (messageText: string)=>void
 }
 
 const Dialogs = (props: DialogsPropsType) => {
 
-    let dialogsElements = props.store.getState().profilePage.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
-    let MessagesElemets = props.store.getState().profilePage.messages.map((el) => <Message
+    let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
+    let MessagesElemets = props.messages.map((el) => <Message
         message={el.message}
         dispatch={props.store.dispatch}
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
-        props.store.dispatch(addMessageActionCreator())
+        // props.store.dispatch(addMessageActionCreator())
+        props.addMessage()
     }
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
-            props.store.dispatch(updNewMessageActionCreator(messageText))
+            // props.store.dispatch(updNewMessageActionCreator(messageText))
+            props.updNewMessage(messageText)
         }
     }
 
