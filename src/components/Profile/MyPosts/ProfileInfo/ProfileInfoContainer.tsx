@@ -7,13 +7,9 @@ import {ProfileInfo} from "./ProfileInfo";
 
 export type ProfileInfoContainerType = {
     store: StoreRootStateType
-    // newPostText: string
-    // dispatch: (action: ActionsType) => void
 }
 
 export const ProfileInfoContainer = (props: ProfileInfoContainerType) => {
-
-    // const newPostElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddPostHandler = () => {
         props.store.dispatch(addPostActionCreator())
 
@@ -28,7 +24,6 @@ export const ProfileInfoContainer = (props: ProfileInfoContainerType) => {
     return (
        <ProfileInfo updNewPostText={onPostChange} addPost={onClickAddPostHandler}
                     newPostText={props.store.getState().postsPage.newPostText}
-                    // newPostText={props.newPostText}
        />
     )
 }

@@ -11,21 +11,13 @@ import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/p
 
 type DialogsPropsType = {
     store: StoreRootStateType
-    // DialogsData: Array<DialogsDataType>
-    // messages: Array<MessagesType>
-    // newMessageText: string
-    // dispatch: (action: ActionsType) => void
 }
-
 
 const Dialogs = (props: DialogsPropsType) => {
 
-    // let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
     let dialogsElements = props.store.getState().profilePage.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
-    // let MessagesElemets = props.messages.map((el) => <Message
     let MessagesElemets = props.store.getState().profilePage.messages.map((el) => <Message
         message={el.message}
-        // dispatch={props.dispatch}
         dispatch={props.store.dispatch}
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
@@ -52,7 +44,6 @@ const Dialogs = (props: DialogsPropsType) => {
                         MessagesElemets
                     }
                 </div>
-                {/*<textarea onChange={onChangeNewMessageText} value={props.newMessageText}*/}
                 <textarea onChange={onChangeNewMessageText} value={props.store.getState().profilePage.newMessageText}
                           ref={newMessageElement}></textarea>
                 <div>

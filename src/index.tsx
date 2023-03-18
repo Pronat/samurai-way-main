@@ -14,8 +14,6 @@ export const rerenderEntireTree = (state: StatePropsType) => {
         <BrowserRouter>
             <App
                 store={store}
-                state={store.getState()}
-                // dispatch={store.dispatch.bind(store)}
             />
         </BrowserRouter>
         ,
