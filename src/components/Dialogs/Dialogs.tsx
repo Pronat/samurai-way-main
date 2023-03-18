@@ -2,11 +2,9 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {Message} from "./Message";
 import {Dialog} from "./Dialog";
-import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";
 import {ActionsType, DialogsDataType, MessagesType} from "../../redux/store";
 
 type DialogsPropsType = {
-    // store: StoreRootStateType
     messages: Array<MessagesType>
     newMessageText: string
     DialogsData: Array<DialogsDataType>
@@ -24,13 +22,11 @@ const Dialogs = (props: DialogsPropsType) => {
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
-        // props.store.dispatch(addMessageActionCreator())
         props.addMessage()
     }
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
-            // props.store.dispatch(updNewMessageActionCreator(messageText))
             props.updNewMessage(messageText)
         }
     }
@@ -48,7 +44,6 @@ const Dialogs = (props: DialogsPropsType) => {
                         MessagesElemets
                     }
                 </div>
-                {/*<textarea onChange={onChangeNewMessageText} value={props.store.getState().profilePage.newMessageText}*/}
                 <textarea onChange={onChangeNewMessageText} value={props.newMessageText}
                           ref={newMessageElement}></textarea>
                 <div>

@@ -16,21 +16,12 @@ type DialogsContainerPropsType = {
 
 const DialogsContainer = (props: DialogsContainerPropsType) => {
 
-    // let dialogsElements = props.store.getState().profilePage.DialogsData.map((el) => <Dialog name={el.name}
-    //                                                                                          id={el.id}/>)
-    // let MessagesElemets = props.store.getState().profilePage.messages.map((el) => <Message
-    //     message={el.message}
-    //     dispatch={props.store.dispatch}
-    // />)
-    // const newMessageElement = React.createRef<HTMLTextAreaElement>()
+
     const onClickAddMessageHandler = () => {
         props.store.dispatch(addMessageActionCreator())
     }
     const onChangeNewMessageText = (messageText: string) => {
-        // const messageText = newMessageElement.current?.value
-        // if (messageText) {
         props.store.dispatch(updNewMessageActionCreator(messageText))
-        // }
     }
 
     return (
