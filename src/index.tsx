@@ -9,7 +9,6 @@ import store from "./redux/redux-store";
 
 
 
-// export const rerenderEntireTree = (state: StatePropsType) => {
 export const rerenderEntireTree = (state: StatePropsType) => {
     ReactDOM.render(
         <BrowserRouter>
@@ -27,4 +26,9 @@ export const rerenderEntireTree = (state: StatePropsType) => {
 
 rerenderEntireTree(store.getState())
 
-store.subscribe(rerenderEntireTree)
+// store.subscribe(rerenderEntireTree)
+store.subscribe(()=> {
+    let state = store.getState()
+        rerenderEntireTree(state)
+}
+    )
