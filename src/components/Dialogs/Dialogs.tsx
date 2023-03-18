@@ -11,27 +11,31 @@ import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/p
 
 type DialogsPropsType = {
     store: StoreRootStateType
-    DialogsData: Array<DialogsDataType>
-    messages: Array<MessagesType>
-    newMessageText: string
-    dispatch: (action: ActionsType) => void
+    // DialogsData: Array<DialogsDataType>
+    // messages: Array<MessagesType>
+    // newMessageText: string
+    // dispatch: (action: ActionsType) => void
 }
 
 
 const Dialogs = (props: DialogsPropsType) => {
-    let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
-    let MessagesElemets = props.messages.map((el) => <Message
+
+    // let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
+    let dialogsElements = props.store.getState().profilePage.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
+    // let MessagesElemets = props.messages.map((el) => <Message
+    let MessagesElemets = props.store.getState().profilePage.messages.map((el) => <Message
         message={el.message}
-        dispatch={props.dispatch}
+        // dispatch={props.dispatch}
+        dispatch={props.store.dispatch}
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
-        props.dispatch(addMessageActionCreator())
+        props.store.dispatch(addMessageActionCreator())
     }
     const onChangeNewMessageText = () => {
         const messageText = newMessageElement.current?.value
         if (messageText) {
-            props.dispatch(updNewMessageActionCreator(messageText))
+            props.store.dispatch(updNewMessageActionCreator(messageText))
         }
     }
 
@@ -48,7 +52,8 @@ const Dialogs = (props: DialogsPropsType) => {
                         MessagesElemets
                     }
                 </div>
-                <textarea onChange={onChangeNewMessageText} value={props.newMessageText}
+                {/*<textarea onChange={onChangeNewMessageText} value={props.newMessageText}*/}
+                <textarea onChange={onChangeNewMessageText} value={props.store.getState().profilePage.newMessageText}
                           ref={newMessageElement}></textarea>
                 <div>
                     <button onClick={onClickAddMessageHandler}>Add message</button>

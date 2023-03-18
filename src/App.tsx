@@ -35,16 +35,16 @@ export const App = (props: AppPropsType) => {
                     <Route path={'/message'}
                            render={() => <Dialogs
                                store={props.store}
-                               DialogsData={props.state.profilePage.DialogsData}
-                               messages={props.state.profilePage.messages}
-                               newMessageText={props.state.profilePage.newMessageText}
-                               dispatch={props.dispatch}
+                               // DialogsData={props.state.profilePage.DialogsData}
+                               // messages={props.state.profilePage.messages}
+                               // newMessageText={props.state.profilePage.newMessageText}
+                               // dispatch={props.dispatch}
                            />}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
                     <Route path={'/friends'} component={Friends}/>
-                    <Friends siteBar={props.state.siteBar}/>
+                    <Friends store={props.store}/>
                 </Switch>
             </div>
         </div>

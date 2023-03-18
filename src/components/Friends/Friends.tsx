@@ -1,10 +1,11 @@
 import React from 'react';
-import {SiteBarType} from "../../redux/store";
+import {SiteBarType, StoreRootStateType} from "../../redux/store";
 import s from './Friends.module.css'
 
 
 export type FriendsType = {
-    siteBar: Array<SiteBarType>
+    store: StoreRootStateType
+    // siteBar: Array<SiteBarType>
 }
 const Friends = (Props: FriendsType) => {
     return (
