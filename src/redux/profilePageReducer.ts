@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActionAddMessageType, ActionsType, ActionUpdNewMessType, ProfilePageType} from "./state";
+import {ActionAddMessageType, ActionsType, ActionUpdNewMessType, ProfilePageType} from "./store";
 
 export const addMessageActionCreator = (): ActionAddMessageType => ({type: "ADD-MESSAGE"})
 export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {

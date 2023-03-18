@@ -1,7 +1,7 @@
 import React from "react";
 import s from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
-import {SiteBarType} from "../../redux/state";
+import {SiteBarType} from "../../redux/store";
 
 export type NavBarType = {
     siteBar: Array<SiteBarType>

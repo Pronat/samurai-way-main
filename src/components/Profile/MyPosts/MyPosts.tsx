@@ -3,7 +3,7 @@ import s from './MyPosts.module.css';
 import {Post} from "./Post/Post";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {} from "../../../index";
-import {ActionsType, PostsDataType} from "../../../redux/state";
+import {ActionsType, PostsDataType} from "../../../redux/store";
 
 type MyPostsType = {
     PostsData: Array<PostsDataType>

@@ -6,7 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import {
     StatePropsType,
     store,
-} from "./redux/state";
+} from "./redux/store";
 
 
 

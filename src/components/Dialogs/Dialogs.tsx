@@ -4,7 +4,7 @@ import {
     ActionsType,
     DialogsDataType,
     MessagesType
-} from "../../redux/state";
+} from "../../redux/store";
 import {Message} from "./Message";
 import {Dialog} from "./Dialog";
 import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";

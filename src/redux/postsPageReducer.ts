@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActionAddPostType, ActionsType, ActionUpdNewPostType, PostsPageType} from "./state";
+import {ActionAddPostType, ActionsType, ActionUpdNewPostType, PostsPageType} from "./store";
 
 export const addPostActionCreator = (): ActionAddPostType => ({ type: 'ADD-POST'})
 export const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => {

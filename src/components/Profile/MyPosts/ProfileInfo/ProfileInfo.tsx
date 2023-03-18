@@ -1,7 +1,7 @@
 import React from "react";
 import {
     ActionsType,
-} from "../../../../redux/state";
+} from "../../../../redux/store";
 import {addPostActionCreator, updNewPostActionCreator} from "../../../../redux/postsPageReducer";
 
 export type ProfileInfoType = {
