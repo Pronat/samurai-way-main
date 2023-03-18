@@ -16,14 +16,16 @@ export const ProfileInfoContainer = (props: ProfileInfoContainerType) => {
     }
     const onPostChange = (text: string) => {
 
-        if (text) {
-             props.store.dispatch(updNewPostActionCreator(text))
-        }
+        // if (text) {
+        props.store.dispatch(updNewPostActionCreator(text))
+        // }
     }
 
     return (
-       <ProfileInfo updNewPostText={onPostChange} addPost={onClickAddPostHandler}
-                    newPostText={props.store.getState().postsPage.newPostText}
-       />
+        <ProfileInfo
+            updNewPostText={onPostChange}
+            addPost={onClickAddPostHandler}
+            newPostText={props.store.getState().postsPage.newPostText}
+        />
     )
 }

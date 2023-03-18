@@ -16,31 +16,32 @@ type DialogsContainerPropsType = {
 
 const DialogsContainer = (props: DialogsContainerPropsType) => {
 
-    let dialogsElements = props.store.getState().profilePage.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
-    let MessagesElemets = props.store.getState().profilePage.messages.map((el) => <Message
-        message={el.message}
-        dispatch={props.store.dispatch}
-    />)
-    const newMessageElement = React.createRef<HTMLTextAreaElement>()
+    // let dialogsElements = props.store.getState().profilePage.DialogsData.map((el) => <Dialog name={el.name}
+    //                                                                                          id={el.id}/>)
+    // let MessagesElemets = props.store.getState().profilePage.messages.map((el) => <Message
+    //     message={el.message}
+    //     dispatch={props.store.dispatch}
+    // />)
+    // const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
         props.store.dispatch(addMessageActionCreator())
     }
     const onChangeNewMessageText = (messageText: string) => {
         // const messageText = newMessageElement.current?.value
         // if (messageText) {
-            props.store.dispatch(updNewMessageActionCreator(messageText))
+        props.store.dispatch(updNewMessageActionCreator(messageText))
         // }
     }
 
     return (
-       <Dialogs
-           updNewMessage={onChangeNewMessageText(messageText)}
-           messages={props.store.getState().profilePage.messages}
-           newMessageText={props.store.getState().profilePage.newMessageText}
-           dispatch={props.store.dispatch}
-           DialogsData={props.store.getState().profilePage.DialogsData}
-
-       } />
+        <Dialogs
+            updNewMessage={(messageText)=>onChangeNewMessageText(messageText)}
+            addMessage={onClickAddMessageHandler}
+            messages={props.store.getState().profilePage.messages}
+            newMessageText={props.store.getState().profilePage.newMessageText}
+            dispatch={props.store.dispatch}
+            DialogsData={props.store.getState().profilePage.DialogsData}
+             />
     );
 };
 

@@ -11,8 +11,8 @@ type DialogsPropsType = {
     newMessageText: string
     DialogsData: Array<DialogsDataType>
     dispatch: (action: ActionsType) => void
-    addMessage: ()=>void
-    updNewMessage: (messageText: string)=>void
+    addMessage: () => void
+    updNewMessage: (messageText: string) => void
 }
 
 const Dialogs = (props: DialogsPropsType) => {
