@@ -8,7 +8,7 @@ import {Route, Switch} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import { StoreRootStateType} from "./redux/store";
+import {StoreRootStateType} from "./redux/store";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
@@ -30,9 +30,8 @@ export const App = (props: AppPropsType) => {
                         />}/>
                     <Route path={'/message'}
                            render={() =>
-                               // <Dialogs store={props.store}
-                                    <DialogsContainer store={props.store}
-                           />}/>
+                               <DialogsContainer store={props.store}
+                               />}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
