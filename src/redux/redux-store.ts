@@ -10,6 +10,6 @@ let reducers = combineReducers({
 })
 
 export const store = createStore(reducers)
-export type RootStateType = ReturnType<typeof reducers>
+// export type RootStateType = ReturnType<typeof reducers>
 
 export default store

@@ -11,8 +11,9 @@ import Settings from "./components/Settings/Settings";
 import {ActionsType, StatePropsType, StoreRootStateType} from "./redux/store";
 import Friends from "./components/Friends/Friends";
 
+
 type AppPropsType = {
-    // store: StoreRootStateType
+    store: StoreRootStateType
     state: StatePropsType
     dispatch: (action: ActionsType) => void
 
@@ -26,12 +27,14 @@ export const App = (props: AppPropsType) => {
                 <Switch>
                     <Route path={'/profile'} render={
                         () => <Profile
+                            store={props.store}
                             PostsData={props.state.postsPage.PostsData}
                             newPostText={props.state.postsPage.newPostText}
                             dispatch={props.dispatch}
                         />}/>
                     <Route path={'/message'}
                            render={() => <Dialogs
+                               store={props.store}
                                DialogsData={props.state.profilePage.DialogsData}
                                messages={props.state.profilePage.messages}
                                newMessageText={props.state.profilePage.newMessageText}

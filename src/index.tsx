@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
-import {StatePropsType} from "./redux/store";
-import store from "./redux/redux-store";
+import {StatePropsType, store} from "./redux/store";
+
 
 
 
@@ -13,7 +13,7 @@ export const rerenderEntireTree = (state: StatePropsType) => {
     ReactDOM.render(
         <BrowserRouter>
             <App
-                // store={store}
+                store={store}
                 state={store.getState()}
                 dispatch={store.dispatch.bind(store)}
             />
