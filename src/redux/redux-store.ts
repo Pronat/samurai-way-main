@@ -9,6 +9,7 @@ let reducers = combineReducers({
     siteBar: siteBarReducer
 })
 
-let store = createStore()
+export const store = createStore(reducers)
+export type RootStateType = ReturnType<typeof reducers>
 
 export default store

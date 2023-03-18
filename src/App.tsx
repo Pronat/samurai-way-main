@@ -12,7 +12,7 @@ import {ActionsType, StatePropsType, StoreRootStateType} from "./redux/store";
 import Friends from "./components/Friends/Friends";
 
 type AppPropsType = {
-    store: StoreRootStateType
+    // store: StoreRootStateType
     state: StatePropsType
     dispatch: (action: ActionsType) => void
 
