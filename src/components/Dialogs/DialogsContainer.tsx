@@ -35,8 +35,10 @@ const DialogsContainer = (props: DialogsContainerPropsType) => {
     return (
        <Dialogs
            updNewMessage={onChangeNewMessageText(messageText)}
-               messages={}
-
+           messages={props.store.getState().profilePage.messages}
+           newMessageText={props.store.getState().profilePage.newMessageText}
+           dispatch={props.store.dispatch}
+           DialogsData={props.store.getState().profilePage.DialogsData}
 
        } />
     );

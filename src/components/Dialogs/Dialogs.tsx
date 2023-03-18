@@ -8,6 +8,7 @@ import {ActionsType, DialogsDataType, MessagesType} from "../../redux/store";
 type DialogsPropsType = {
     // store: StoreRootStateType
     messages: Array<MessagesType>
+    newMessageText: string
     DialogsData: Array<DialogsDataType>
     dispatch: (action: ActionsType) => void
     addMessage: ()=>void
@@ -19,7 +20,7 @@ const Dialogs = (props: DialogsPropsType) => {
     let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
     let MessagesElemets = props.messages.map((el) => <Message
         message={el.message}
-        dispatch={props.store.dispatch}
+        dispatch={props.dispatch}
     />)
     const newMessageElement = React.createRef<HTMLTextAreaElement>()
     const onClickAddMessageHandler = () => {
@@ -47,7 +48,8 @@ const Dialogs = (props: DialogsPropsType) => {
                         MessagesElemets
                     }
                 </div>
-                <textarea onChange={onChangeNewMessageText} value={props.store.getState().profilePage.newMessageText}
+                {/*<textarea onChange={onChangeNewMessageText} value={props.store.getState().profilePage.newMessageText}*/}
+                <textarea onChange={onChangeNewMessageText} value={props.newMessageText}
                           ref={newMessageElement}></textarea>
                 <div>
                     <button onClick={onClickAddMessageHandler}>Add message</button>
