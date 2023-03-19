@@ -4,25 +4,38 @@ import {Post} from "./Post/Post";
 import {} from "../../../index";
 import {StoreRootStateType} from "../../../redux/store";
 import {ProfileInfoContainer} from "./ProfileInfo/ProfileInfoContainer";
+import StoreContext from "../../../StoreContext";
 
 type MyPostsType = {
     // store: StoreRootStateType
 }
 export const MyPosts = (props: MyPostsType) => {
-    let postsElements = props.store.getState().postsPage.PostsData.map((el) => {
-        return (
-            <Post message={el.message} likeCount={el.likeCount}/>
-        )
-    })
+    // let postsElements = props.store.getState().postsPage.PostsData.map((el) => {
+    //     return (
+    //         <Post message={el.message} likeCount={el.likeCount}/>
+    //     )
+    // })
 
     return (
-        <div className={s.posts}>
-            <ProfileInfoContainer store={props.store}
-            />
+        <StoreContext.Consumer>
             {
-                postsElements
+                (store)=> {
+                    let postsElements = store.getState().postsPage.PostsData.map((el) => {
+                        return (
+                            <Post message={el.message} likeCount={el.likeCount}/>
+                        )
+                    })
+                    return (
+                        <div className={s.posts}>
+                            <ProfileInfoContainer store={store}
+                            />
+                            {
+                                postsElements
+                            }
+                        </div>
+                    )
+                }
             }
-
-        </div>
+        </StoreContext.Consumer>
     )
 }
