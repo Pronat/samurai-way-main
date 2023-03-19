@@ -22,26 +22,20 @@ export const App = (props: AppPropsType) => {
         <div className={s.AppWrapper}>
             <Header/>
             <NavBar
-                // siteBar={props.store.getState().siteBar}
             />
             <div className={s.AppWrapperContent}>
                 <Switch>
                     <Route path={'/profile'} render={
                         () => <Profile
-                            // store={props.store}
                         />}/>
                     <Route path={'/message'}
                            render={() =>
                                <DialogsContainer
-                                   // store={props.store}
                                />}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
                     <Route path={'/friends'} component={Friends}/>
-                    {/*<Friends */}
-                    {/*    // store={props.store}*/}
-                    {/*/>*/}
                 </Switch>
             </div>
         </div>

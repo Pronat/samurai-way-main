@@ -13,7 +13,6 @@ export const rerenderEntireTree = (state: StatePropsType) => {
         <BrowserRouter>
             <StoreContext.Provider value={store}>
                 <App
-                    // store={store}
                 />
             </StoreContext.Provider>
         </BrowserRouter>

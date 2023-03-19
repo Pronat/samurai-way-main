@@ -1,6 +1,5 @@
 import React from "react";
-import {
-    ActionsType, StoreRootStateType,
+import {StoreRootStateType,
 } from "../../../../redux/store";
 import {addPostActionCreator, updNewPostActionCreator} from "../../../../redux/postsPageReducer";
 import {ProfileInfo} from "./ProfileInfo";
@@ -16,9 +15,7 @@ export const ProfileInfoContainer = (props: ProfileInfoContainerType) => {
     }
     const onPostChange = (text: string) => {
 
-        // if (text) {
         props.store.dispatch(updNewPostActionCreator(text))
-        // }
     }
 
     return (

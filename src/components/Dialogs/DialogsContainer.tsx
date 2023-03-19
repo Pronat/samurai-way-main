@@ -4,18 +4,10 @@ import Dialogs from "./Dialogs";
 import StoreContext from "../../StoreContext";
 
 type DialogsContainerPropsType = {
-    // store: StoreRootStateType
 }
 
 const DialogsContainer = (props: DialogsContainerPropsType) => {
 
-
-    // const onClickAddMessageHandler = () => {
-    //     props.store.dispatch(addMessageActionCreator())
-    // }
-    // const onChangeNewMessageText = (messageText: string) => {
-    //     props.store.dispatch(updNewMessageActionCreator(messageText))
-    // }
 
     return (
         <StoreContext.Consumer>
