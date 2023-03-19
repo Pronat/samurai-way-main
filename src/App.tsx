@@ -28,7 +28,7 @@ export const App = (props: AppPropsType) => {
                 <Switch>
                     <Route path={'/profile'} render={
                         () => <Profile
-                            store={props.store}
+                            // store={props.store}
                         />}/>
                     <Route path={'/message'}
                            render={() =>

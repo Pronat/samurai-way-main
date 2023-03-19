@@ -6,7 +6,7 @@ import {StoreRootStateType} from "../../../redux/store";
 import {ProfileInfoContainer} from "./ProfileInfo/ProfileInfoContainer";
 
 type MyPostsType = {
-    store: StoreRootStateType
+    // store: StoreRootStateType
 }
 export const MyPosts = (props: MyPostsType) => {
     let postsElements = props.store.getState().postsPage.PostsData.map((el) => {
