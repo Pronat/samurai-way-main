@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {SiteBarType} from "../../redux/store";
 
 export type NavBarType = {
-    siteBar: Array<SiteBarType>
+    // siteBar: Array<SiteBarType>
 }
 export const NavBar = (props: NavBarType) => {
     return (
@@ -28,19 +28,19 @@ export const NavBar = (props: NavBarType) => {
                 <NavLink to={'/friends'} activeClassName={s.activeLink}>Friends</NavLink>
             </div>
 
-            {
-                props.siteBar.map((el) => {
-                    return (
-                        <span  className={s.friend}>
-                        <span key={el.id}>
+            {/*{*/}
+            {/*    props.siteBar.map((el) => {*/}
+            {/*        return (*/}
+            {/*            <span  className={s.friend}>*/}
+            {/*            <span key={el.id}>*/}
 
-                            {el.name}
-                        </span>
-                    <div className={s.Circle}></div>
-                        </span>
-                        )
-                })
-            }
+            {/*                {el.name}*/}
+            {/*            </span>*/}
+            {/*        <div className={s.Circle}></div>*/}
+            {/*            </span>*/}
+            {/*            )*/}
+            {/*    })*/}
+            {/*}*/}
         </div>
     )
 }

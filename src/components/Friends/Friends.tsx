@@ -4,7 +4,7 @@ import s from './Friends.module.css'
 
 
 export type FriendsType = {
-    store: StoreRootStateType
+    // store: StoreRootStateType
 }
 const Friends = (Props: FriendsType) => {
     return (
