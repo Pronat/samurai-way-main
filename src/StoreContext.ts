@@ -1,6 +1,14 @@
 import React from 'react';
-import {StoreRootStateType} from "./redux/store";
+import {store, StoreRootStateType} from "./redux/store";
+import App from "./App";
 
-const StoreContext = React.createContext({} as StoreRootStateType )
+export const StoreContext = React.createContext({} as StoreRootStateType )
+// export const Provider = (props: any) => {
+//     return (
+//         <StoreContext.Provider value={store}>
+//             {props.children}
+//             </StoreContext.Provider>
+//         )
+// }
 
 export default StoreContext
