@@ -23,7 +23,7 @@ const DialogsContainer = (props: DialogsContainerPropsType) => {
                     }
                     return (
                         <Dialogs
-                            updNewMessage={(messageText) => onChangeNewMessageText(messageText)}
+                            updNewMessage={onChangeNewMessageText}
                             addMessage={onClickAddMessageHandler}
                             messages={store.getState().profilePage.messages}
                             newMessageText={store.getState().profilePage.newMessageText}
@@ -39,15 +39,21 @@ const DialogsContainer = (props: DialogsContainerPropsType) => {
         </StoreContext.Consumer>
     );
 };
-let f1 = (state: StatePropsType) => {
+let mapStateToProps = (state: StatePropsType) => {
     return {
-        DialogsData: state.profilePage.DialogsData
+        DialogsData: state.profilePage.DialogsData,
+        messages:state.profilePage.messages,
+        newMessageText: state.profilePage.newMessageText,
     }
 }
-let f2 = () => {
-    return {}
+let mapDispatchToProps = () => {
+    return {
+        updNewMessage: () => {},
+        addMessage: () => {},
+        dispatch:  () => {},
+    }
 }
 
-const SuperDialogsContainer = connect(f1, f2) (Dialogs)
+const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps) (Dialogs)
 
 export default DialogsContainer
