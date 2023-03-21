@@ -2,6 +2,8 @@ import React from 'react';
 import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";
 import Dialogs from "./Dialogs";
 import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
+import {StatePropsType} from "../../redux/store";
 
 type DialogsContainerPropsType = {
 }
@@ -37,5 +39,15 @@ const DialogsContainer = (props: DialogsContainerPropsType) => {
         </StoreContext.Consumer>
     );
 };
+let f1 = (state: StatePropsType) => {
+    return {
+        DialogsData: state.profilePage.DialogsData
+    }
+}
+let f2 = () => {
+    return {}
+}
+
+const SuperDialogsContainer = connect(f1, f2) (Dialogs)
 
 export default DialogsContainer
