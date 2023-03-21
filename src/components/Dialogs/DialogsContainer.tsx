@@ -2,7 +2,8 @@ import React from 'react';
 import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
-import {ActionsType, StatePropsType} from "../../redux/store";
+import {ActionsType, DialogsDataType, MessagesType, StatePropsType} from "../../redux/store";
+import {AppStateType} from "../../redux/redux-store";
 
 // type DialogsContainerPropsType = {
 // }
@@ -38,7 +39,13 @@ import {ActionsType, StatePropsType} from "../../redux/store";
 //         </StoreContext.Consumer>
 //     );
 // };
-let mapStateToProps = (state: StatePropsType) => {
+
+type MapStateToPropsType = {
+    DialogsData: Array<DialogsDataType>
+    messages: Array<MessagesType>
+    newMessageText: string
+}
+let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
         DialogsData: state.profilePage.DialogsData,
         messages:state.profilePage.messages,
@@ -53,6 +60,6 @@ let mapDispatchToProps = (dispatch: (action: ActionsType) => void) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps) (Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer

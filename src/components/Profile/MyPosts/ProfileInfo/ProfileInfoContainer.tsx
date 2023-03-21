@@ -5,6 +5,7 @@ import {
 import {addPostActionCreator, updNewPostActionCreator} from "../../../../redux/postsPageReducer";
 import {ProfileInfo} from "./ProfileInfo";
 import {connect} from "react-redux";
+import {AppStateType} from "../../../../redux/redux-store";
 
 // export type ProfileInfoContainerType = {
 //     store: StoreRootStateType
@@ -29,7 +30,8 @@ import {connect} from "react-redux";
 //     )
 // }
 
-let mapStateToProps = (state: StatePropsType) => {
+let mapStateToProps = (state: AppStateType) => {
+    debugger
     return {
         newPostText: state.postsPage.newPostText
     }
@@ -38,8 +40,9 @@ let mapDispatchToProps = (dispatch: (action: ActionsType) => void) => {
     return {
         updNewPostText: (text: string) => {dispatch(updNewPostActionCreator(text))},
         addPost:() => {dispatch(addPostActionCreator())},
+        // dispatch: dispatch
 }
 }
 
-const ProfileInfoContainer = connect(mapStateToProps, mapDispatchToProps) (ProfileInfo)
+const ProfileInfoContainer = connect(mapStateToProps, mapDispatchToProps)(ProfileInfo)
 export default ProfileInfoContainer

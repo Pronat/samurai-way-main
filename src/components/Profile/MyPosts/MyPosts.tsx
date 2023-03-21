@@ -22,7 +22,6 @@ export const MyPosts = (props: MyPostsType) => {
                     return (
                         <div className={s.posts}>
                             <ProfileInfoContainer
-                                // store={store}
                             />
                             {
                                 postsElements
