@@ -1,8 +1,8 @@
 import React from "react";
 import s from './MyPosts.module.css';
 import {Post} from "./Post/Post";
-import {ProfileInfoContainer} from "./ProfileInfo/ProfileInfoContainer";
 import StoreContext from "../../../StoreContext";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 
 type MyPostsType = {
 
@@ -21,7 +21,8 @@ export const MyPosts = (props: MyPostsType) => {
                     })
                     return (
                         <div className={s.posts}>
-                            <ProfileInfoContainer store={store}
+                            <ProfileInfoContainer
+                                // store={store}
                             />
                             {
                                 postsElements

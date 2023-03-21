@@ -1,15 +1,14 @@
 import React from "react";
 import {
-    ActionsType, StoreRootStateType,
+    ActionsType, StatePropsType,
 } from "../../../../redux/store";
 import {addPostActionCreator, updNewPostActionCreator} from "../../../../redux/postsPageReducer";
 import {ProfileInfo} from "./ProfileInfo";
 import {connect} from "react-redux";
-import Dialogs from "../../../Dialogs/Dialogs";
 
-export type ProfileInfoContainerType = {
-    store: StoreRootStateType
-}
+// export type ProfileInfoContainerType = {
+//     store: StoreRootStateType
+// }
 
 // const ProfileInfoContainer = (props: ProfileInfoContainerType) => {
 //     const onClickAddPostHandler = () => {
@@ -30,16 +29,17 @@ export type ProfileInfoContainerType = {
 //     )
 // }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state: StatePropsType) => {
     return {
-
+        newPostText: state.postsPage.newPostText
     }
 }
 let mapDispatchToProps = (dispatch: (action: ActionsType) => void) => {
     return {
-
-    }
+        updNewPostText: (text: string) => {dispatch(updNewPostActionCreator(text))},
+        addPost:() => {dispatch(addPostActionCreator())},
+}
 }
 
-const ProfileInfoContainer = connect(mapStateToProps, mapDispatchToProps) (Dialogs)
+const ProfileInfoContainer = connect(mapStateToProps, mapDispatchToProps) (ProfileInfo)
 export default ProfileInfoContainer
