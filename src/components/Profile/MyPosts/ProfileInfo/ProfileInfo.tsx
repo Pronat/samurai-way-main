@@ -1,11 +1,13 @@
 import React from "react";
 import {Post} from "../Post/Post";
 import s from "../MyPosts.module.css";
+import {PostsDataType} from "../../../../redux/store";
 
 export type ProfileInfoType = {
     newPostText: string
     addPost: ()=> void
     updNewPostText: (text: string)=>void
+    PostsData: Array<PostsDataType>
 }
 
 export const ProfileInfo = (props: ProfileInfoType) => {
@@ -21,7 +23,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         }
     }
 
-    let postsElements = store.getState().postsPage.PostsData.map((el) => {
+    let postsElements = props.PostsData.map((el) => {
         return (
             <Post message={el.message} likeCount={el.likeCount}/>
         )

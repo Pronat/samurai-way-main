@@ -1,15 +1,13 @@
 import React from "react";
 import {addPostActionCreator, updNewPostActionCreator} from "../../../../redux/postsPageReducer";
 import {ProfileInfo} from "./ProfileInfo";
-
-import {StoreRootStateType} from "../../../../redux/store";
 import {AppStateType} from "../../../../redux/redux-store";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
 
-export type ProfileInfoContainerType = {
-    store: StoreRootStateType
-}
+// export type ProfileInfoContainerType = {
+//     store: StoreRootStateType
+// }
 
 // const ProfileInfoContainer = (props: ProfileInfoContainerType) => {
 //     const onClickAddPostHandler = () => {
@@ -33,14 +31,14 @@ export type ProfileInfoContainerType = {
 let mapStateToProps = (state: AppStateType) => {
     debugger
     return {
-        newPostText: state.postsPage.newPostText
+        newPostText: state.postsPage.newPostText,
+        PostsDataType: state.postsPage.PostsData,
     }
 }
 let mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         updNewPostText: (text: string) => {dispatch(updNewPostActionCreator(text))},
         addPost:() => {dispatch(addPostActionCreator())},
-        // dispatch: dispatch
     }
 }
 
