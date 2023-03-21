@@ -1,4 +1,6 @@
 import React from "react";
+import {Post} from "../Post/Post";
+import s from "../MyPosts.module.css";
 
 export type ProfileInfoType = {
     newPostText: string
@@ -19,8 +21,15 @@ export const ProfileInfo = (props: ProfileInfoType) => {
         }
     }
 
+    let postsElements = store.getState().postsPage.PostsData.map((el) => {
+        return (
+            <Post message={el.message} likeCount={el.likeCount}/>
+        )
+    })
+
     return (
         <div>
+            <div  className={s.posts}>{postsElements}</div>
             <h2>My Posts</h2>
 
             <div>
