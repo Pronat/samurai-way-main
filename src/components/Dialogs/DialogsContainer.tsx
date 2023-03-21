@@ -3,7 +3,7 @@ import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/p
 import Dialogs from "./Dialogs";
 import StoreContext from "../../StoreContext";
 import {connect} from "react-redux";
-import {StatePropsType} from "../../redux/store";
+import {ActionsType, StatePropsType} from "../../redux/store";
 
 type DialogsContainerPropsType = {
 }
@@ -46,11 +46,11 @@ let mapStateToProps = (state: StatePropsType) => {
         newMessageText: state.profilePage.newMessageText,
     }
 }
-let mapDispatchToProps = () => {
+let mapDispatchToProps = (dispatch: (action: ActionsType) => void) => {
     return {
-        updNewMessage: () => {},
-        addMessage: () => {},
-        dispatch:  () => {},
+        updNewMessage: (messageText: string) => {dispatch(updNewMessageActionCreator(messageText))},
+        addMessage: () => {dispatch(addMessageActionCreator())},
+        dispatch: dispatch
     }
 }
 
