@@ -7,6 +7,7 @@ import {
     MessagesType,
     ProfilePageType
 } from "./store";
+import {message} from "antd";
 
 export const addMessageActionCreator = (): ActionAddMessageType => ({type: "ADD-MESSAGE"})
 export const updNewMessageActionCreator = (newMessage: string): ActionUpdNewMessType => {
@@ -41,9 +42,8 @@ const profilePageReducer = (state: ProfilePageType = initialState, action: Actio
                 id:state.messages.length + 1,
                 message: state.newMessageText
             }
-            state.messages.push(newMessage)
             state.newMessageText = ''
-            return state
+            return {...state, messages: [...state.messages, newMessage]}
         case "UPDATE-NEW-MESSAGE-TEXT":
             state.newMessageText = action.newMessage
             return state
