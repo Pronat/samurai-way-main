@@ -29,8 +29,8 @@ export const rerenderEntireTree = (state: StatePropsType) => {
 rerenderEntireTree(store.getState())
 
 // store.subscribe(rerenderEntireTree)
-store.subscribe(() => {
-        let state = store.getState()
-        rerenderEntireTree(state)
-    }
-)
+// store.subscribe(() => {
+//         let state = store.getState()
+//         rerenderEntireTree(state)
+//     }
+// )
