@@ -43,12 +43,12 @@ const profilePageReducer = (state: ProfilePageType = initialState, action: Actio
                 message: state.newMessageText
             }
             state.newMessageText = ''
-            return {...state, messages: [...state.messages, newMessage]}
+            return {...state, messages: [ newMessage, ...state.messages]}
         case "UPDATE-NEW-MESSAGE-TEXT":
             state.newMessageText = action.newMessage
-            return state
+            return {...state, newMessageText: action.newMessage}
         default :
-            return state
+            return {...state}
     }}
 
 export default profilePageReducer

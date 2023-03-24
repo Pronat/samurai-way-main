@@ -23,11 +23,12 @@ const postsPageReducer = (state: PostsPageType = initialState, action: ActionsTy
             const newPost = {id: state.PostsData.length + 1, message: state.newPostText, likeCount: 0}
             state.newPostText = ''
             return {
-                ...state, PostsData: [...state.PostsData, newPost]
+                ...state, PostsData: [newPost, ...state.PostsData]
             }
 
-        case "UPDATE-NEW-POST-TEXT":  state.newPostText = action.newText
-            return {...state}
+        case "UPDATE-NEW-POST-TEXT":
+            // state.newPostText = action.newText
+            return {...state, newPostText: action.newText}
         default:
             return {...state}
     }

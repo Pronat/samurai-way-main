@@ -31,7 +31,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
 
     return (
         <div>
-            <div  className={s.posts}>{postsElements}</div>
+
             <h2>My Posts</h2>
 
             <div>
@@ -40,6 +40,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
                     <button onClick={onClickAddPostHandler}>Add post</button>
                 </div>
             </div>
+            <div  className={s.posts}>{postsElements}</div>
         </div>
 
     )
