@@ -40,7 +40,7 @@ const usersReducer = (state: UsersType = initialState, action: ActionsType): Use
             }
         case 'SET-USERS':
             return {
-                ...state, users: action.users
+                ...state, users: [...state.users, ...action.users]
             }
 
 

@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 type AppPropsType = {
@@ -31,7 +32,7 @@ export const App = (props: AppPropsType) => {
                                <DialogsContainer
                                />}/>
 
-                    <Route path={'/users'} component={Users}/>
+                    <Route path={'/users'} component={UsersContainer}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
