@@ -3,6 +3,9 @@ type ActionsType =
     | ReturnType<typeof followAC>
     | ReturnType<typeof unFollowAC>
 export type UsersType = {
+    users: UserType[]
+}
+export type UserType = {
     id: number
     followed: boolean
     FullName: string
@@ -14,7 +17,7 @@ export type UsersType = {
 }
 
 let initialState = {
-    users: <Array<UsersType>>[
+    users: <Array<UserType>>[
         {id: 1, followed: false, FullName: 'Alex', status: 'He is a director', location: {city: 'Minsk', country: 'Belarus'}},
         {id: 2, followed: false, FullName: 'Svetlana', status: 'He is a worker', location: {city: 'Minsk', country: 'US'}},
         {id: 3, followed: false, FullName: 'Nikita', status: 'He is a programmer', location: {city: 'Minsk', country: 'Germany'}},
@@ -28,7 +31,7 @@ const usersReducer = (state: UsersType = initialState, action: ActionsType): Use
     switch (action.type) {
         case 'FOLLOW':
             return {
-                ...state
+                ...state, users: [...state.users]
             }
 
         default :
