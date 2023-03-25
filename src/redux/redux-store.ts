@@ -7,7 +7,7 @@ import usersReducer from "./usersReducer";
 export const rootReducer = combineReducers({
     postsPage: postsPageReducer,
     profilePage: profilePageReducer,
-    users: usersReducer,
+    usersPage: usersReducer,
     siteBar: siteBarReducer
 })
 

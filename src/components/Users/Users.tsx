@@ -1,11 +1,43 @@
 import React from 'react';
-export type UsersType = {
+import {UserType} from "../../redux/usersReducer";
 
+export type UsersType = {
+    users: UserType[]
 }
 const Users = (props: UsersType) => {
     return (
         <div>
-            Users will be here...
+            {
+                props.users.map(el => <div key={el.id}>
+                   <span>
+                       <div>
+                           <img/>
+                       </div>
+                       <div>
+                           <button>follow</button>
+                       </div>
+                   </span>
+                    <span>
+                       <span>
+                           <div>
+                                {el.FullName}
+                            </div>
+                           <div>
+                                {el.status}
+                            </div>
+                       </span>
+                        <span>
+                           <div>
+                                {el.FullName}
+                            </div>
+                           <div>
+                                {el.status}
+                            </div>
+                       </span>
+
+                   </span>
+                </div>)
+            }
         </div>
     );
 };
