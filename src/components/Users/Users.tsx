@@ -1,9 +1,12 @@
 import React from 'react';
-import {UserType} from "../../redux/usersReducer";
+import {unFollowAC, UserType} from "../../redux/usersReducer";
 import s from './Users.module.css'
 
 export type UsersType = {
     users: UserType[]
+    setUsers: (users: UserType[])=>void
+    follow: (userId: number)=>void
+    unFollow: (userId: number)=>void
 }
 const Users = (props: UsersType) => {
     return (
@@ -12,10 +15,11 @@ const Users = (props: UsersType) => {
                 props.users.map(el => <div key={el.id}>
                    <span>
                        <div>
-                           <img src={el.photoUrl} className={s.photo}/>
+                           <img src={el.photoUrl} className={s.userPhoto}/>
                        </div>
                        <div>
-                           <button>follow</button>
+                           {el.followed ? <button onClick={()=>{props.unFollow(el.id)}}>Unfollow</button> : <button onClick={ ()=>{props.follow(el.id)} }>Follow</button>}
+
                        </div>
                    </span>
                     <span>
