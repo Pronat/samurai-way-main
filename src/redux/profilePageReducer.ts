@@ -45,7 +45,7 @@ const profilePageReducer = (state: ProfilePageType = initialState, action: Actio
             state.newMessageText = ''
             return {...state, messages: [ newMessage, ...state.messages]}
         case "UPDATE-NEW-MESSAGE-TEXT":
-            state.newMessageText = action.newMessage
+            // state.newMessageText = action.newMessage
             return {...state, newMessageText: action.newMessage}
         default :
             return {...state}

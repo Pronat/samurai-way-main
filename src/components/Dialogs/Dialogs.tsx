@@ -15,8 +15,9 @@ type DialogsPropsType = {
 
 const Dialogs = (props: DialogsPropsType) => {
 
-    let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} id={el.id}/>)
+    let dialogsElements = props.DialogsData.map((el) => <Dialog name={el.name} key={el.id} id={el.id}/>)
     let MessagesElemets = props.messages.map((el) => <Message
+        key={el.id}
         message={el.message}
         dispatch={props.dispatch}
     />)
@@ -33,12 +34,14 @@ const Dialogs = (props: DialogsPropsType) => {
 
     return (
         <div className={s.dialogsPage}>
+
             <div className={s.names}>
                 {
                     dialogsElements
                 }
             </div>
             <div>
+
                 <div className={s.messages}>
                     {
                         MessagesElemets

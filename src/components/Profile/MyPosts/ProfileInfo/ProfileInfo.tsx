@@ -25,7 +25,7 @@ export const ProfileInfo = (props: ProfileInfoType) => {
 
     let postsElements = props.PostsData.map((el) => {
         return (
-            <Post message={el.message} likeCount={el.likeCount}/>
+            <Post message={el.message} key={el.id} likeCount={el.likeCount}/>
         )
     })
 

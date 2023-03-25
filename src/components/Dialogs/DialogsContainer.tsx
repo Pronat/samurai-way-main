@@ -6,40 +6,6 @@ import {DialogsDataType, MessagesType} from "../../redux/store";
 import {AppStateType} from "../../redux/redux-store";
 import {Dispatch} from "redux";
 
-// type DialogsContainerPropsType = {
-// }
-
-// const DialogsContainer = (props: DialogsContainerPropsType) => {
-//
-//
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store) => {
-//                     const onClickAddMessageHandler = () => {
-//                         store.dispatch(addMessageActionCreator())
-//                     }
-//                     const onChangeNewMessageText = (messageText: string) => {
-//                        store.dispatch(updNewMessageActionCreator(messageText))
-//                     }
-//                     return (
-//                         <Dialogs
-//                             updNewMessage={onChangeNewMessageText}
-//                             addMessage={onClickAddMessageHandler}
-//                             messages={store.getState().profilePage.messages}
-//                             newMessageText={store.getState().profilePage.newMessageText}
-//                             dispatch={store.dispatch}
-//                             DialogsData={store.getState().profilePage.DialogsData}
-//                         />
-//                     )
-//                 }
-//
-//
-//
-//             }
-//         </StoreContext.Consumer>
-//     );
-// };
 
 type MapStateToPropsType = {
     DialogsData: Array<DialogsDataType>
