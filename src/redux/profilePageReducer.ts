@@ -35,7 +35,7 @@ let initialState = {
     newMessageText: 'Enter your message'
 }
 
-const profilePageReducer = (state: ProfilePageType = initialState, action: ActionsType) => {
+const profilePageReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
     switch (action.type) {
         case "ADD-MESSAGE":
             const newMessage = {

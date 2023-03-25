@@ -22,24 +22,27 @@ let initialState = {
         {id: 5, followed: false, FullName: 'Olga', status: 'He is a d designer', location: {city: 'Minsk', country: 'France'}},
         {id: 6, followed: true, FullName: 'Olga', status: 'He is a engineer', location: {city: 'Minsk', country: 'Kazakhstan'}},
     ],
-
 }
 
-const usersReducer = (state: UsersType = initialState, action: ActionsType) => {
+const usersReducer = (state: UsersType = initialState, action: ActionsType): UsersType => {
     switch (action.type) {
+        case 'FOLLOW':
+            return {
+                ...state
+            }
 
         default :
             return state
     }}
 
-export const followAC = (followed: boolean) => {
+export const followAC = (userId: number) => {
     return{
-        type: 'FOLLOW', followed
+        type: 'FOLLOW', userId
     }
 }
-export const unFollowAC = (followed: boolean) => {
+export const unFollowAC = (userId: number) => {
     return{
-        type: 'FOLLOW', followed
+        type: 'UNFOLLOW', userId
     }
 }
 

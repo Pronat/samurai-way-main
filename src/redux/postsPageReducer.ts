@@ -17,7 +17,7 @@ let initialState = {
     ],
     newPostText: 'Enter your post'
 }
-const postsPageReducer = (state: PostsPageType = initialState, action: ActionsType) => {
+const postsPageReducer = (state: PostsPageType = initialState, action: ActionsType): PostsPageType => {
     switch (action.type) {
         case "ADD-POST":
             const newPost = {id: state.PostsData.length + 1, message: state.newPostText, likeCount: 0}
