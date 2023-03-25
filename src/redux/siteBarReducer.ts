@@ -6,7 +6,7 @@ let initialState = [
     {id: 3, name: 'Kent'},
 ]
 const siteBarReducer = (state: Array<SiteBarType> = initialState, action: ActionsType) => {
-    return {...state}
+    return state
 };
 
 export default siteBarReducer

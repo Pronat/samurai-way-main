@@ -28,7 +28,7 @@ const postsPageReducer = (state: PostsPageType = initialState, action: ActionsTy
         case "UPDATE-NEW-POST-TEXT":
             return {...state, newPostText: action.newText}
         default:
-            return {...state}
+            return state
     }
 };
 

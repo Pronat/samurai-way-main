@@ -37,16 +37,9 @@ let initialState = {
 
 const usersReducer = (state: ProfilePageType = initialState, action: ActionsType) => {
     switch (action.type) {
-        case "ADD-MESSAGE":
-            const newMessage = {
-                id:state.messages.length + 1,
-                message: state.newMessageText
-            }
-            return {...state, newMessageText: '', messages: [...state.messages, newMessage]}
-        case "UPDATE-NEW-MESSAGE-TEXT":
-            return {...state, newMessageText: action.newMessage}
+
         default :
-            return {...state}
+            return state
     }}
 
-export default profilePageReducer
+export default usersReducer
