@@ -21,9 +21,9 @@ const postsPageReducer = (state: PostsPageType = initialState, action: ActionsTy
     switch (action.type) {
         case "ADD-POST":
             const newPost = {id: state.PostsData.length + 1, message: state.newPostText, likeCount: 0}
-            state.newPostText = ''
+            // state.newPostText = ''
             return {
-                ...state, PostsData: [newPost, ...state.PostsData]
+                ...state, newPostText: '' ,PostsData: [newPost, ...state.PostsData]
             }
 
         case "UPDATE-NEW-POST-TEXT":
