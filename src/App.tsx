@@ -29,6 +29,8 @@ export const App = (props: AppPropsType) => {
                            render={() =>
                                <DialogsContainer
                                />}/>
+
+                    <Route path={'/users'} render={()=>'users'}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
