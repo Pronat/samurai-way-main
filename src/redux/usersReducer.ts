@@ -31,7 +31,7 @@ const usersReducer = (state: UsersType = initialState, action: ActionsType): Use
     switch (action.type) {
         case 'FOLLOW':
             return {
-                ...state, users: [...state.users]
+                ...state, users: state.users.map(el=>el.id === action.userId ? {...el, } : el)
             }
 
         default :
