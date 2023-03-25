@@ -2,6 +2,7 @@ import React from 'react';
 type ActionsType =
     | ReturnType<typeof followAC>
     | ReturnType<typeof unFollowAC>
+    | ReturnType<typeof setUsersAC>
 export type UsersType = {
     users: UserType[]
 }
@@ -31,8 +32,17 @@ const usersReducer = (state: UsersType = initialState, action: ActionsType): Use
     switch (action.type) {
         case 'FOLLOW':
             return {
-                ...state, users: state.users.map(el=>el.id === action.userId ? {...el, } : el)
+                ...state, users: state.users.map(el=>el.id === action.userId ? {...el, followed: true } : el)
             }
+        case "UNFOLLOW":
+            return {
+                ...state, users: state.users.map(el=>el.id === action.userId ? {...el, followed: false } : el)
+            }
+        case 'SET-USERS':
+            return {
+                ...state, users: action.users
+            }
+
 
         default :
             return state
@@ -41,12 +51,18 @@ const usersReducer = (state: UsersType = initialState, action: ActionsType): Use
 export const followAC = (userId: number) => {
     return{
         type: 'FOLLOW', userId
-    }
+    } as const
 }
 export const unFollowAC = (userId: number) => {
     return{
         type: 'UNFOLLOW', userId
-    }
+    } as const
+}
+
+export const setUsersAC = (users: UserType[]) => {
+    return {
+        type: 'SET-USERS', users
+    } as const
 }
 
 export default usersReducer
