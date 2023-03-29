@@ -3,6 +3,12 @@ import {unFollowAC, UserType} from "../../redux/usersReducer";
 import s from './Users.module.css'
 import axios from "axios";
 
+// export type UsersType = {
+//     users: UserType[]
+//     setUsers: (users: UserType[]) => void
+//     follow: (userId: number) => void
+//     unFollow: (userId: number) => void
+// }
 export type UsersType = {
     users: UserType[]
     setUsers: (users: UserType[]) => void
@@ -10,7 +16,8 @@ export type UsersType = {
     unFollow: (userId: number) => void
 }
 const Users = (props: UsersType) => {
-    if (props.users.length === 0) {
+    debugger
+    // if (props.users.length === 0) {
 
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
             .then((response)=>{
@@ -64,12 +71,12 @@ const Users = (props: UsersType) => {
                 //         location: {city: 'Minsk', country: 'Kazakhstan'}
                 //     },
                 // ])
-                debugger
-                props.setUsers()
+
+                props.setUsers(response.data.items)
             })
 
 
-    }
+    // }
     return (
         <div>
             {
