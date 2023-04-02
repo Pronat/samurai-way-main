@@ -1,10 +1,9 @@
 import React from 'react';
 import {Dispatch} from "redux";
-import {addMessageActionCreator, updNewMessageActionCreator} from "../../redux/profilePageReducer";
 import {connect} from "react-redux";
-import Users from "./Users";
 import {AppStateType} from "../../redux/redux-store";
 import {followAC, setUsersAC, unFollowAC, UserType} from "../../redux/usersReducer";
+import Users from "./UsersС";
 
 let mapStateToProps = (state: AppStateType) => {
     return {
