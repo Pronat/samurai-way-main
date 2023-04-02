@@ -22,10 +22,10 @@ export type UserType = {
     id: number
     uniqueUrlName: any
     photos: {
-        small: any
-        large: any
+        small: string
+        large: string
     },
-    status: any
+    status: boolean
     followed: boolean
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import {unFollowAC, UserType} from "../../redux/usersReducer";
 import s from './Users.module.css'
 import axios from "axios";
+import userPhoto from '../../assets/images/kot.jpg'
 
 
 export type UsersPropsType = {
@@ -78,7 +79,9 @@ const Users = (props: UsersPropsType) => {
                 props.users.map(el => <div key={el.id}>
                    <span>
                        <div>
-                           {/*<img src={el.photoUrl} className={s.userPhoto}/>*/}
+                           <img src={el.photos.small != null
+                               ? el.photos.small:userPhoto}
+                                className={s.userPhoto}/>
                        </div>
                        <div>
                            {el.followed ? <button onClick={() => {
