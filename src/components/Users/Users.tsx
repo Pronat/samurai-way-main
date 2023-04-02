@@ -3,21 +3,16 @@ import {unFollowAC, UserType} from "../../redux/usersReducer";
 import s from './Users.module.css'
 import axios from "axios";
 
-// export type UsersType = {
-//     users: UserType[]
-//     setUsers: (users: UserType[]) => void
-//     follow: (userId: number) => void
-//     unFollow: (userId: number) => void
-// }
-export type UsersType = {
+
+export type UsersPropsType = {
     users: UserType[]
     setUsers: (users: UserType[]) => void
     follow: (userId: number) => void
     unFollow: (userId: number) => void
 }
-const Users = (props: UsersType) => {
+const Users = (props: UsersPropsType) => {
     debugger
-    // if (props.users.length === 0) {
+    if (props.users.length === 0) {
 
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
             .then((response)=>{
@@ -76,14 +71,14 @@ const Users = (props: UsersType) => {
             })
 
 
-    // }
+    }
     return (
         <div>
             {
                 props.users.map(el => <div key={el.id}>
                    <span>
                        <div>
-                           <img src={el.photoUrl} className={s.userPhoto}/>
+                           {/*<img src={el.photoUrl} className={s.userPhoto}/>*/}
                        </div>
                        <div>
                            {el.followed ? <button onClick={() => {
@@ -97,7 +92,7 @@ const Users = (props: UsersType) => {
                     <span>
                         <span>
                            <div>
-                                {el.FullName}
+                                {el.name}
                             </div>
                            <div>
                                 {el.status}
