@@ -25,7 +25,7 @@ class Users extends React.Component<UsersPropsType> {
         return (
         <div>
             {
-                this.props.users.map(el => <div key={el.id}>
+                this.props.users.map(el => < div key={el.id}>
                    <span>
                        <div>
                            <img src={el.photos.small != null
