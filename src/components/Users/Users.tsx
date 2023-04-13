@@ -24,6 +24,13 @@ class Users extends React.Component<UsersPropsType> {
     render () {
         return (
         <div>
+            <div>
+                <span>1</span>
+                <span className={s.selectedPage}>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
             {
                 this.props.users.map(el => < div key={el.id}>
                    <span>
