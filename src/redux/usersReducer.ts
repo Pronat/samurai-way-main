@@ -32,7 +32,7 @@ export type UserType = {
 }
 
 let initialState = {
-    users: <Array<UserType>>[],
+    users: [],
     pageSize: 5,
     totalUsersCount: 0
 }

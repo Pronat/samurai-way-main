@@ -7,6 +7,8 @@ import userPhoto from '../../assets/images/kot.jpg'
 
 export type UsersPropsType = {
     users: UserType[]
+    pageSize: number
+    totalUsersCount: number
     setUsers: (users: UserType[]) => void
     follow: (userId: number) => void
     unFollow: (userId: number) => void
@@ -22,6 +24,9 @@ class Users extends React.Component<UsersPropsType> {
     }
 
     render () {
+
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize
+
         return (
         <div>
             <div>
