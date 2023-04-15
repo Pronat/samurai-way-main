@@ -8,11 +8,8 @@ type UsersPropsType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
-    setUsers: (users: UserType[]) => void
     follow: (userId: number) => void
     unFollow: (userId: number) => void
-    setCurrentPage: (currentPage: number)=>void
-    setTotalUsersCount: (totalCount: number)=>void
     onPageChanged: (pageNumber: number) => void
 }
 
@@ -27,6 +24,7 @@ const Users = (props: UsersPropsType) => {
                <div>
                    {
                         pages.map(el=>{
+                            debugger
                             return(
                                 <span className={props.currentPage === el ? s.selectedPage : ''}
                                       onClick={(e)=>{props.onPageChanged(el)}}>{el}</span>
@@ -70,3 +68,4 @@ const Users = (props: UsersPropsType) => {
 }
 
 export  default Users
+

@@ -10,7 +10,8 @@ import {
     unFollowAC,
     UserType
 } from "../../redux/usersReducer";
-import UsersAPIComponent from "./Users";
+import UsersAPIComponent from "./UsersAPIComponent";
+
 
 let mapStateToProps = (state: AppStateType) => {
     return {
