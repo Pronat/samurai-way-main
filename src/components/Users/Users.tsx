@@ -9,6 +9,7 @@ export type UsersPropsType = {
     users: UserType[]
     pageSize: number
     totalUsersCount: number
+    currentPage: number
     setUsers: (users: UserType[]) => void
     follow: (userId: number) => void
     unFollow: (userId: number) => void
@@ -26,11 +27,22 @@ class Users extends React.Component<UsersPropsType> {
     render () {
 
         let pagesCount = this.props.totalUsersCount / this.props.pageSize
+        let pages = []
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i)
+        }
 
         return (
         <div>
             <div>
-                <span>1</span>
+                {
+                    pages.map(el=>{
+                        return(
+                            <span className={this.props.currentPage ? s.selectedPage: ''}>{el}</span>
+                            )
+                    })
+                }
+
                 <span className={s.selectedPage}>2</span>
                 <span>3</span>
                 <span>4</span>

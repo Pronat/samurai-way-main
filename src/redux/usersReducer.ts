@@ -6,19 +6,10 @@ type ActionsType =
 export type UsersType = {
     users: UserType[],
     pageSize: number,
-    totalUsersCount: number
+    totalUsersCount: number,
+    currentPage: number
 }
-// export type UserType = {
-//     photoUrl: string
-//     id: number
-//     followed: boolean
-//     FullName: string
-//     status: string
-//     location: {
-//         city: string
-//         country: string
-//     }
-// }
+
 export type UserType = {
     name: string
     id: number
@@ -34,7 +25,8 @@ export type UserType = {
 let initialState = {
     users: [],
     pageSize: 5,
-    totalUsersCount: 0
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 const usersReducer = (state: UsersType = initialState, action: ActionsType): UsersType => {
@@ -51,7 +43,6 @@ const usersReducer = (state: UsersType = initialState, action: ActionsType): Use
             return {
                 ...state, users: [...state.users, ...action.users]
             }
-
 
         default :
             return state
