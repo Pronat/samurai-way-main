@@ -1,6 +1,7 @@
 import React from "react";
 import s from './Users.module.css'
 import {UserType} from "../../redux/usersReducer";
+import userPhoto from '../../assets/images/kot.jpg'
 
 type UsersPropsType = {
     users: UserType[]
@@ -12,6 +13,7 @@ type UsersPropsType = {
     unFollow: (userId: number) => void
     setCurrentPage: (currentPage: number)=>void
     setTotalUsersCount: (totalCount: number)=>void
+    onPageChanged: (pageNumber: number) => void
 }
 
 const Users = (props: UsersPropsType) => {
@@ -27,14 +29,14 @@ const Users = (props: UsersPropsType) => {
                         pages.map(el=>{
                             return(
                                 <span className={props.currentPage === el ? s.selectedPage : ''}
-                                      onClick={(e)=>{this.onPageChanged(el)}}>{el}</span>
+                                      onClick={(e)=>{props.onPageChanged(el)}}>{el}</span>
                                 )
                         })
                     }
 
                 </div>
                 {
-                    this.props.users.map(el => < div key={el.id}>
+                    props.users.map(el => < div key={el.id}>
                        <span>
                            <div>
                                <img src={el.photos.small != null
