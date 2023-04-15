@@ -1,5 +1,5 @@
 import React from 'react';
-import {unFollowAC, UserType} from "../../redux/usersReducer";
+import {setCurrentPageAC, unFollowAC, UserType} from "../../redux/usersReducer";
 import s from './Users.module.css'
 import axios from "axios";
 import userPhoto from '../../assets/images/kot.jpg'
@@ -13,6 +13,7 @@ export type UsersPropsType = {
     setUsers: (users: UserType[]) => void
     follow: (userId: number) => void
     unFollow: (userId: number) => void
+    setCurrentPage: (currentPage: number)=>void
 }
 
 class Users extends React.Component<UsersPropsType> {
@@ -22,6 +23,10 @@ class Users extends React.Component<UsersPropsType> {
             .then((response)=>{
                 this.props.setUsers(response.data.items)
             })
+    }
+
+    onPageChanged = (pageNumber: number) => {
+        this.props.setCurrentPage(pageNumber)
     }
 
     render () {
@@ -38,7 +43,8 @@ class Users extends React.Component<UsersPropsType> {
                 {
                     pages.map(el=>{
                         return(
-                            <span className={this.props.currentPage === el ? s.selectedPage : ''}>{el}</span>
+                            <span className={this.props.currentPage === el ? s.selectedPage : ''}
+                                  onClick={(e)=>{this.onPageChanged(el)}}>{el}</span>
                             )
                     })
                 }
