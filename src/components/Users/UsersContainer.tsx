@@ -13,7 +13,7 @@ import {
 import axios from "axios";
 import Users from "./Users";
 
-export type UsersAPIComponentPropsType = {
+export type UsersUsersContainerPropsType = {
     users: UserType[]
     pageSize: number
     totalUsersCount: number
@@ -24,7 +24,7 @@ export type UsersAPIComponentPropsType = {
     setCurrentPage: (currentPage: number)=>void
     setTotalUsersCount: (totalCount: number)=>void
 }
-class UsersAPIComponent extends React.Component<UsersAPIComponentPropsType> {
+class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
 
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
@@ -91,6 +91,6 @@ let mapDispatchToProps = (dispatch: Dispatch) => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
 
-export default UsersContainer
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
