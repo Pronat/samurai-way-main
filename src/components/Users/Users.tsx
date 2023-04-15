@@ -38,15 +38,11 @@ class Users extends React.Component<UsersPropsType> {
                 {
                     pages.map(el=>{
                         return(
-                            <span className={this.props.currentPage ? s.selectedPage: ''}>{el}</span>
+                            <span className={this.props.currentPage === el ? s.selectedPage : ''}>{el}</span>
                             )
                     })
                 }
 
-                <span className={s.selectedPage}>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
             </div>
             {
                 this.props.users.map(el => < div key={el.id}>
