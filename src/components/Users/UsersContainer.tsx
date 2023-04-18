@@ -56,7 +56,6 @@ class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
         return (
             <>
                 <Preloader isFetching={this.props.isFetching}/>
-                {/*{this.props.isFetching ? <img src={preloader} style={{width: '200px'}}/> : null}*/}
                 <Users
                     users={this.props.users}
                     pageSize={this.props.pageSize}
