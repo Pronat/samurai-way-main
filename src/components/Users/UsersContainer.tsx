@@ -13,6 +13,7 @@ import {
 import axios from "axios";
 import Users from "./Users";
 import preloader from '../../assets/images/loader.gif'
+import Preloader from "../common/Preloader/Preloader";
 
 export type UsersUsersContainerPropsType = {
     users: UserType[]
@@ -54,7 +55,8 @@ class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
     render() {
         return (
             <>
-                {this.props.isFetching ? <img src={preloader} style={{width: '200px'}}/> : null}
+                <Preloader isFetching={this.props.isFetching}/>
+                {/*{this.props.isFetching ? <img src={preloader} style={{width: '200px'}}/> : null}*/}
                 <Users
                     users={this.props.users}
                     pageSize={this.props.pageSize}
