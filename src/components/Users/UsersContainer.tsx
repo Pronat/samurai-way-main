@@ -12,12 +12,14 @@ import {
 } from "../../redux/usersReducer";
 import axios from "axios";
 import Users from "./Users";
+import preloader from '../../assets/images/loader.gif'
 
 export type UsersUsersContainerPropsType = {
     users: UserType[]
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
     setUsers: (users: UserType[]) => void
     follow: (userId: number) => void
     unFollow: (userId: number) => void
@@ -45,6 +47,8 @@ class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
 
     render () {
         return (
+            <>
+                {this.props.isFetching ? <img src={preloader} style={{width: '200px'}}/> : null}
             <Users
                 users={this.props.users}
                 pageSize={this.props.pageSize}
@@ -54,6 +58,7 @@ class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
                 unFollow={this.props.unFollow}
                 onPageChanged={this.onPageChanged}
             />
+            </>
         );
     }
 }
