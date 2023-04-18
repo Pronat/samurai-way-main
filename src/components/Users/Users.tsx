@@ -24,7 +24,6 @@ const Users = (props: UsersPropsType) => {
                <div>
                    {
                         pages.map(el=>{
-                            debugger
                             return(
                                 <span className={props.currentPage === el ? s.selectedPage : ''}
                                       onClick={(e)=>{props.onPageChanged(el)}}>{el}</span>
