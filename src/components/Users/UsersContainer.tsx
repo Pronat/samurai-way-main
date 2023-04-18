@@ -44,7 +44,6 @@ class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
     }
 
     render () {
-
         return (
             <Users
                 users={this.props.users}
@@ -55,9 +54,6 @@ class UsersContainer extends React.Component<UsersUsersContainerPropsType> {
                 unFollow={this.props.unFollow}
                 onPageChanged={this.onPageChanged}
             />
-
-
-
         );
     }
 }
@@ -67,7 +63,8 @@ let mapStateToProps = (state: AppStateType) => {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 }
 let mapDispatchToProps = (dispatch: Dispatch) => {
