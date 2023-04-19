@@ -3,6 +3,7 @@ import ProfileInfoContainer from "./MyPosts/ProfileInfo/ProfileInfoContainer";
 
 
 type ProfileType = {
+    ...this.props: any
 }
 
 export const Profile = (props: ProfileType) => {

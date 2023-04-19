@@ -1,19 +1,35 @@
 import React from "react";
-import ProfileInfoContainer from "./MyPosts/ProfileInfo/ProfileInfoContainer";
+import {Profile} from "./Profile";
+import axios from "axios";
+import {connect} from "react-redux";
+import {AppStateType} from "../../redux/redux-store";
 
 
 type ProfileType = {
 }
 
-class ProfileContainer {
+class ProfileContainer extends React.Component<ProfileType> {
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+            .then((response) => {
+                this.props.setUserProfile(response.data)
+            })
+    }
+
     render() {
     return (
-        <div>
-            <div>
-                <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"/>
-            </div>
-            <ProfileInfoContainer />
-        </div>
+        <Profile {...this.props}/>
     )
 }}
+
+let mapStateToProps = (state: AppStateType) => {
+    return {
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
+    }
+}
+export default connect() ProfileContainer
 
