@@ -101,7 +101,6 @@ let mapStateToProps = (state: AppStateType) => {
 //     }
 // }
 
-
 // export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
 export default connect(mapStateToProps, {
     follow,
