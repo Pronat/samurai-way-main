@@ -7,6 +7,11 @@ export const  updNewPostActionCreator = (text: string): ActionUpdNewPostType => 
         type: "UPDATE-NEW-POST-TEXT", newText: text
     }
 }
+export const  setUserProfileAC = (profile: string): ActionUpdNewPostType => {
+    return {
+        type: "SET-USER-PRIFILE", profile
+    }
+}
 
 let initialState = {
     PostsData: <Array<PostsDataType>>[

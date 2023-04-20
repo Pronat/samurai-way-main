@@ -24,12 +24,10 @@ class ProfileContainer extends React.Component<ProfileType> {
 
 let mapStateToProps = (state: AppStateType) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        a: 13
     }
 }
-export default connect() ProfileContainer
+export default connect(mapStateToProps, {
+    setUserProfile
+}) (ProfileContainer)
 
